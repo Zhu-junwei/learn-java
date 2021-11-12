@@ -21,6 +21,8 @@ public class TestByte {
             //StandardCharsets.UTF_8 的值为UTF-8
             System.out.println(Arrays.toString("你好".getBytes(StandardCharsets.UTF_8)));
             System.out.println(Arrays.toString("你好".getBytes("GBK")));
+
+            String string = new String("你好".getBytes("GBK"),"UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
