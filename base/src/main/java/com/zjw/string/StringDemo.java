@@ -28,4 +28,9 @@ public class StringDemo {
         System.out.println(Arrays.toString(strings));
         System.out.println(Arrays.toString(strings2));
     }
+
+    @Test
+    public void testString(){
+        System.out.println("aaa,aaa".contains(","));
+    }
 }
