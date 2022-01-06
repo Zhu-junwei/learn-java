@@ -8,8 +8,18 @@ import java.util.Date;
  * @date 2021/11/05
  */
 public class TimeTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+        getTime();
+        Thread.sleep(10);
+        getTime();
+        Thread.sleep(10);
+        getTime();
+        Thread.sleep(10);
+        getTime();
+    }
 
+    public static void getTime(){
+        System.out.println(new Date().getTime());
     }
 
     /*
