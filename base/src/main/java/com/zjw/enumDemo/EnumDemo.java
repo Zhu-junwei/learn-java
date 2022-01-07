@@ -9,6 +9,9 @@ public class EnumDemo {
         ColorEnum red = ColorEnum.RED;
         System.out.println(red.name());
         System.out.println(red.toString());
-//        System.out.println(red.name());
+
+        ColorEnum red1 = ColorEnum.valueOf("RED");
+        System.out.println(red1.toString());
+
     }
 }
