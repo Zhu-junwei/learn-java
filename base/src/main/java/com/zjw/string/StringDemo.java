@@ -33,4 +33,10 @@ public class StringDemo {
     public void testString(){
         System.out.println("aaa,aaa".contains(","));
     }
+
+    @Test
+    public void testSubString(){
+        String str = "helloworld";
+        System.out.println(str.substring(1,str.length()-1));
+    }
 }
