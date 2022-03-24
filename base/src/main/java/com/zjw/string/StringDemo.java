@@ -2,6 +2,8 @@ package com.zjw.string;
 
 import org.junit.Test;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -130,5 +132,45 @@ public class StringDemo {
 
 
     }
+
+    /**
+     * 格式化整数
+     * 使用%d格式说明符，您可以使用所有整数类型的参数，包括 byte、short、int、long 和 BigInteger。
+     *
+     */
+    @Test
+    public void testNumberFormat(){
+        int i = 93;
+        System.out.println(String.format("%d",93));//默认格式   93
+        System.out.println(String.format("|%20d|",93));//指定宽度,右对齐   |                  93|
+        System.out.println(String.format("|%-20d|",93));//指定宽度,左对齐   |93                  |
+        System.out.println(String.format("|%020d|",93));//指定宽度,0填充   |00000000000000000093|
+        System.out.println(String.format("|%+20d|",93));//显示正负号   |                 +93|
+        System.out.println(String.format("|%+20d|",-93));//显示正负号   |                 -93|
+        System.out.println(String.format("|% d|",93));//正数显示空格，负号显示符号| 93|
+        System.out.println(String.format("|% d|",-93));//正数显示空格，负号显示符号|-93|
+        //使用特定于语言环境的千位分隔符：对于美国语言环境，它是“，”：
+        System.out.println(String.format("%,d",10000000));//10,000,000
+        System.out.println(String.format("%(d", -36));//将负数括在括号（“（）”）中并跳过“-”： 打印: (36)
+        System.out.println(String.format("%o",93));//八进制输出：打印: 135
+        System.out.println(String.format("%x",93));//十六进制输出：打印: 5d
+
+    }
+
+    /**
+     * DecimalFormat的使用
+     */
+    @Test
+    public void testNumberFormat2(){
+        DecimalFormat decimalFormat1 = new DecimalFormat(",##0.00");
+        BigDecimal bg  = new BigDecimal("789464984984.128456");
+        String format = decimalFormat1.format(bg);
+        System.out.println(format);//789,464,984,984.13
+
+
+    }
+
+
+
 
 }
