@@ -5,16 +5,24 @@ package com.zjw.enumDemo;
  * @date 2022/01/06
  */
 public enum ColorEnum {
+
     GREEN("green","绿色"),
     RED("red","红色"),
     BLACK("black","黑色");
 
-    private String key;
-    private String value;
+    private final String englishName;
+    private final String chineseName;
 
-    ColorEnum(String key,String value){
-        this.key = key;
-        this.value = value;
+    ColorEnum(String englishName,String chineseName){
+        this.englishName = englishName;
+        this.chineseName = chineseName;
     }
 
+    public String getEnglishName() {
+        return englishName;
+    }
+
+    public String getChineseName() {
+        return chineseName;
+    }
 }
