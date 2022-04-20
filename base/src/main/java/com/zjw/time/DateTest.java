@@ -1,4 +1,4 @@
-package com.zjw.date;
+package com.zjw.time;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,7 +11,7 @@ import java.util.TimeZone;
  * @author 朱俊伟
  * @date 2021/03/25
  */
-public class DateList {
+public class DateTest {
     public static void main(String[] args) {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS");
