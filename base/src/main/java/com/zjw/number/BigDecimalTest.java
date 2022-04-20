@@ -25,4 +25,9 @@ public class BigDecimalTest {
         // 相当于 100%9 = 1
         System.out.println(remainder);
     }
+
+    public static BigDecimal getMin(BigDecimal first, BigDecimal second){
+        return first.min(second);
+    }
+
 }
