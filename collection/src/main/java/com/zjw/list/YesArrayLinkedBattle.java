@@ -1,4 +1,4 @@
-package com.zjw.array;
+package com.zjw.list;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
