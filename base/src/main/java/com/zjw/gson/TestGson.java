@@ -17,6 +17,7 @@ public class TestGson {
         System.out.println(json);
         //Json转Java对象
         Employee employee1 = gson.fromJson(json, Employee.class);
+        System.out.println(employee1);
 
 
     }

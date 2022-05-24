@@ -1,9 +1,6 @@
 package com.zjw.list;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * 原先文章：<a>https://www.cnblogs.com/zjw-blog/p/13727231.html</a>
@@ -17,6 +14,8 @@ public class ListTest {
         files.add("123");
         files.add("456");
         files.add("456");
+        testNext(files);
+//        testPrevious(files,files.size());
 //        testToArray(files);
 //        testContains(files,"123");
 //        testContainsAll(files);
@@ -25,6 +24,32 @@ public class ListTest {
 //        testIterator(files);
 //        testIteratorRemove(files,"456");
 //        testListRemove(files,"456");
+    }
+
+    /**
+     * listIterator使用 从前往后遍历集合
+     * @param list 集合
+     */
+    public static void testNext(List<String> list){
+        ListIterator<String> iterator = list.listIterator();
+        while (iterator.hasNext()){
+            int index = iterator.nextIndex();
+            String next = iterator.next();
+            System.out.println(index + "-->" + next);
+        }
+    }
+
+    /**
+     * listIterator使用 从后往前遍历集合
+     * @param list 集合
+     */
+    public static void testPrevious(List<String> list,int ind){
+        ListIterator<String> iterator = list.listIterator(ind);
+        while (iterator.hasPrevious()){
+            int index = iterator.previousIndex();
+            String previous = iterator.previous();
+            System.out.println(index + "-->" + previous);
+        }
     }
 
     /**
