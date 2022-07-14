@@ -49,7 +49,7 @@ public class StringDemo {
      */
     @Test
     public void testStringFormat(){
-        System.out.println(String.format("默认为[%1$s]:",123));
+        System.out.printf("默认为[%1$s]:%n",123);
         double dou = 3.14;
         System.out.println(dou);
         System.out.printf("%a\n",dou);
@@ -140,20 +140,19 @@ public class StringDemo {
      */
     @Test
     public void testNumberFormat(){
-        int i = 93;
-        System.out.println(String.format("%d",93));//默认格式   93
-        System.out.println(String.format("|%20d|",93));//指定宽度,右对齐   |                  93|
-        System.out.println(String.format("|%-20d|",93));//指定宽度,左对齐   |93                  |
-        System.out.println(String.format("|%020d|",93));//指定宽度,0填充   |00000000000000000093|
-        System.out.println(String.format("|%+20d|",93));//显示正负号   |                 +93|
-        System.out.println(String.format("|%+20d|",-93));//显示正负号   |                 -93|
-        System.out.println(String.format("|% d|",93));//正数显示空格，负号显示符号| 93|
-        System.out.println(String.format("|% d|",-93));//正数显示空格，负号显示符号|-93|
+        System.out.printf("%d%n",93);//默认格式   93
+        System.out.printf("|%20d|%n",93);//指定宽度,右对齐   |                  93|
+        System.out.printf("|%-20d|%n",93);//指定宽度,左对齐   |93                  |
+        System.out.printf("|%020d|%n",93);//指定宽度,0填充   |00000000000000000093|
+        System.out.printf("|%+20d|%n",93);//显示正负号   |                 +93|
+        System.out.printf("|%+20d|%n",-93);//显示正负号   |                 -93|
+        System.out.printf("|% d|%n",93);//正数显示空格，负号显示符号| 93|
+        System.out.printf("|% d|%n",-93);//正数显示空格，负号显示符号|-93|
         //使用特定于语言环境的千位分隔符：对于美国语言环境，它是“，”：
-        System.out.println(String.format("%,d",10000000));//10,000,000
-        System.out.println(String.format("%(d", -36));//将负数括在括号（“（）”）中并跳过“-”： 打印: (36)
-        System.out.println(String.format("%o",93));//八进制输出：打印: 135
-        System.out.println(String.format("%x",93));//十六进制输出：打印: 5d
+        System.out.printf("%,d%n",10000000);//10,000,000
+        System.out.printf("%(d%n", -36);//将负数括在括号（“（）”）中并跳过“-”： 打印: (36)
+        System.out.printf("%o%n",93);//八进制输出：打印: 135
+        System.out.printf("%x%n",93);//十六进制输出：打印: 5d
 
     }
 
@@ -166,11 +165,6 @@ public class StringDemo {
         BigDecimal bg  = new BigDecimal("789464984984.128456");
         String format = decimalFormat1.format(bg);
         System.out.println(format);//789,464,984,984.13
-
-
     }
-
-
-
 
 }
