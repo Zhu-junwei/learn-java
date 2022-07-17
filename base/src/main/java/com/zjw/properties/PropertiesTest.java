@@ -1,7 +1,6 @@
 package com.zjw.properties;
 
-import java.io.File;
-import java.io.FileInputStream;
+import com.zjw.util.PropertiesUtil;
 
 /**
  * @author 朱俊伟
@@ -9,6 +8,7 @@ import java.io.FileInputStream;
  */
 public class PropertiesTest {
     public static void main(String[] args) {
-
+        String username = PropertiesUtil.getInstance().getValue("username");
+        System.out.println(username);
     }
 }
