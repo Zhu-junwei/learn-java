@@ -11,7 +11,7 @@ public class PropertiesUtil {
 
     private final Properties prop = new Properties();
 
-    private static PropertiesUtil instance = new PropertiesUtil();
+    private static final PropertiesUtil instance = new PropertiesUtil();
 
     private PropertiesUtil() {
         try {
@@ -30,7 +30,7 @@ public class PropertiesUtil {
     }
 
     public String getValue(String key, String defaultValue){
-        return (String)this.prop.getProperty(key, defaultValue);
+        return this.prop.getProperty(key, defaultValue);
     }
 
 }
