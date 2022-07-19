@@ -1,5 +1,7 @@
 package com.zjw.Object;
 
+import org.junit.Test;
+
 import java.util.Objects;
 
 /**
@@ -7,9 +9,6 @@ import java.util.Objects;
  * @date 2022/05/24 12:30
  */
 public class ObjectsTest {
-    public static void main(String[] args) {
-        testEquals();
-    }
 
     /**
      * Objects.equals(Object a, Object b)方法的使用
@@ -18,7 +17,8 @@ public class ObjectsTest {
      *  - 否则使用equals方法进行判断（两个对象的内存地址）
      */
     @SuppressWarnings("all")
-    public static void testEquals(){
+    @Test
+    public  void testEquals(){
         String str1 = "hello";
         String str2 = "hello";
         System.out.println(Objects.equals(str1, str2));//true
@@ -26,5 +26,12 @@ public class ObjectsTest {
         System.out.println(Objects.equals(null,str2));//false
         System.out.println(Objects.equals(str1,null));//false
 
+    }
+
+    @Test
+    public void testObjectToLong(){
+        Object obj = 123;
+        Long aLong = Long.parseLong(String.valueOf(obj));
+        System.out.println(aLong+1);
     }
 }
