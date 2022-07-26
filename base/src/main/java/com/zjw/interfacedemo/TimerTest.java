@@ -1,5 +1,6 @@
 package com.zjw.interfacedemo;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,8 +14,9 @@ import java.util.Date;
  */
 public class TimerTest {
     public static void main(String[] args) {
-        ActionListener listener = new TimePrinter();
-        Timer t = new Timer(10000, listener);
+        boolean beep = false;
+        ActionListener listener = new TimePrinter(beep);
+        Timer t = new Timer(1000, listener);
         t.start();
 //        JOptionPane.showMessageDialog(null,"Quit program?");
         try {
@@ -28,6 +30,12 @@ public class TimerTest {
 
 class TimePrinter implements ActionListener{
 
+    boolean beep = false;
+
+    public TimePrinter(boolean beep) {
+        this.beep = beep;
+    }
+
     /**
      * 每十秒打印一次时间 响铃一次
      * @param e a
@@ -37,6 +45,8 @@ class TimePrinter implements ActionListener{
         System.out.printf("%tT \n",new Date());
         //getDefaultToolkit获取默认的工具箱，工具箱包含有关GUI环境的信息
         //beep 发出一声响铃
-        Toolkit.getDefaultToolkit().beep();
+        if (beep){
+            Toolkit.getDefaultToolkit().beep();
+        }
     }
 }

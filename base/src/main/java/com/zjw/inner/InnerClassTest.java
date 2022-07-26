@@ -26,7 +26,14 @@ public class InnerClassTest {
 
 @AllArgsConstructor
 class TalkingClock{
+    /**
+     * 间隔
+     */
     private int interval;
+
+    /**
+     * 哔哔声
+     */
     private boolean beep;
 
     public void start(){
@@ -41,7 +48,7 @@ class TalkingClock{
     public class TimerPrinter implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("At the tone, the time is " + new Date());
+            System.out.println("At the tone, the time is " + new Date().toLocaleString());
             //内部类访问外部类属性 beep 也可以使用TalkingClock.this.beep
 //            if (beep) Toolkit.getDefaultToolkit().beep();
             if (TalkingClock.this.beep) Toolkit.getDefaultToolkit().beep();

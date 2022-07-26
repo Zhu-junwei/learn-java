@@ -54,6 +54,7 @@ public class EnumDemo {
         System.out.println("colorEnum=" + colorEnum);
         System.out.println("englishName=" + colorEnum.getEnglishName());
         System.out.println("chineseName=" + colorEnum.getChineseName());
+        System.out.println("chineseName=" + ColorEnum.RED.getChineseName());
     }
 
 }

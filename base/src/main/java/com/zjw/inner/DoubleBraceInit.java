@@ -16,7 +16,12 @@ public class DoubleBraceInit {
 //        invite(friend);
 
         //外层括号建立了ArrayList的一个匿名子类。 内层括号则是一个对象构造块。
-        invite(new ArrayList<String>(){{add("Harry");add("Tony");}});
+        invite(new ArrayList<String>(){
+            {
+                add("Harry");
+                add("Tony");
+            }
+        });
 
     }
 
