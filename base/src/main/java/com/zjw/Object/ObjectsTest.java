@@ -34,4 +34,11 @@ public class ObjectsTest {
         Long aLong = Long.parseLong(String.valueOf(obj));
         System.out.println(aLong+1);
     }
+
+    @Test
+    public void testObjectToString(){
+        Object obj = null;
+        String str = (String) obj;
+        System.out.println(str);
+    }
 }
