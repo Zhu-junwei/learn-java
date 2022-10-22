@@ -1,5 +1,8 @@
 package com.zjw.list;
 
+import org.junit.Before;
+import org.junit.Test;
+
 import java.util.*;
 
 /**
@@ -8,30 +11,22 @@ import java.util.*;
  * @date 2022/04/20 14:47
  */
 public class ListTest {
-    public static void main(String[] args) {
 
-        List<String> files = new ArrayList<>();
+    public List<String> files = new ArrayList<>();
+
+    @Before
+    public void before(){
         files.add("123");
         files.add("456");
         files.add("456");
-        testNext(files);
-//        testPrevious(files,files.size());
-//        testToArray(files);
-//        testContains(files,"123");
-//        testContainsAll(files);
-//        testGet(files,1);
-//        testForEach(files);
-//        testIterator(files);
-//        testIteratorRemove(files,"456");
-//        testListRemove(files,"456");
     }
 
     /**
      * listIterator使用 从前往后遍历集合
-     * @param list 集合
      */
-    public static void testNext(List<String> list){
-        ListIterator<String> iterator = list.listIterator();
+    @Test
+    public void next(){
+        ListIterator<String> iterator = files.listIterator();
         while (iterator.hasNext()){
             int index = iterator.nextIndex();
             String next = iterator.next();
@@ -41,10 +36,10 @@ public class ListTest {
 
     /**
      * listIterator使用 从后往前遍历集合
-     * @param list 集合
      */
-    public static void testPrevious(List<String> list,int ind){
-        ListIterator<String> iterator = list.listIterator(ind);
+    @Test
+    public void previous(){
+        ListIterator<String> iterator = files.listIterator(files.size());
         while (iterator.hasPrevious()){
             int index = iterator.previousIndex();
             String previous = iterator.previous();
@@ -54,29 +49,31 @@ public class ListTest {
 
     /**
      * 集合转为数组
-     * @param list 集合
      */
-    public static void testToArray(List<String> list){
-        Object[] objects = list.toArray();
+    @Test
+    public void toArray(){
+        Object[] objects = files.toArray();
         System.out.println(Arrays.toString(objects));
     }
 
     /**
      * 集合中是否包含某些元素
-     * @param list 集合
-     * @param o 元素
      */
-    public static void testContains(List<String> list,String o){
-        boolean contains = list.contains(o);
-        System.out.println(contains);
+    @Test
+    public void contains(){
+        String o = "123";
+        System.out.println(files.contains(o));
+        o = "111";
+        System.out.println(files.contains(o));
     }
+
 
     /**
      * containsAll方法
      * 集合中是否包含另外一个集合中所有元素，包含返回true,有不包含的返回false
      * @param list 集合
      */
-    public static void testContainsAll(List<String> list){
+    public void containsAll(List<String> list){
         //另外一个集合
         List<String> containsList = new ArrayList<>();
         containsList.add("123");
@@ -87,32 +84,43 @@ public class ListTest {
     }
 
     /**
-     * 取得索引出处的元素，索引从0开始
-     * @param list 集合
-     * @param index 索引
+     * 测试 集合中是否包含另外一个集合中所有元素
      */
-    public static void testGet(List<String> list,int index){
-        String s = list.get(index);
+    @Test
+    public void testContainsAll(){
+        //缺少"1"结果为false
+        containsAll(files);
+        files.add("1");
+        //添加"1"后结果为true
+        containsAll(files);
+    }
+
+    /**
+     * 测试 取得索引出处的元素，索引从0开始
+     */
+    @Test
+    public void testGet(){
+        String s = files.get(0);
         System.out.println(s);
     }
 
     /**
-     * 使用foreach遍历集合，
+     * 使用foreach遍历集合
      * <b>不能在遍历的时候删除元素</b>
-     * @param list 集合
      */
-    public static void testForEach(List<String> list){
-        for (String s : list) {
+    @Test
+    public void testForEach(){
+        for (String s : files) {
             System.out.println(s);
         }
     }
 
     /**
      * 使用迭代器Iterator遍历集合
-     * @param list 集合
      */
-    public static void testIterator(List<String> list){
-        Iterator<String> iterator = list.iterator();
+    @Test
+    public void testIterator(){
+        Iterator<String> iterator = files.iterator();
         while (iterator.hasNext()){
             System.out.println(iterator.next());
         }
@@ -120,28 +128,41 @@ public class ListTest {
 
     /**
      * 使用迭代器Iterator遍历集合,在遍历的过程中对集合修改
-     * @param list 集合
      */
-    public static void testIteratorRemove(List<String> list,String remove){
-        System.out.println(list);
-        Iterator<String> iterator = list.iterator();
+    @Test
+    public void testIteratorRemove(){
+        String remove = "123";
+        System.out.println(files);
+        Iterator<String> iterator = files.iterator();
         while (iterator.hasNext()){
             String next = iterator.next();
             if (remove.equals(next)){
                 iterator.remove();
             }
         }
-        System.out.println(list);
+        System.out.println(files);
     }
 
     /**
      * 使用removeIf方法移除符合条件的元素
-     * @param list 集合
-     * @param filter 待移除的元素
      */
-    public static void testListRemove(List<String> list,String filter){
-        System.out.println(list);
-        list.removeIf(filter::equals);
-        System.out.println(list);
+    @Test
+    public void testListRemove(){
+        String filter = "456";
+        System.out.println(files);
+        files.removeIf(filter::equals);
+        System.out.println(files);
+    }
+
+    /**
+     * 测试从集合中删除包含在另一个集合中的元素
+     */
+    @Test
+    public void testRemoveAll(){
+        List<String> removeList = new ArrayList<>();
+        removeList.add("456");
+        System.out.println(files);
+        files.removeAll(removeList);
+        System.out.println(files);
     }
 }

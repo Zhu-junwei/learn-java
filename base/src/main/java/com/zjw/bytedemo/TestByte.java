@@ -1,6 +1,7 @@
 package com.zjw.bytedemo;
 
-import java.io.UnsupportedEncodingException;
+import sun.nio.cs.ext.GBK;
+
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
@@ -12,19 +13,13 @@ import java.util.Arrays;
  */
 public class TestByte {
     public static void main(String[] args) {
-        try {
-            String str = "ni hao";
-            System.out.println(System.getProperty("file.encoding"));
-            //getBytes()默认采用系统使用的编码，也可以使用-Dfile.encoding进行的设置
-            System.out.println(Arrays.toString(str.getBytes()));
-            System.out.println(Arrays.toString("你好".getBytes()));
-            //StandardCharsets.UTF_8 的值为UTF-8
-            System.out.println(Arrays.toString("你好".getBytes(StandardCharsets.UTF_8)));
-            System.out.println(Arrays.toString("你好".getBytes("GBK")));
-
-            String string = new String("你好".getBytes("GBK"),"UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+        String str = "ni hao";
+        System.out.println("系统编码：" + System.getProperty("file.encoding"));
+        //getBytes()默认采用系统使用的编码，也可以使用-Dfile.encoding进行的设置
+        System.out.println(Arrays.toString("你好".getBytes()));
+        //StandardCharsets.UTF_8 的值为UTF-8
+        System.out.println(Arrays.toString("你好".getBytes(StandardCharsets.UTF_8)));
+        //使用GBK格式取值
+        System.out.println(Arrays.toString("你好".getBytes(new GBK())));
     }
 }

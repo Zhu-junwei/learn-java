@@ -9,11 +9,6 @@ import org.junit.Test;
  * @date 2022/04/08 1:03
  */
 public class AssertTest {
-    public static void main(String[] args) {
-
-
-    }
-
 
     /**
      * Java 语言引人了关键字 assert。这个关键字有两种形式：
