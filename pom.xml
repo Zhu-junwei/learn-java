@@ -30,6 +30,7 @@
         <module>collection</module>
         <module>base</module>
         <module>component</module>
+        <module>domain</module>
     </modules>
 
     <!--版本定义-->
