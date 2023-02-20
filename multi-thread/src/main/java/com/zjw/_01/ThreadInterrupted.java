@@ -11,8 +11,10 @@ public class ThreadInterrupted extends Thread {
     @Override
     public void run() {
         for (int i = 0; i < 5; i++) {
-            System.out.println(i);
-            System.out.println("run:" + Thread.currentThread().isInterrupted());
+            if (i == 2){
+                Thread.currentThread().interrupt();
+            }
+            System.out.println(Thread.currentThread().getName() + ":" + Thread.currentThread().isInterrupted());
         }
 
     }
@@ -21,9 +23,10 @@ public class ThreadInterrupted extends Thread {
         ThreadInterrupted thread = new ThreadInterrupted();
         thread.start();
         //sleep中的线程不能interrupt,报错sleep interrupted
-        thread.interrupt();
+//        thread.interrupt();
         //停止主线程
+        System.out.println(Thread.currentThread().getName() + ":" + Thread.currentThread().isInterrupted());
         Thread.currentThread().interrupt();
-        System.out.println(Thread.currentThread().isInterrupted());
+        System.out.println(Thread.currentThread().getName() + ":" + Thread.currentThread().isInterrupted());
     }
 }
