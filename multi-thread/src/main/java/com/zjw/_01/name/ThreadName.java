@@ -1,4 +1,4 @@
-package com.zjw._01;
+package com.zjw._01.name;
 
 /**
  * 获取线程的名字

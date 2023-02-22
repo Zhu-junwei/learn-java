@@ -1,4 +1,4 @@
-package com.zjw._01;
+package com.zjw._01.create;
 
 /**
  * 线程的简单使用。

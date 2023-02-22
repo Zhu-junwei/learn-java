@@ -1,4 +1,4 @@
-package com.zjw._01;
+package com.zjw._01.random;
 
 /**
  * 线程的调用是随机的。

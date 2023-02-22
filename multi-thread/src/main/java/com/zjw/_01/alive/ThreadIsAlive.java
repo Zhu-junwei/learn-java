@@ -1,4 +1,4 @@
-package com.zjw._01;
+package com.zjw._01.alive;
 
 /**
  * 使用isAlive方法判断线程是否存活

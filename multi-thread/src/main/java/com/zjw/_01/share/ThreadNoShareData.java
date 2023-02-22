@@ -1,4 +1,4 @@
-package com.zjw._01;
+package com.zjw._01.share;
 
 /**
  * 线程间不共享数据
