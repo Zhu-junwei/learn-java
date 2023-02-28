@@ -1,24 +1,26 @@
-package com.zjw._02.sync;
+package com.zjw._02.hasself;
 
 /**
  * 方法中的变量不存在非线程安全问题，永远都是线程安全的，这是因为方法内部的变量具有私有特性。
+ * 成员变量age是线程间共享的，存在非线程安全问题，解决的方法实在方法前加上synchronized关键字
  * @author zjw
  * @date 2023/02/23 13:23
  */
 public class HasSelfPrivateArg {
 
+    private int age = 1;
+
     public void add(String name) {
         try {
             String str = "test";
             if (name.equals("a")) {
-                str += name;
+                age += 100;
                 Thread.sleep(2000);
-                System.out.println("name=" + name + ",str=" + str);
+            } else {
+                age += 200;
             }
-            if (name.equals("b")) {
-                str += name;
-                System.out.println("name=" + name + ",str=" + str);
-            }
+            str += name;
+            System.out.println("name=" + name + ",str=" + str + ",age=" + age);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -34,8 +36,9 @@ public class HasSelfPrivateArg {
         myThreadB.start();
         /*
          *方法中的变量不存在非线程安全问题，永远都是线程安全的，这是因为方法内部的变量具有私有特性。
-         * name=b,str=testb
-         * name=a,str=testa
+         * 成员变量age是线程间共享的，存在非线程安全问题，解决的方法实在方法前加上synchronized关键字
+         * name=b,str=testb,age=301
+         * name=a,str=testa,age=301
          */
     }
 }
