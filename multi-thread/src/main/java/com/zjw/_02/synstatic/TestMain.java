@@ -26,6 +26,9 @@ public class TestMain {
 
 class Service {
 
+    /**
+     * 同步static方法
+     */
     synchronized public static void printA() {
         try {
             System.out.println("start printA(),ThreadName=" + Thread.currentThread().getName());
@@ -63,9 +66,10 @@ class Service {
     }
 }
 
-class MyThread extends Thread{
+class MyThread extends Thread {
 
     private Service service;
+
     public MyThread() {
     }
 
@@ -76,9 +80,9 @@ class MyThread extends Thread{
     @Override
     public void run() {
         String threadName = Thread.currentThread().getName();
-        if (threadName.equals("a")){
+        if (threadName.equals("a")) {
             Service.printA();
-        } else if (threadName.equals("b")){
+        } else if (threadName.equals("b")) {
             Service.printB();
         } else {
             service.printC();
