@@ -1,6 +1,7 @@
 package com.zjw._02.synstatic;
 
 /**
+ * 锁同一个String变量
  * @author 朱俊伟
  * @date 2023/02/28 22:09
  */
@@ -8,7 +9,7 @@ public class TestSyncString {
     public static void main(String[] args) {
         MyThread2 myThreadA = new MyThread2();
         MyThread2 myThreadB = new MyThread2();
-        //发现只用线程A被执行了，因为锁name是同一个对象
+        //发现只有线程A被执行了，因为锁name是同一个对象
         myThreadA.start();
         myThreadB.start();
     }

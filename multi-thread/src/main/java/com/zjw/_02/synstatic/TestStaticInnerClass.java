@@ -3,6 +3,7 @@ package com.zjw._02.synstatic;
 import lombok.Data;
 
 /**
+ * 静态内部类
  * @author 朱俊伟
  * @date 2023/03/02 0:05
  */

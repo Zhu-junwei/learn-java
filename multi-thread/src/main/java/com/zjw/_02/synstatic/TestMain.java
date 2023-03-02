@@ -1,6 +1,7 @@
 package com.zjw._02.synstatic;
 
 /**
+ * 同步static方法
  * @author 朱俊伟
  * @date 2023/02/25 20:20
  */
