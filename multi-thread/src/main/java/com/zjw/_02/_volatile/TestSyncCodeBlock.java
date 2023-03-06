@@ -1,7 +1,5 @@
 package com.zjw._02._volatile;
 
-import org.junit.Test;
-
 /**
  * 测试Synchronized代码块具有增加可见性的作用。
  * @author 朱俊伟
@@ -30,13 +28,6 @@ public class TestSyncCodeBlock {
         Thread.sleep(1000);
         threadB.start();
     }
-
-    @Test
-    public void testTestSyncCodeBlock() throws InterruptedException {
-
-
-
-    }
 }
 
 class Service{
@@ -55,6 +46,6 @@ class Service{
 
     public void stopMethod(){
         isContinueRun = false;
-        System.out.println("stopMethod()...end");
+        System.out.println("isContinueRun设置为false");
     }
 }
