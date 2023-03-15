@@ -33,7 +33,7 @@ class MyRunnable implements Runnable {
 
     private boolean run = true;
 
-    //多了个volatile关键字,取值从主要内存取
+    //多了个volatile关键字,取值从主内存取
     volatile private boolean volatileRun = true;
 
     @Override
