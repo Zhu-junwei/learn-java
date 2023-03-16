@@ -69,7 +69,7 @@ public class FileUtils {
     }
 
     /**
-     * 判断文件的编码格式
+     * 判断文件的编码格式，此方法不对，需要重新写
      *
      * @param fileName 文件名
      * @return 文件的编码格式
