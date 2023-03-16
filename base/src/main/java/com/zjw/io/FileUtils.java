@@ -1,5 +1,6 @@
 package com.zjw.io;
 
+import javax.xml.bind.DatatypeConverter;
 import java.io.*;
 import java.math.BigDecimal;
 import java.nio.channels.FileChannel;
@@ -7,7 +8,9 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.security.DigestInputStream;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -172,35 +175,28 @@ public class FileUtils {
         return sb.toString();
     }
 
+
     /**
      * 计算文件的MD5值
-     * @param fileName
-     * @return
+     * @param fileName 文件
+     * @return MD5值
      */
     public static String getFileMD5(String fileName) {
         try {
-            File file = new File(fileName);
-            if (!file.isFile()) {
-                return null;
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            try (InputStream is = Files.newInputStream(Paths.get(fileName))) {
+                DigestInputStream dis = new DigestInputStream(is, md);
+                while (dis.read() != -1) {
+                    // do nothing, read all content to digest
+                }
             }
-            MessageDigest digest = MessageDigest.getInstance("MD5");
-            FileInputStream fis = new FileInputStream(file);
-            byte[] buffer = new byte[1024];
-            int len;
-            while ((len = fis.read(buffer)) != -1) {
-                digest.update(buffer, 0, len);
-            }
-            fis.close();
-            byte[] md5Bytes = digest.digest();
-            StringBuilder sb = new StringBuilder();
-            for (byte b : md5Bytes) {
-                sb.append(String.format("%02x", b & 0xff));
-            }
-            return sb.toString();
-        } catch (Exception e) {
+            byte[] digest = md.digest();
+            return DatatypeConverter.printHexBinary(digest).toLowerCase();
+        } catch (NoSuchAlgorithmException | IOException e) {
             return null;
         }
     }
+
 
     /**
      * 拷贝文件
