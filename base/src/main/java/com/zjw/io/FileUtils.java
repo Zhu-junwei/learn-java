@@ -2,6 +2,7 @@ package com.zjw.io;
 
 import java.io.*;
 import java.math.BigDecimal;
+import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -200,4 +201,46 @@ public class FileUtils {
             return null;
         }
     }
+
+    /**
+     * 拷贝文件
+     * @param sourceFile 源文件路径
+     * @param targetFile 目标文件路径
+     * @throws IOException
+     */
+    public static void copy(String sourceFile, String targetFile) throws IOException {
+        FileInputStream fis = null;
+        FileOutputStream fos = null;
+        FileChannel inChannel = null;
+        FileChannel outChannel = null;
+        try {
+            fis = new FileInputStream(sourceFile);
+            fos = new FileOutputStream(targetFile);
+            inChannel = fis.getChannel();
+            outChannel = fos.getChannel();
+            int position = 0;
+            long size = inChannel.size();
+            while (size > 0){
+                long count = inChannel.transferTo(position, size, outChannel);
+                if (count > 0){
+                    position += count;
+                    size -= count;
+                }
+            }
+        } finally {
+            if (fis != null) {
+                fis.close();
+            }
+            if (inChannel != null) {
+                inChannel.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+            if (outChannel != null) {
+                outChannel.close();
+            }
+        }
+    }
+
 }
