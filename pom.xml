@@ -32,6 +32,7 @@
         <module>component</module>
         <module>domain</module>
         <module>okhttp</module>
+        <module>utils</module>
     </modules>
 
     <!--版本定义-->

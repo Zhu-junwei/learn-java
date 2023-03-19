@@ -1,4 +1,4 @@
-package com.zjw._03;
+package com.zjw._03._01_wait;
 
 /**
  * wait() 使当前线程暂停运行，并释放锁

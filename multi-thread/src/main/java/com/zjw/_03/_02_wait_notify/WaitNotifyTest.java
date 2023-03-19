@@ -1,4 +1,4 @@
-package com.zjw._03;
+package com.zjw._03._02_wait_notify;
 
 /**
  * 完整实现wait/notify机制
