@@ -34,7 +34,6 @@ public class ArraysTest {
         System.out.println("排序前:" + Arrays.toString(age));
         Arrays.sort(age);
         System.out.println("排序后:" + Arrays.toString(age));
-
     }
 
     /**
