@@ -51,4 +51,16 @@ public class BigDecimalTest {
         return first.min(second);
     }
 
+    /**
+     * 测试除法
+     */
+    @Test
+    public void toStringBigDecimal(){
+        // 5/3保留两位小数
+        BigDecimal bigDecimal = new BigDecimal(5).divide(new BigDecimal(3),2,BigDecimal.ROUND_HALF_UP);
+        System.out.println(bigDecimal.toPlainString());
+        double aDouble = Double.parseDouble(bigDecimal.toPlainString());
+        System.out.println(aDouble);
+    }
+
 }
