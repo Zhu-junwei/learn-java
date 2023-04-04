@@ -33,6 +33,7 @@
         <module>domain</module>
         <module>okhttp</module>
         <module>utils</module>
+        <module>game</module>
     </modules>
 
     <!--版本定义-->
