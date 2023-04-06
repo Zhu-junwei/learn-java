@@ -63,4 +63,20 @@ public class BigDecimalTest {
         System.out.println(aDouble);
     }
 
+    /**
+     * 测试BigDecimal比较大小
+     */
+    @Test
+    public void testCompareTo(){
+        BigDecimal bigDecimal80 = new BigDecimal(80);
+        BigDecimal bigDecimal100_0 = new BigDecimal(100.0);
+        BigDecimal bigDecimal100 = new BigDecimal(100);
+        BigDecimal bigDecimal101 = new BigDecimal(101);
+
+        System.out.println(bigDecimal100_0.compareTo(bigDecimal100));//0
+        System.out.println(bigDecimal100.compareTo(bigDecimal80));//1
+        System.out.println(bigDecimal100.compareTo(bigDecimal101));//-1
+
+    }
+
 }
