@@ -9,7 +9,7 @@ import java.util.Random;
 public class DoubleColorBall {
 
     public static void main(String[] args) {
-        generateBalls(10);
+        generateBalls(5);
     }
 
     /**
