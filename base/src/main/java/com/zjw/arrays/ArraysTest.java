@@ -23,7 +23,7 @@ public class ArraysTest {
     }
 
     /**
-     * 测试排序
+     * 测试排序，升序
      */
     @Test
     public void testSort(){
@@ -31,9 +31,9 @@ public class ArraysTest {
         for (int i = 0; i < age.length; i++) {
             age[i] = (int) (Math.random()*100);
         }
-        System.out.println("排序前:" + Arrays.toString(age));
+        System.out.println("排序前:" + Arrays.toString(age));//排序前:[10, 66, 29, 81, 14, 67, 1, 39, 28, 35]
         Arrays.sort(age);
-        System.out.println("排序后:" + Arrays.toString(age));
+        System.out.println("排序后:" + Arrays.toString(age));//排序后:[1, 10, 14, 28, 29, 35, 39, 66, 67, 81]
     }
 
     /**
