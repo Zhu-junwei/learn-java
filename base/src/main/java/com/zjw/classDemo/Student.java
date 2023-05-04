@@ -14,7 +14,13 @@ public class Student extends Person{
      */
     private String school;
 
+    /**
+     * 年级
+     */
     private String grade;
 
+    /**
+     * 名字
+     */
     private String name;
 }

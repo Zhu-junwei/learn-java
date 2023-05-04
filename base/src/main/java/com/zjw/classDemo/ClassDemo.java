@@ -7,8 +7,7 @@ import java.lang.reflect.Field;
  */
 public class ClassDemo {
     public static void main(String[] args) {
-        // 创建 Student 对象
-        Student student = new Student();
+
         // 获取 Student 类及其父类中声明的所有字段名
         Class<? super Student> cls = Student.class;
         while (cls != null){
