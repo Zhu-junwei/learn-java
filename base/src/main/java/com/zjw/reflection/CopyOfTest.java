@@ -45,6 +45,13 @@ public class CopyOfTest {
         Class<?> componentType = cl.getComponentType();
         int length = Array.getLength(a);
         Object newArray = Array.newInstance(componentType, newLength);
+        /*
+         * src – 源数组
+         * srcPos – 开始拷贝的位置
+         * dest – 目标数组
+         * destPos – 目标数组开始拷贝的位置
+         * length – 需要拷贝的长度
+         */
         System.arraycopy(a,0,newArray,0,Math.min(length,newLength));
         return newArray;
     }
