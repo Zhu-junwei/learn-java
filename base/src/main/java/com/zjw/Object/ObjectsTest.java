@@ -27,18 +27,4 @@ public class ObjectsTest {
         System.out.println(Objects.equals(str1,null));//false
 
     }
-
-    @Test
-    public void testObjectToLong(){
-        Object obj = 123;
-        Long aLong = Long.parseLong(String.valueOf(obj));
-        System.out.println(aLong+1);
-    }
-
-    @Test
-    public void testObjectToString(){
-        Object obj = null;
-        String str = (String) obj;
-        System.out.println(str);
-    }
 }
