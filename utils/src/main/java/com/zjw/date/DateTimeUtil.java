@@ -30,6 +30,40 @@ public class DateTimeUtil {
     }
 
     /**
+     * 返回格式（"yyyy-MM-dd HH:mm:ss.SSS"）当前的日期时间
+     * @return 前的日期时间
+     */
+    public static String currentDateTime() {
+        return timestampToDateTime(System.currentTimeMillis());
+    }
+
+    /**
+     * 将时间戳转换为默认格式（"yyyy-MM-dd"）的日期字符串
+     * @param timestamp 时间戳（单位：毫秒）
+     * @return 日期字符串
+     */
+    public static String timestampToDate(long timestamp) {
+        return timestampToDateTime(timestamp, "yyyy-MM-dd");
+    }
+
+    /**
+     * 返回格式（"yyyy-MM-dd"）的当前日期字符串
+     * @return 日期字符串
+     */
+    public static String currentData(){
+        return timestampToDate(System.currentTimeMillis());
+    }
+
+    /**
+     * 将时间戳转换为默认格式（"HH:mm:ss"）的时间字符串
+     * @param timestamp 时间戳（单位：毫秒）
+     * @return 时间字符串
+     */
+    public static String timestampToTime(long timestamp) {
+        return timestampToDateTime(timestamp, "HH:mm:ss");
+    }
+
+    /**
      * 将日期时间字符串转换为时间戳
      * @param dateTimeStr 日期时间字符串
      * @param pattern 日期时间格式，例如："yyyy-MM-dd HH:mm:ss.SSS"

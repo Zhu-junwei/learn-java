@@ -1,6 +1,6 @@
 package com.zjw._03._03_wait_time_notifyAll;
 
-import com.zjw.date.DateTimeUtils;
+import com.zjw.date.DateTimeUtil;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.junit.Test;
@@ -50,11 +50,11 @@ class WaitThread extends Thread {
     public void run() {
         synchronized (object) {
             try {
-                System.out.println(DateTimeUtils.timestampToDateTime(System.currentTimeMillis()) + " wait thread...start..." + Thread.currentThread().getName() + "...");
+                System.out.println(DateTimeUtil.timestampToDateTime(System.currentTimeMillis()) + " wait thread...start..." + Thread.currentThread().getName() + "...");
                 //使当前线程等待10S，10S后如果有锁就继续往下执行
                 //如果不能获得锁，则会继续等待
                 object.wait(10000);
-                System.out.println(DateTimeUtils.timestampToDateTime(System.currentTimeMillis()) + " wait thread...end..." + Thread.currentThread().getName() + "...");
+                System.out.println(DateTimeUtil.timestampToDateTime(System.currentTimeMillis()) + " wait thread...end..." + Thread.currentThread().getName() + "...");
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
