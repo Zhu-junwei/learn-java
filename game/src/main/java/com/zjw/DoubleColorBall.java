@@ -5,6 +5,7 @@ import java.util.Random;
 
 /**
  * 双色球小游戏
+ * @author 朱俊伟
  */
 public class DoubleColorBall {
 
