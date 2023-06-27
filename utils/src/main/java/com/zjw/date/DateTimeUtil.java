@@ -50,7 +50,7 @@ public class DateTimeUtil {
      * 返回格式（"yyyy-MM-dd"）的当前日期字符串
      * @return 日期字符串
      */
-    public static String currentData(){
+    public static String currentDate(){
         return timestampToDate(System.currentTimeMillis());
     }
 
