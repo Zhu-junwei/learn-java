@@ -52,8 +52,7 @@ public class ObjectAnalyzer {
             }
             r += "]";
             cl = cl.getSuperclass();
-        }while (cl != null);
-
+        }while (cl != Object.class && cl != null);
         return r;
     }
 }

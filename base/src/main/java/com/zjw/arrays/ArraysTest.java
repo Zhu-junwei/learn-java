@@ -3,33 +3,41 @@ package com.zjw.arrays;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * 数组扩容
+ *
  * @author 朱俊伟
  * @date 2022/07/12
  */
 public class ArraysTest {
-    public static void main(String[] args) {
+
+    /**
+     * 测试copyOf方法，将指定数组的内定拷过去
+     */
+    @Test
+    public void testCopyOf() {
         Object[] obj1 = new Object[5];
         obj1[0] = 12;
         obj1[3] = "aaa";
         obj1[4] = "bbb";
         //原数组指向扩容后的数组
-        obj1 = Arrays.copyOf(obj1,obj1.length+2);
+        obj1 = Arrays.copyOf(obj1, obj1.length + 2);
         System.out.println(Arrays.toString(obj1));
         //数组扩容后大小为7
         System.out.println(obj1.length);
     }
 
     /**
-     * 测试排序，升序
+     * 测试sort排序，升序
      */
     @Test
-    public void testSort(){
-        int age[] = new int[10];
+    public void testSort() {
+        int[] age = new int[10];
         for (int i = 0; i < age.length; i++) {
-            age[i] = (int) (Math.random()*100);
+            age[i] = (int) (Math.random() * 100);
         }
         System.out.println("排序前:" + Arrays.toString(age));//排序前:[10, 66, 29, 81, 14, 67, 1, 39, 28, 35]
         Arrays.sort(age);
@@ -41,12 +49,12 @@ public class ArraysTest {
      * binarySearch(int[] a, int key)
      */
     @Test
-    public void testSap(){
+    public void testBinarySearch() {
         // 创建一个长度为10的整型数组age
-        int age[] = new int[10];
+        int[] age = new int[10];
         int searchTemp = 0;
         for (int i = 0; i < age.length; i++) {
-            searchTemp = (int) (Math.random()*100);
+            searchTemp = (int) (Math.random() * 100);
             age[i] = searchTemp;
         }
         // 使用搜索算法前需要对数组进行排序
@@ -60,5 +68,38 @@ public class ArraysTest {
         System.out.println(18 + " at index " + index);
     }
 
+    /**
+     * 测试fill方法，将指定的元素填充到数组中
+     */
+    @Test
+    public void testFill() {
+        int[] age = new int[10];
+        Arrays.fill(age, 10);
+        System.out.println(Arrays.toString(age));//[10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+    }
+
+    /**
+     * 测试stream方法，将数组转换为流对象
+     */
+    @Test
+    public void testStream() {
+        Integer[] numbers = {1, 2, 3, 4, 5};
+        // 将数组转换为流
+        Stream<Integer> stream = Arrays.stream(numbers);
+        // 对流进行操作，例如筛选偶数并打印
+        stream.filter(n -> n % 2 == 0)
+                .forEach(System.out::println);
+    }
+
+    /**
+     * 测试asList方法，将数组装换为List集合
+     */
+    @Test
+    public void testAsList() {
+        Integer[] numbers = {1, 2, 3, 4, 5};
+        // 将数组装换为List集合
+        List<Integer> list = Arrays.asList(numbers);
+        System.out.println(list);
+    }
 
 }

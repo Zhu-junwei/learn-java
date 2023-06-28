@@ -14,6 +14,8 @@ public class ObjectAnalyzerTest {
             squares.add(i * i);
         }
         System.out.println(squares);
-        System.out.println(new ObjectAnalyzer().toString(squares));
+//        System.out.println(new ObjectAnalyzer().toString(squares));
+        Employee employee = new Employee("小明", 12);
+        System.out.println(new ObjectAnalyzer().toString(employee));
     }
 }

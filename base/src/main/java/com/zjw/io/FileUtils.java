@@ -1,8 +1,8 @@
 package com.zjw.io;
 
-import javax.xml.bind.DatatypeConverter;
 import java.io.*;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -191,7 +191,8 @@ public class FileUtils {
                 }
             }
             byte[] digest = md.digest();
-            return DatatypeConverter.printHexBinary(digest).toLowerCase();
+            BigInteger bigInteger = new BigInteger(1, digest);
+            return bigInteger.toString(16);
         } catch (NoSuchAlgorithmException | IOException e) {
             return null;
         }

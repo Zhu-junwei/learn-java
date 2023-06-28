@@ -1,6 +1,7 @@
 package com.zjw.bytedemo;
 
-import sun.nio.cs.ext.GBK;
+
+import sun.nio.cs.GBK;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
