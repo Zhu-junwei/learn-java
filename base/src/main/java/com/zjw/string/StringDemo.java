@@ -167,4 +167,12 @@ public class StringDemo {
         System.out.println(format);//789,464,984,984.13
     }
 
+    @Test
+    public void testIndexOf(){
+        String str = "hello world";
+        System.out.println(str.indexOf("ll"));//2
+        System.out.println(str.indexOf("hello world"));//0
+        System.out.println(str.indexOf("AA"));//-1
+    }
+
 }

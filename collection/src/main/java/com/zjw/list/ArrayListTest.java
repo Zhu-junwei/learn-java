@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.*;
 
 /**
+ * 测试 ArrayList
  * @author 朱俊伟
  * @date 2022/08/15
  */
@@ -22,14 +23,27 @@ public class ArrayListTest {
     }
 
     /**
-     * 测试数组转List集合
+     * 测试数组转List集合 Arrays.asList(T... a)
      */
     @Test
-    public void testTransferArrayToList(){
+    public void testArrayToList(){
+        String[] strings = {"a","b","c"};
+        //要求参数不能为空
+        List<String> list = Arrays.asList(strings);
+        System.out.println(list);
+    }
+
+    /**
+     * 测试数组转List集合
+     *
+     */
+    @Test
+    public void testArrayToList2(){
         String[] strings = {"a","b","c"};
         List<String> list = transferArrayToList(strings);
+        System.out.println(list);
         String[] remove = {"a","b"};
-        List<String> removeList = new ArrayList<>();
+        List<String> removeList = Arrays.asList(remove);
         list.removeAll(removeList);
         System.out.println(list);
     }
@@ -45,4 +59,7 @@ public class ArrayListTest {
         Arrays.stream(array).forEach(arr -> transferList.add(arr));
         return transferList;
     }
+
+
+
 }
