@@ -12,14 +12,184 @@ import java.util.*;
  */
 public class ArrayListTest {
 
-    public static void main(String[] args) {
-        Map<String,List<String>> map = new HashMap<>();
+    /**
+     * 测试添加元素add()
+     */
+    @Test
+    public void testAdd(){
         List<String> list = new ArrayList<>();
         list.add("a");
-        map.put("1",list);
-        map.get("1").add("b");
-        System.out.println(map);
-        System.out.println(map.get("11"));
+        list.add("b");
+        list.add("c");
+        System.out.println(list);
+    }
+
+    /**
+     * 添加元素到指定位置
+     */
+    @Test
+    public void testAddIndex(){
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println("添加前:" + list);
+        list.add(1,"d");//其位置元素先后移
+        System.out.println("添加后:" + list);
+    }
+
+    /**
+     * 测试setet()
+     */
+
+    /**
+     * 测试删除单个首次出现的元素
+     */
+    @Test
+    public void testRemove(){
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println("删除前:" + list);
+        list.remove("a");//只会删除第一个出现的元素
+        System.out.println("删除后:" + list);
+    }
+
+    /**
+     * 测试删除所有指定的元素
+     */
+    @Test
+    public void testRemoveAll(){
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println("删除前:" + list);
+        list.removeAll(Arrays.asList("a","b"));//删除除所有指定的元素
+        System.out.println("删除后:" + list);
+    }
+
+    /**
+     * 删除指定位置的元素
+     */
+    @Test
+    public void testRemoveIndex(){
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println("删除前:" + list);
+        list.remove(1);//删除指定位置上的元素
+        System.out.println("删除后:" + list);
+    }
+
+    /**
+     * 测试get() 返回列表中指定位置的元素
+     */
+    @Test
+    public void testGet(){
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println(list.get(0));
+    }
+
+    /**
+     * 判断集合是否为空
+     */
+    @Test
+    public void testEmpty(){
+        List<String> list = new ArrayList<>();
+        System.out.println(list.isEmpty());
+        list.add("a");
+        System.out.println(list.isEmpty());
+    }
+
+    /**
+     * 清空集合
+     */
+    @Test
+    public void testClear(){
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println("清空前:" + list);
+        list.clear();//添加前: [a, b, c]
+        System.out.println("清空后:" + list);
+        System.out.println("清空后:" + list.size());
+    }
+
+    /**
+     * 获取集合的大小
+     */
+    @Test
+    public void testSize(){
+        List<String> list = new ArrayList<>();
+        System.out.println(list.size());
+        list.add("a");
+        System.out.println(list.size());
+    }
+
+    /**
+     * 判断是否包含某个元素
+     */
+    @Test
+    public void testContains(){
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println(list.contains("a"));
+        System.out.println(list.contains("d"));
+    }
+
+    /**
+     * 判断元素在集合中首次出现的位置
+     */
+    @Test
+    public void testIndexOf(){
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        //返回指定元素在此列表中第一次出现的索引，如果此列表不包含该元素，则返回-1
+        System.out.println(list.indexOf("a"));//0
+        System.out.println(list.indexOf("d"));//-1
+    }
+
+    /**
+     * 判断元素在集合中最后出现的位置
+     */
+    @Test
+    public void testLastIndexOf(){
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        //返回指定元素在此列表中最后出现的索引，如果此列表不包含该元素，则返回-1
+        System.out.println(list.lastIndexOf("a"));//1
+        System.out.println(list.lastIndexOf("d"));//-1
+    }
+
+    /**
+     * 测试subList，返回指定范围内的集合
+     */
+    @Test
+    public void testSubList(){
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        System.out.println(list);
+        List<String> subList = list.subList(1,3);//返回指定范围内的集合
+        System.out.println(subList);
     }
 
     /**
@@ -59,7 +229,5 @@ public class ArrayListTest {
         Arrays.stream(array).forEach(arr -> transferList.add(arr));
         return transferList;
     }
-
-
 
 }
