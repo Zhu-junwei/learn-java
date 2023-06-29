@@ -1,33 +1,277 @@
 package com.zjw.list;
 
-import org.junit.Before;
+
 import org.junit.Test;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 /**
- * 原先文章：<a>https://www.cnblogs.com/zjw-blog/p/13727231.html</a>
+ * 测试 ArrayList
+ *
  * @author 朱俊伟
- * @date 2022/04/20 14:47
+ * @date 2022/08/15
  */
 public class ListTest {
 
-    public List<String> files = new ArrayList<>();
+    /**
+     * 测试添加元素add()
+     */
+    @Test
+    public void testAdd() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println(list);
+    }
 
-    @Before
-    public void before(){
-        files.add("123");
-        files.add("456");
-        files.add("456");
+    /**
+     * 添加元素到指定位置
+     */
+    @Test
+    public void testAddIndex() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println("添加前:" + list);
+        list.add(1, "d");//其位置元素先后移
+        System.out.println("添加后:" + list);
+    }
+
+    /**
+     * 测试set()方法,将此列表中指定位置的元素替换为指定元素
+     */
+    @Test
+    public void testSet() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println("添加前:" + list);
+        String oldVal = list.set(0, "A");//索引0位置元素被替换
+        System.out.println("被替换的元素:" + oldVal);//返回被替换的元素
+        System.out.println("添加后:" + list);
+    }
+
+    /**
+     * 测试删除单个首次出现的元素
+     */
+    @Test
+    public void testRemove() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println("删除前:" + list);
+        list.remove("a");//只会删除第一个出现的元素
+        System.out.println("删除后:" + list);
+    }
+
+    /**
+     * 测试删除所有指定的元素
+     */
+    @Test
+    public void testRemoveAll() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println("删除前:" + list);
+        list.removeAll(Arrays.asList("a", "b"));//删除除所有指定的元素
+        System.out.println("删除后:" + list);
+    }
+
+    /**
+     * 删除指定位置的元素
+     */
+    @Test
+    public void testRemoveIndex() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println("删除前:" + list);
+        list.remove(1);//删除指定位置上的元素
+        System.out.println("删除后:" + list);
+    }
+
+    /**
+     * 测试get() 返回列表中指定位置的元素
+     */
+    @Test
+    public void testGet() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println(list.get(0));
+    }
+
+    /**
+     * 判断集合是否为空
+     */
+    @Test
+    public void testEmpty() {
+        List<String> list = new ArrayList<>();
+        System.out.println(list.isEmpty());
+        list.add("a");
+        System.out.println(list.isEmpty());
+    }
+
+    /**
+     * 清空集合
+     */
+    @Test
+    public void testClear() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println("清空前:" + list);
+        list.clear();//添加前: [a, b, c]
+        System.out.println("清空后:" + list);
+        System.out.println("清空后:" + list.size());
+    }
+
+    /**
+     * 获取集合的大小
+     */
+    @Test
+    public void testSize() {
+        List<String> list = new ArrayList<>();
+        System.out.println(list.size());
+        list.add("a");
+        System.out.println(list.size());
+    }
+
+    /**
+     * 判断是否包含某个元素
+     */
+    @Test
+    public void testContains() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println(list.contains("a"));
+        System.out.println(list.contains("d"));
+    }
+
+    /**
+     * containsAll方法 集合中是否包含另外一个集合中所有元素，包含返回true,有不包含的返回false
+     */
+    @Test
+    public void containsAll() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        //另外一个集合
+        List<String> containsList = new ArrayList<>();
+        containsList.add("a");
+        containsList.add("b");
+        boolean contains = list.containsAll(containsList);
+        System.out.println(contains);
+    }
+
+    /**
+     * 判断元素在集合中首次出现的位置
+     */
+    @Test
+    public void testIndexOf() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        //返回指定元素在此列表中第一次出现的索引，如果此列表不包含该元素，则返回-1
+        System.out.println(list.indexOf("a"));//0
+        System.out.println(list.indexOf("d"));//-1
+    }
+
+    /**
+     * 判断元素在集合中最后出现的位置
+     */
+    @Test
+    public void testLastIndexOf() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        //返回指定元素在此列表中最后出现的索引，如果此列表不包含该元素，则返回-1
+        System.out.println(list.lastIndexOf("a"));//1
+        System.out.println(list.lastIndexOf("d"));//-1
+    }
+
+    /**
+     * 测试subList，返回指定范围内的集合
+     */
+    @Test
+    public void testSubList() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        System.out.println(list);
+        List<String> subList = list.subList(1, 3);//返回指定范围内的集合
+        System.out.println(subList);
+    }
+
+    /**
+     * 测试数组转List集合 Arrays.asList(T... a)
+     */
+    @Test
+    public void testArrayToList() {
+        String[] strings = {"a", "b", "c"};
+        //要求参数不能为空
+        List<String> list = Arrays.asList(strings);
+        System.out.println(list);
+    }
+
+    /**
+     * 测试数组转List集合
+     */
+    @Test
+    public void testArrayToList2() {
+        String[] strings = {"a", "b", "c"};
+        List<String> list = transferArrayToList(strings);
+        System.out.println(list);
+        String[] remove = {"a", "b"};
+        List<String> removeList = Arrays.asList(remove);
+        list.removeAll(removeList);
+        System.out.println(list);
+    }
+
+    /**
+     * 数组转List集合
+     *
+     * @param array 数组
+     * @param <E>   泛型
+     * @return List集合
+     */
+    public static <E> List<E> transferArrayToList(E[] array) {
+        List<E> transferList = new ArrayList<>();
+        Arrays.stream(array).forEach(arr -> transferList.add(arr));
+        return transferList;
     }
 
     /**
      * listIterator使用 从前往后遍历集合
      */
     @Test
-    public void next(){
-        ListIterator<String> iterator = files.listIterator();
-        while (iterator.hasNext()){
+    public void next() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        ListIterator<String> iterator = list.listIterator();
+        while (iterator.hasNext()) {
             int index = iterator.nextIndex();
             String next = iterator.next();
             System.out.println(index + "-->" + next);
@@ -38,9 +282,14 @@ public class ListTest {
      * listIterator使用 从后往前遍历集合
      */
     @Test
-    public void previous(){
-        ListIterator<String> iterator = files.listIterator(files.size());
-        while (iterator.hasPrevious()){
+    public void previous() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        ListIterator<String> iterator = list.listIterator(list.size());
+        while (iterator.hasPrevious()) {
             int index = iterator.previousIndex();
             String previous = iterator.previous();
             System.out.println(index + "-->" + previous);
@@ -48,121 +297,83 @@ public class ListTest {
     }
 
     /**
-     * 集合转为数组
+     * 使用迭代器Iterator遍历集合,<b>在遍历的过程中可以对集合修改</b>
      */
     @Test
-    public void toArray(){
-        Object[] objects = files.toArray();
-        System.out.println(Arrays.toString(objects));
+    public void testIteratorRemove() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        String remove = "c";
+        System.out.println(list);
+        Iterator<String> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            String next = iterator.next();
+            if (remove.equals(next)) {
+                iterator.remove();
+            }
+        }
+        System.out.println(list);
     }
 
     /**
-     * 集合中是否包含某些元素
+     * 使用迭代器Iterator遍历集合,<b>在遍历的过程中可以对集合修改</b>,简单写法
      */
     @Test
-    public void contains(){
-        String o = "123";
-        System.out.println(files.contains(o));
-        o = "111";
-        System.out.println(files.contains(o));
-    }
+    public void testIteratorRemove2() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        String remove = "c";
+        System.out.println(list);
+        list.removeIf(remove::equals);
+        System.out.println(list);
 
-
-    /**
-     * containsAll方法
-     * 集合中是否包含另外一个集合中所有元素，包含返回true,有不包含的返回false
-     * @param list 集合
-     */
-    public void containsAll(List<String> list){
-        //另外一个集合
-        List<String> containsList = new ArrayList<>();
-        containsList.add("123");
-        containsList.add("1");
-
-        boolean contains = list.containsAll(containsList);
-        System.out.println(contains);
-    }
-
-    /**
-     * 测试 集合中是否包含另外一个集合中所有元素
-     */
-    @Test
-    public void testContainsAll(){
-        //缺少"1"结果为false
-        containsAll(files);
-        files.add("1");
-        //添加"1"后结果为true
-        containsAll(files);
-    }
-
-    /**
-     * 测试 取得索引出处的元素，索引从0开始
-     */
-    @Test
-    public void testGet(){
-        String s = files.get(0);
-        System.out.println(s);
+        List<Integer> ints = new ArrayList<>();
+        ints.add(1);
+        ints.add(2);
+        ints.add(3);
+        ints.add(4);
+        ints.removeIf(i -> i % 2 == 0);//删除偶数
+        System.out.println(ints);
     }
 
     /**
      * 使用foreach遍历集合
-     * <b>不能在遍历的时候删除元素</b>
+     * <b>不能在遍历的时候不能删除元素</b>
      */
     @Test
-    public void testForEach(){
-        for (String s : files) {
+    public void testForEach() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        for (String s : list) {
             System.out.println(s);
-        }
-    }
-
-    /**
-     * 使用迭代器Iterator遍历集合
-     */
-    @Test
-    public void testIterator(){
-        Iterator<String> iterator = files.iterator();
-        while (iterator.hasNext()){
-            System.out.println(iterator.next());
-        }
-    }
-
-    /**
-     * 使用迭代器Iterator遍历集合,在遍历的过程中对集合修改
-     */
-    @Test
-    public void testIteratorRemove(){
-        String remove = "123";
-        System.out.println(files);
-        Iterator<String> iterator = files.iterator();
-        while (iterator.hasNext()){
-            String next = iterator.next();
-            if (remove.equals(next)){
-                iterator.remove();
+            if ("b".equals(s)) {
+                list.remove(s);//ConcurrentModificationException
             }
         }
-        System.out.println(files);
     }
 
     /**
-     * 使用removeIf方法移除符合条件的元素
+     * 使用stream,下次再测试
      */
     @Test
-    public void testListRemove(){
-        String filter = "456";
-        System.out.println(files);
-        files.removeIf(filter::equals);
-        System.out.println(files);
+    public void testStream(){
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        Stream<String> stream = list.stream();
+        System.out.println(stream);
+        stream.forEach(System.out::println);
     }
 
-    /**
-     * 测试从集合中删除包含在另一个集合中的元素
-     */
-    @Test
-    public void testRemoveAll(){
-        List<String> removeList = new ArrayList<>();
-        removeList.add("456");
-        System.out.println(files);
-        files.removeAll(removeList);
-        System.out.println(files);
-    }
 }
