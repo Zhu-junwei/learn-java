@@ -9,12 +9,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * 网络工具类
  * @author 朱俊伟
  * @date 2023/03/26 23:29
  */
-public class GetPublicIpDemo {
+public class NetUtil{
 
-    public static String GetPublicIp() {
+    public static String getPublicIP() {
         String IP = null;
         try {
             URL url = new URL("http://checkip.amazonaws.com/");
@@ -28,7 +29,6 @@ public class GetPublicIpDemo {
             if (m.find()) {
                 IP = m.group();
             }
-            System.out.println("Public IP address is: " + IP);
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
