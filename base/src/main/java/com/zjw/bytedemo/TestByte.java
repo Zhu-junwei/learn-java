@@ -1,8 +1,5 @@
 package com.zjw.bytedemo;
 
-
-import sun.nio.cs.GBK;
-
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -18,7 +15,7 @@ public class TestByte {
         String str = "你好";
 
         //使用GBK格式取值
-        byte[] helloGBK = str.getBytes(new GBK());
+        byte[] helloGBK = str.getBytes("GBK");
         //使用UTF-8取值
         byte[] helloUTF8 = str.getBytes(StandardCharsets.UTF_8);
 
