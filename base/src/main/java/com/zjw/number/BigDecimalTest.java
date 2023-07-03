@@ -3,6 +3,7 @@ package com.zjw.number;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * 测试BigDecimal的使用
@@ -72,7 +73,42 @@ public class BigDecimalTest {
         System.out.println(bigDecimal100_0.compareTo(bigDecimal100));//0
         System.out.println(bigDecimal100.compareTo(bigDecimal80));//1
         System.out.println(bigDecimal100.compareTo(bigDecimal101));//-1
+        System.out.println(new BigDecimal("-1").compareTo(new BigDecimal("0")));//-1
 
     }
+
+    /**
+     * 测试取反
+     */
+    @Test
+    public void testNegate(){
+        BigDecimal bigDecimal80 = new BigDecimal(80);
+        System.out.println(bigDecimal80.negate());//-80
+    }
+
+    /**
+     * 测试乘法
+     */
+    @Test
+    public void testMultiply(){
+        BigDecimal bg1 = new BigDecimal("3.2");
+        BigDecimal bg2 = new BigDecimal("1.2");
+        BigDecimal bg3 = new BigDecimal("-1");
+        System.out.println(bg1.multiply(bg2).multiply(bg3));
+    }
+
+    /**
+     * 测试转为double
+     */
+    @Test
+    public void testToDouble(){
+        BigDecimal decimal = new BigDecimal("123.456789");
+        Double result = decimal.setScale(2, RoundingMode.HALF_UP).doubleValue();
+        System.out.println(result);
+        BigDecimal decimal2 = new BigDecimal("123.456789").setScale(2,RoundingMode.HALF_UP);
+        System.out.println(decimal2);
+    }
+
+
 
 }
