@@ -27,4 +27,17 @@ public class ObjectsTest {
         System.out.println(Objects.equals(str1,null));//false
 
     }
+
+    /**
+     * 测试Object转boolean
+     */
+    @Test
+    public void testObjectToBoolean(){
+        Object objTrue = true;
+        Object objFalse = false;
+        boolean b1 = (boolean) objTrue;
+        boolean b2 = (boolean) objFalse;
+        System.out.println(b1);
+        System.out.println(b2);
+    }
 }
