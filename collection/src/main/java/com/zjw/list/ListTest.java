@@ -1,6 +1,7 @@
 package com.zjw.list;
 
 
+import com.zjw.domain.Student;
 import org.junit.Test;
 
 import java.util.*;
@@ -359,6 +360,19 @@ public class ListTest {
                 list.remove(s);//ConcurrentModificationException
             }
         }
+    }
+
+    /**
+     * 测试函数式编程
+     */
+    @Test
+    public void testForEach2() {
+        List<Student> list = new ArrayList<>();
+        list.add(Student.builder().age(1).build());
+        list.add(Student.builder().age(2).build());
+        list.add(Student.builder().age(3).build());
+        list.forEach( student -> student.setAge(student.getAge() + 1));
+        list.forEach(System.out::println);
     }
 
     /**
