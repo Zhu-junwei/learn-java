@@ -1,16 +1,14 @@
-package com.zjw.random;
+package com.zjw.util;
 
-import com.zjw.util.RandomUtil;
 import org.junit.Test;
 
-import java.util.Random;
+import static org.junit.Assert.*;
 
 /**
- * @author zjw
- * @date 2023/05/25 9:51
+ * @author 朱俊伟
+ * @date 2023/07/14 23:36
  */
-public class RandomTest {
-
+public class RandomUtilTest {
 
     /**
      * 有一个数组，随机返回里面的某个值

@@ -186,9 +186,7 @@ public class FileUtils {
             MessageDigest md = MessageDigest.getInstance("MD5");
             try (InputStream is = Files.newInputStream(Paths.get(fileName))) {
                 DigestInputStream dis = new DigestInputStream(is, md);
-                while (dis.read() != -1) {
-                    // do nothing, read all content to digest
-                }
+                while (dis.read() != -1) {}
             }
             byte[] digest = md.digest();
             BigInteger bigInteger = new BigInteger(1, digest);

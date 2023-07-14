@@ -1,6 +1,9 @@
 package com.zjw.util;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -14,8 +17,8 @@ public class PropertiesUtil {
     private static final PropertiesUtil instance = new PropertiesUtil();
 
     private PropertiesUtil() {
-        try {
-            this.prop.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("config.properties"));
+        try(InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("config.properties")) {
+            this.prop.load(inputStream);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -33,4 +36,9 @@ public class PropertiesUtil {
         return this.prop.getProperty(key, defaultValue);
     }
 
+    public Map<String,String> getAllValue() {
+        Map<String,String> map = new HashMap<>();
+        this.prop.stringPropertyNames().forEach(key -> map.put(key, this.prop.getProperty(key)));
+        return map;
+    }
 }
