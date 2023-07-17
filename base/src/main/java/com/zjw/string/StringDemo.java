@@ -25,6 +25,17 @@ public class StringDemo {
     }
 
     @Test
+    public void testStringSplit2(){
+        String str1 = "a_b_c";
+        String str2 = "a__b_c";
+        //下面两个结果一样，为啥？
+        String[] strings = str1.split("_");
+        String[] strings2 = str2.split("_");//"a","","b","c"
+        System.out.println(Arrays.toString(strings));
+        System.out.println(Arrays.toString(strings2));
+    }
+
+    @Test
     public void testSubString(){
         String str = "helloWorld";
         System.out.println(str.substring(1,str.length()-1));
