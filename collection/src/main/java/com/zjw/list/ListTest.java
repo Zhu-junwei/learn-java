@@ -28,6 +28,16 @@ public class ListTest {
     }
 
     /**
+     * 测试Collections.addAll方法向list中添加元素
+     */
+    @Test
+    public void testAddAll(){
+        List<String> list = new ArrayList<>();
+        Collections.addAll(list,"a","b","c");
+        System.out.println(list);
+    }
+
+    /**
      * 添加元素到指定位置
      */
     @Test
