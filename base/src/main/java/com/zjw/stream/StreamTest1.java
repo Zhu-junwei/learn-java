@@ -1,8 +1,11 @@
 package com.zjw.stream;
 
+import com.zjw.classDemo.Person;
+import com.zjw.domain.Student;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -71,4 +74,16 @@ public class StreamTest1 {
         Stream<Map.Entry<String, String>> entryStream = map.entrySet().stream();
         entryStream.forEach(System.out::println);
     }
+
+    @Test
+    public void testListStream2(){
+        List<Student> list = new ArrayList<>();
+        list.add(Student.builder().name("a").build());
+        list.add(Student.builder().name("b").build());
+        list.add(Student.builder().name("c").build());
+        List<String> nameList = list.stream().map(Student::getName).collect(Collectors.toList());
+        System.out.println(nameList);
+    }
+
+
 }

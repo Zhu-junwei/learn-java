@@ -28,7 +28,7 @@ public class BaseTypeDemo {
      * 测试BigDecimal转double
      */
     @Test
-    public void testdouble(){
+    public void testDouble(){
         double d1 = 1.23;
         System.out.println(d1);
         System.out.println(1.23 + 1.45);
@@ -36,5 +36,15 @@ public class BaseTypeDemo {
         BigDecimal bigDecimal1 = new BigDecimal(1.45);
         System.out.println(bigDecimal.add(bigDecimal1).setScale(2, RoundingMode.HALF_UP).doubleValue());
         System.out.println(2.68);
+    }
+
+    @Test
+    public void testBoolean(){
+        Object obj = Boolean.TRUE;
+        if (Boolean.TRUE){
+            System.out.println("111");
+        } else {
+            System.out.println("222");
+        }
     }
 }
