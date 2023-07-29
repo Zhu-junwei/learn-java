@@ -53,11 +53,17 @@ public class BigDecimalTest {
      */
     @Test
     public void toStringBigDecimal(){
+        //没有舍入模式导致异常
+        //java.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.
+        //new BigDecimal("5").divide(new BigDecimal("3"));
+
         // 5/3保留两位小数
         BigDecimal bigDecimal = new BigDecimal(5).divide(new BigDecimal(3),2,BigDecimal.ROUND_HALF_UP);
+        System.out.println(new BigDecimal(5).divide(new BigDecimal(3),2,BigDecimal.ROUND_CEILING));
         System.out.println(bigDecimal.toPlainString());
         double aDouble = Double.parseDouble(bigDecimal.toPlainString());
         System.out.println(aDouble);
+
     }
 
     /**
