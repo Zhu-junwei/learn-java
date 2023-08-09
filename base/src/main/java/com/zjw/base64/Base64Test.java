@@ -1,9 +1,13 @@
 package com.zjw.base64;
 
 
+import lombok.SneakyThrows;
 import org.junit.Test;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Base64;
 
 /**
@@ -26,11 +30,19 @@ public class Base64Test {
      * 测试Decode
      */
     @Test
+    @SneakyThrows
     public void testDecode() {
         String str = "5L2g5aW9";
         Base64.Decoder decoder = Base64.getDecoder();
         byte[] decode = decoder.decode(str);
-        System.out.println(new String(decode));
+        System.out.println(Arrays.toString(decode));
+        System.out.println(new String(decode,"UTF-8"));
+        System.out.println(new String(decode,"GBK"));
+        System.out.println(new String(decode, "US-ASCII"));
+        System.out.println(new String(decode, "ISO-8859-1"));
+        System.out.println(new String(decode, "UTF-16BE"));
+        System.out.println(new String(decode, "UTF-16LE"));
+        System.out.println(new String(decode, "UTF-16"));
     }
 
     /**

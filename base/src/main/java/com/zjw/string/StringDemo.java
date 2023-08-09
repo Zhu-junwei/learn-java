@@ -186,4 +186,11 @@ public class StringDemo {
         System.out.println(str.indexOf("AA"));//-1
     }
 
+    @Test
+    public void testContains(){
+        String str = "123456";
+        System.out.println(str.contains("1"));//true
+        System.out.println(str.contains("A"));//false
+    }
+
 }
