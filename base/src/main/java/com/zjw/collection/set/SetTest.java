@@ -1,4 +1,4 @@
-package com.zjw.set;
+package com.zjw.collection.set;
 
 import org.junit.Test;
 

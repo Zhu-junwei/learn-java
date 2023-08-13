@@ -1,4 +1,4 @@
-package com.zjw.map;
+package com.zjw.collection.map;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.zjw.list;
+package com.zjw.stream.list;
 
 import org.junit.Test;
 

@@ -27,7 +27,6 @@
     </developers>
 
     <modules>
-        <module>collection</module>
         <module>base</module>
         <module>component</module>
         <module>domain</module>
@@ -38,8 +37,8 @@
 
     <!--版本定义-->
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <gson-version>2.10</gson-version>
         <lombok-version>1.18.24</lombok-version>
         <junit-version>4.13.2</junit-version>

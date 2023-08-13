@@ -1,4 +1,4 @@
-package com.zjw.map;
+package com.zjw.stream.map;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.zjw.list;
+package com.zjw.collection.list;
 
 
 import com.zjw.domain.Student;

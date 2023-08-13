@@ -1,4 +1,4 @@
-package com.zjw.set;
+package com.zjw.stream.set;
 
 import org.junit.Test;
 
