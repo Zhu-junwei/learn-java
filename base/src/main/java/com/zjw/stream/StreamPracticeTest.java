@@ -69,5 +69,23 @@ public class StreamPracticeTest {
         System.out.println(resultList);
     }
 
+    /**
+     * 修改
+     */
+    @Test
+    public void modifyListTest() {
+        List<Student> boyList = new ArrayList<>();
+        boyList.add(Student.builder().name("张三").age(18).build());
+        boyList.add(Student.builder().name("张小三").age(18).build());
+        boyList.add(Student.builder().name("王小四").age(18).build());
+        boyList.stream()
+                .forEach(student -> {
+                   if(student.getName().equals("张三")){
+                       student.setAge(1);
+                   }
+                });
+        System.out.println(boyList);
+    }
+
 
 }

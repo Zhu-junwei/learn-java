@@ -353,6 +353,16 @@ public class ListTest {
         System.out.println(ints);
     }
 
+    @Test
+    public void testIteratorRemove3() {
+        List<Student> boyList = new ArrayList<>();
+        boyList.add(Student.builder().name("张三").age(18).build());
+        boyList.add(Student.builder().name("张小三").age(18).build());
+        boyList.add(Student.builder().name("王小四").age(18).build());
+        boyList.removeIf(student -> student.getName().equals("张三"));
+        System.out.println(boyList);
+    }
+
     /**
      * 使用foreach遍历集合
      * <b>不能在遍历的时候不能删除元素</b>
@@ -386,7 +396,7 @@ public class ListTest {
     }
 
     /**
-     * 使用stream,下次再测试
+     * 使用stream打印集合，其他stream使用建stream包
      */
     @Test
     public void testStream(){
@@ -395,9 +405,8 @@ public class ListTest {
         list.add("b");
         list.add("c");
         list.add("d");
-        Stream<String> stream = list.stream();
-        System.out.println(stream);
-        stream.forEach(System.out::println);
+        list.stream()
+                .forEach(System.out::println);
     }
 
 }
