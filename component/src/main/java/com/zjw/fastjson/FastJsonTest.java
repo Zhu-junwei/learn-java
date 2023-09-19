@@ -1,12 +1,15 @@
 package com.zjw.fastjson;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson2.JSONPath;
 import com.zjw.domain.Student;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author zjw
@@ -68,6 +71,22 @@ public class FastJsonTest {
                 .build();
         String jsonString = JSON.toJSONString(student, SerializerFeature.PrettyFormat);
         System.out.println(jsonString);
+    }
+
+    /**
+     * json数组 JSONArray
+     */
+    @Test
+    public void testJsonArray(){
+        Student student = Student.builder()
+                .age(18)
+                .name("test")
+                .createTime(new Date())
+                .build();
+        List<Student> studentList = new ArrayList<>();
+        studentList.add(student);
+        JSONArray jsonArray = new JSONArray(studentList);
+        System.out.println(jsonArray);
     }
 
 
