@@ -5,7 +5,6 @@ import com.zjw.domain.Student;
 import org.junit.Test;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 /**
  * 测试 ArrayList
@@ -31,9 +30,9 @@ public class ListTest {
      * 测试Collections.addAll方法向list中添加元素
      */
     @Test
-    public void testAddAll(){
+    public void testAddAll() {
         List<String> list = new ArrayList<>();
-        Collections.addAll(list,"a","b","c");
+        Collections.addAll(list, "a", "b", "c");
         System.out.println(list);
     }
 
@@ -391,7 +390,7 @@ public class ListTest {
         list.add(Student.builder().age(1).build());
         list.add(Student.builder().age(2).build());
         list.add(Student.builder().age(3).build());
-        list.forEach( student -> student.setAge(student.getAge() + 1));
+        list.forEach(student -> student.setAge(student.getAge() + 1));
         list.forEach(System.out::println);
     }
 
@@ -399,14 +398,54 @@ public class ListTest {
      * 使用stream打印集合，其他stream使用建stream包
      */
     @Test
-    public void testStream(){
+    public void testStream() {
         List<String> list = new ArrayList<>();
         list.add("a");
         list.add("b");
         list.add("c");
         list.add("d");
-        list.stream()
-                .forEach(System.out::println);
+        list.stream().forEach(System.out::println);
     }
+
+    /**
+     * 打乱数组
+     */
+    @Test
+    public void testShuffle() {
+        int size = 30;
+        Integer[] nums = new Integer[size];
+        // 生成数组 nums = { 1, 2, 3, ..., n }
+        for (int i = 0; i < size; i++) {
+            nums[i] = i + 1;
+        }
+        // 随机打乱数组元素
+        Collections.shuffle(Arrays.asList(nums));
+        // Integer[] -> int[]
+        int[] res = new int[size];
+        for (int i = 0; i < size; i++) {
+            res[i] = nums[i];
+        }
+        System.out.println(Arrays.toString(res));
+    }
+
+    @Test
+    public void testShuffle2() {
+        int size = 30;
+        Integer[] nums = new Integer[size];
+        // 生成数组 nums = { 1, 2, 3, ..., n }
+        for (int i = 0; i < size; i++) {
+            nums[i] = i + 1;
+        }
+        // 随机打乱数组元素
+        Collections.shuffle(Arrays.asList(nums));
+        // Integer[] -> int[]
+        int[] res = new int[size];
+        for (int i = 0; i < size; i++) {
+            res[i] = nums[i];
+        }
+        System.out.println(Arrays.toString(res));
+    }
+
+
 
 }

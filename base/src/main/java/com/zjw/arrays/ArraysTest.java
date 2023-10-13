@@ -100,6 +100,13 @@ public class ArraysTest {
         // 将数组装换为List集合
         List<Integer> list = Arrays.asList(numbers);
         System.out.println(list);
+
+        //基本数据类型
+        int[] nums = {1, 2, 3};
+        //由于不支持基本数据类型的数组，所以会把nums数组作为一个元素转为list，list的大小为1
+        List<Object> numsList = Arrays.asList(nums);
+        System.out.println(numsList.size());//1
+        System.out.println(numsList);//[[I@1888ff2c]
     }
 
 }
