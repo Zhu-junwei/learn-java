@@ -446,6 +446,18 @@ public class ListTest {
         System.out.println(Arrays.toString(res));
     }
 
-
+    /**
+     * list去重
+     *  利用ArrayList的构造方法可以传入LinkedHashSet，将list中的元素去重。
+     *  new ArrayList<>(new LinkedHashSet<>(list))
+     */
+    @Test
+    public void removeDuplicates() {
+        List<String> list = Arrays.asList(new String[]{"a", "b", "a"});
+        //去重
+        List<String> list2 = new ArrayList<>(new LinkedHashSet<>(list));
+        System.out.println(list); //[a, b, a]
+        System.out.println(list2);//[a, b]
+    }
 
 }
