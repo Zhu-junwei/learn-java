@@ -33,6 +33,7 @@
         <module>okhttp</module>
         <module>utils</module>
         <module>game</module>
+        <module>design-pattern</module>
     </modules>
 
     <!--版本定义-->
