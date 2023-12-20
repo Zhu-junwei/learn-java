@@ -13,6 +13,46 @@ import java.util.Date;
  */
 public class StringDemo {
 
+    /**
+     * 测试基本数据类型和String类互转
+     *
+     * 基本数据类型：byte、short、int、long、char、float、double、boolean
+     * 基本数据类型->String：利用String类提供的ValueOf（基本类型）方法转换
+     * 基本数据类型<-String:利用包装类的parseXXX（）方法；
+     */
+    @Test
+    public void toTypeConvert(){
+        //byte
+        byte by = 5 ;
+        String str_by = String.valueOf(by);
+        by = Byte.parseByte(str_by);
+
+        //int转String
+        int a = 100 ;
+        String str = String.valueOf(a);
+        a = Integer.parseInt(str);
+
+        //char型
+        char ch = 'a';
+        String str_ch = String.valueOf(ch);
+        ch = str_ch.charAt(0);//使用String类的charAt()方法
+
+        //boolean型
+        boolean boo = true ;
+        String str_boo = String.valueOf(boo);
+        boo = Boolean.parseBoolean(str_boo);
+
+        //float型
+        float flo = 10.2f;
+        String str_flo = String.valueOf(flo);
+        flo = Float.parseFloat(str_flo);
+
+        //double型
+        double dou = 10.1d ;
+        String str_dou = String.valueOf(dou);
+        dou = Double.parseDouble(str_dou);
+    }
+
     //split
     @Test
     public void testStringSplit(){
