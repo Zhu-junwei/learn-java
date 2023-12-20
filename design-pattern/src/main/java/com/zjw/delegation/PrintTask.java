@@ -15,6 +15,7 @@ public class PrintTask {
 
     private PrinterInterface printer;
 
+    // 负责打印任务
     public void executePrint(String message) {
         printer.print(message);
     }
