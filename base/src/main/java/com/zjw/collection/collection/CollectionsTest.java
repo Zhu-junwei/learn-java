@@ -1,4 +1,4 @@
-package com.zjw.collection.list;
+package com.zjw.collection.collection;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Collections工具类的使用
  */
-public class collectionsTest {
+public class CollectionsTest {
     public static void main(String[] args) {
  
         List<Integer> list = new ArrayList<>();

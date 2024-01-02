@@ -12,7 +12,7 @@ import java.util.*;
  * @author 朱俊伟
  * @date 2022/08/15
  */
-public class ListTest {
+public class ArrayListTest {
 
     /**
      * 测试添加元素add()
