@@ -9,11 +9,11 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>learn-java</name>
-    <url>https://gitee.com/orderme/learn-java</url>
+    <url>https://github.com/Zhu-junwei/learn-java</url>
     <description>这是一个学习java的项目</description>
     <issueManagement>
         <system>learn-java-issue</system>
-        <url>https://gitee.com/orderme/learn-java/issues</url>
+        <url>https://github.com/Zhu-junwei/learn-java/issues</url>
     </issueManagement>
 
     <developers>
@@ -21,7 +21,7 @@
             <id>orderme</id>
             <name>朱俊伟</name>
             <email>zhujwmail@163.com</email>
-            <url>https://gitee.com/orderme/</url>
+            <url>https://github.com/Zhu-junwei/</url>
             <timezone>+8</timezone>
         </developer>
     </developers>
