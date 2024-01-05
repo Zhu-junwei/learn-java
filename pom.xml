@@ -28,7 +28,6 @@
 
     <modules>
         <module>base</module>
-        <module>component</module>
         <module>domain</module>
         <module>okhttp</module>
         <module>utils</module>
