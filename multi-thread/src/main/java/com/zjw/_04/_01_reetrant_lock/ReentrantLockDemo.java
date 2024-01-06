@@ -18,7 +18,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * newCondition()：返回一个与该锁有关的条件对象，用于线程之间的通信。<p>
  * 公平模式<p>
  * @author 朱俊伟
- * @date 2023/04/16 18:32
+ * @since 2023/04/16 18:32
  */
 public class ReentrantLockDemo {
 

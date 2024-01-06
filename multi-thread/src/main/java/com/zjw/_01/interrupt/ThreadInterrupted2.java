@@ -4,7 +4,7 @@ package com.zjw._01.interrupt;
  * 让线程停下来
  *
  * @author 朱俊伟
- * @date 2023/02/19 23:33
+ * @since 2023/02/19 23:33
  */
 public class ThreadInterrupted2 extends Thread {
 

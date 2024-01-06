@@ -4,7 +4,7 @@ import java.util.function.IntConsumer;
 
 /**
  * @author 朱俊伟
- * @date 2022/03/31 23:36
+ * @since 2022/03/31 23:36
  */
 public class IntConsumerTest {
 

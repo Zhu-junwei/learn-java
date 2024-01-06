@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  * @author zjw
- * @date 2023/05/25 9:59
+ * @since 2023/05/25 9:59
  */
 public class RandomUtil {
 

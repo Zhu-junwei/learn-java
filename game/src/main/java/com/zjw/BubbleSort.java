@@ -6,7 +6,7 @@ import java.util.Random;
 /**
  * 冒泡排序
  * @author 朱俊伟
- * @date 2023/09/23 16:03
+ * @since 2023/09/23 16:03
  */
 public class BubbleSort {
     public static void main(String[] args) {

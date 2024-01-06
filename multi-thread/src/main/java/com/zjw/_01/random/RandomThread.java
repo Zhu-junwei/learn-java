@@ -5,7 +5,7 @@ package com.zjw._01.random;
  *
  * 多线程的随机输出的原因是CPU将时间片分给不同的线程，线程获得时间片后就执行任务，一个线程在一个时间片内没有执行完毕，CPU接着将时间片分配给其他的线程去执行，表现为多线程随机（交替）执行。
  * @author 朱俊伟
- * @date 2023/02/18 18:36
+ * @since 2023/02/18 18:36
  */
 public class RandomThread extends Thread{
 

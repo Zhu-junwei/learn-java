@@ -6,7 +6,7 @@ import lombok.Getter;
 /**
  * 静态内部类 通过遍历一遍数组获取最大值和最小值
  * @author 朱俊伟
- * @date 2022/04/02 2:24
+ * @since 2022/04/02 2:24
  */
 public class StaticInnerClassTest {
     public static void main(String[] args) {

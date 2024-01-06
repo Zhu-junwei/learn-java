@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * 使用内部类访问对象状态
  * @author 朱俊伟
- * @date 2022/04/02 0:00
+ * @since 2022/04/02 0:00
  */
 public class InnerClassTest {
     public static void main(String[] args) {

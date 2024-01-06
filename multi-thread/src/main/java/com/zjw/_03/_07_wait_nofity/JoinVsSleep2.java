@@ -4,7 +4,7 @@ package com.zjw._03._07_wait_nofity;
  * join 和 sleep 对比
  * 2. join()可以相互调用,实现线程同步,sleep()不能。
  * @author 朱俊伟
- * @date 2023/04/16 10:57
+ * @since 2023/04/16 10:57
  */
 public class JoinVsSleep2 {
     public static void main(String[] args) throws InterruptedException {

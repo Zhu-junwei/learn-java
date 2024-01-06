@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * 利用反射获取对象的属性信息 测试
  * @author 朱俊伟
- * @date 2022/03/30 0:06
+ * @since 2022/03/30 0:06
  */
 public class ObjectAnalyzerTest {
     public static void main(String[] args) {

@@ -5,7 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 
 /**
  * @author 朱俊伟
- * @date 2022/03/25 11:37
+ * @since 2022/03/25 11:37
  */
 public class ReflectionTest {
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {

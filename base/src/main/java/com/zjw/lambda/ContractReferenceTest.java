@@ -9,7 +9,7 @@ import java.util.stream.Stream;
  * lambda表达式 构造器引用
  * Java核心技术卷Ⅰ（第十版） page 237 还不是太理解，学完卷Ⅱ第一章再看吧
  * @author 朱俊伟
- * @date 2022/03/31 21:03
+ * @since 2022/03/31 21:03
  */
 public class ContractReferenceTest {
     public static void main(String[] args) {

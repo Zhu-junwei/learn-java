@@ -1,13 +1,13 @@
 package com.zjw._02._volatile;
 
 import lombok.Data;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * 单线程死循环，多线程解决死循环
  *
  * @author zjw
- * @date 2023/03/02 12:47
+ * @since 2023/03/02 12:47
  */
 @Data
 public class PrintString {

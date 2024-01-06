@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
  * lambda表达式 方法引用
  * 方法引用中使用this super
  * @author 朱俊伟
- * @date 2022/03/31 18:37
+ * @since 2022/03/31 18:37
  */
 public class LambdaTest3 {
     public static void main(String[] args) {

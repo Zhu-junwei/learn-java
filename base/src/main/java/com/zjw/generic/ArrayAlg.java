@@ -3,7 +3,7 @@ package com.zjw.generic;
 /**
  * 定义泛型方法
  * @author 朱俊伟
- * @date 2022/04/21 14:56
+ * @since 2022/04/21 14:56
  */
 public class ArrayAlg {
 

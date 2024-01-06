@@ -3,7 +3,7 @@ package com.zjw._02.locksupportextends;
 /**
  * 锁重入支持父子类继承的环境
  * @author 朱俊伟
- * @date 2023/02/25 16:17
+ * @since 2023/02/25 16:17
  */
 public class Main {
     public int i = 10;

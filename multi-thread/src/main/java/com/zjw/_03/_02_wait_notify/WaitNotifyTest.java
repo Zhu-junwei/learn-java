@@ -3,7 +3,7 @@ package com.zjw._03._02_wait_notify;
 /**
  * 完整实现wait/notify机制
  * @author 朱俊伟
- * @date 2023/03/12 19:46
+ * @since 2023/03/12 19:46
  */
 public class WaitNotifyTest {
     public static void main(String[] args) throws InterruptedException {

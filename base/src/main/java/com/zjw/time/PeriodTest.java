@@ -1,6 +1,6 @@
 package com.zjw.time;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -8,7 +8,7 @@ import java.time.Period;
 
 /**
  * @author zjw
- * @date 2023/06/30 17:40
+ * @since 2023/06/30 17:40
  */
 public class PeriodTest {
     @Test

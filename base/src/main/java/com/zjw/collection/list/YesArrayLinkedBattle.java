@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * 比较ArrayList和LinkedList的插入速度对比
  * 来源 https://mp.weixin.qq.com/s/KuJcWOlcCS2YfyKcBMePnw
  * @author 朱俊伟
- * @date 2021/12/22
+ * @since 2021/12/22
  */
 public class YesArrayLinkedBattle {
 

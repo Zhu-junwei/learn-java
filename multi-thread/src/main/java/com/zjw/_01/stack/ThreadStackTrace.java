@@ -8,7 +8,7 @@ import java.util.Set;
  * Thread.dumpStack() 将当前线程的堆栈跟踪信息输出至标准错误流
  * Thread.getAllStackTraces() 获取所有线程的堆栈信息映射
  * @author 朱俊伟
- * @date 2023/02/19 22:05
+ * @since 2023/02/19 22:05
  */
 public class ThreadStackTrace {
 

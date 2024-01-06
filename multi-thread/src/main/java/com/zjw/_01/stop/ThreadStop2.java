@@ -4,7 +4,7 @@ package com.zjw._01.stop;
  * stop方法会抛出java.lang.ThreadDeath异常，但是不能通过Exception捕获
  *
  * @author 朱俊伟
- * @date 2023/02/19 23:33
+ * @since 2023/02/19 23:33
  */
 public class ThreadStop2 extends Thread {
 

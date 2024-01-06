@@ -4,7 +4,7 @@ package com.zjw._02.hasself;
  * 方法中的变量不存在非线程安全问题，永远都是线程安全的，这是因为方法内部的变量具有私有特性。
  * 成员变量age是线程间共享的，存在非线程安全问题，解决的方法实在方法前加上synchronized关键字
  * @author zjw
- * @date 2023/02/23 13:23
+ * @since 2023/02/23 13:23
  */
 public class HasSelfPrivateArg {
 

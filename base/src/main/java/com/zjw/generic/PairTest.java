@@ -5,7 +5,7 @@ import java.time.LocalDate;
 /**
  * 泛型类和泛型方法使用
  * @author 朱俊伟
- * @date 2022/04/27 14:23
+ * @since 2022/04/27 14:23
  */
 public class PairTest {
     public static void main(String[] args) {

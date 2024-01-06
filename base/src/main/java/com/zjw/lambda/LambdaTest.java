@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * lambda表达式 比较器和监听器
  * @author 朱俊伟
- * @date 2022/03/31 18:37
+ * @since 2022/03/31 18:37
  */
 public class LambdaTest {
     public static void main(String[] args) {

@@ -10,7 +10,7 @@ import lombok.SneakyThrows;
  * 3. 子线程可以获取父线程设置的值。
  * 这样可以避免在子线程中重复设置相同的值,提高效率。
  * @author 朱俊伟
- * @date 2023/04/16 16:27
+ * @since 2023/04/16 16:27
  */
 public class InheritableThreadLocalExample {
     @SneakyThrows

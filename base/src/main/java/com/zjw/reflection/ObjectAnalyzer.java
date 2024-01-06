@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * 利用反射获取对象的属性信息 Java核心技术卷Ⅰ（第十版） page 200
  * @author 朱俊伟
- * @date 2022/03/29 23:17
+ * @since 2022/03/29 23:17
  */
 public class ObjectAnalyzer {
 

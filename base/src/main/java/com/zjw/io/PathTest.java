@@ -1,13 +1,13 @@
 package com.zjw.io;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
  * @author 朱俊伟
- * @date 2023/07/15 0:14
+ * @since 2023/07/15 0:14
  */
 public class PathTest {
 

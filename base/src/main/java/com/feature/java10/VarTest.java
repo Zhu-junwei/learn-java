@@ -8,7 +8,7 @@ import java.util.ArrayList;
  *  Java引入var类型推断关键字是在Java 10中。这个关键字使得声明局部变量时更加简洁，编译器会根据右侧的表达式自动推断变量的类型。
  *  这是Java的一项语言增强功能，有助于减少冗长的类型声明，提高了代码的可读性。
  * @author 朱俊伟
- * @date 2023/10/13 21:10
+ * @since 2023/10/13 21:10
  */
 public class VarTest {
     public static void main(String[] args) {

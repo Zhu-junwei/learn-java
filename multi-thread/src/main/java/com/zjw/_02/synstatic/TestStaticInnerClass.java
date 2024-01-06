@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * 静态内部类
  * @author 朱俊伟
- * @date 2023/03/02 0:05
+ * @since 2023/03/02 0:05
  */
 public class TestStaticInnerClass {
     public static void main(String[] args) {

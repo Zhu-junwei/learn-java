@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 /**
  * 基本日志
  * @author 朱俊伟
- * @date 2022/04/08 1:31
+ * @since 2022/04/08 1:31
  */
 public class LoggerTest {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 package com.zjw.stream.list;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import java.util.List;
  * 不可变List集合测试
  * 		不可以修改、添加、删除
  * @author 朱俊伟
- * @date 2023/07/23 9:34
+ * @since 2023/07/23 9:34
  */
 public class UnChangeListTest {
 

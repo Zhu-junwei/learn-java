@@ -3,7 +3,7 @@ package com.zjw._03._07_wait_nofity;
 /**
  * 用于测试DBTools类
  * @author 朱俊伟
- * @date 2023/04/15 23:55
+ * @since 2023/04/15 23:55
  */
 public class DBToolsTest {
     public static void main(String[] args) {

@@ -1,6 +1,7 @@
 package com.zjw.arrays;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.stream.Stream;
  * 数组扩容
  *
  * @author 朱俊伟
- * @date 2022/07/12
+ * @since 2022/07/12
  */
 public class ArraysTest {
 

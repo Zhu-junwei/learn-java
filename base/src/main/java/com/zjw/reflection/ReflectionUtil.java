@@ -9,7 +9,7 @@ import java.util.Scanner;
 /**
  * 打印一个类的全部信息。 Java核心技术卷Ⅰ（第十版） page 194
  * @author 朱俊伟
- * @date 2022/03/28 23:50
+ * @since 2022/03/28 23:50
  */
 public class ReflectionUtil {
     public static void main(String[] args) {

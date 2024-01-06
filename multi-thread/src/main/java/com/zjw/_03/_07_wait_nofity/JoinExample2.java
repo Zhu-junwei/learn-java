@@ -3,7 +3,7 @@ package com.zjw._03._07_wait_nofity;
 /**
  * 2. 多个子线程相互等待。多个线程可以调用对方的join()方法,实现线程间的同步等待。
  * @author 朱俊伟
- * @date 2023/04/16 0:18
+ * @since 2023/04/16 0:18
  */
 public class JoinExample2 {
     public static void main(String[] args) throws InterruptedException {

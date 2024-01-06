@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * java 接口回调 定时器实现 Java核心技术卷Ⅰ（第十版） page 223
  * @author 朱俊伟
- * @date 2022/03/31 0:29
+ * @since 2022/03/31 0:29
  */
 public class TimerTest {
     public static void main(String[] args) {

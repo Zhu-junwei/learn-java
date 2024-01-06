@@ -1,7 +1,7 @@
 package com.zjw.stream;
 
 import com.zjw.domain.Student;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 /**
  * 最佳实践
  * @author 朱俊伟
- * @date 2023/08/13 23:39
+ * @since 2023/08/13 23:39
  */
 public class StreamPracticeTest {
 

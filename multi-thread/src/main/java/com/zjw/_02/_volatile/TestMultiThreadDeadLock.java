@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * 多线程造成死锁及解决方法
  * @author zjw
- * @date 2023/03/02 13:20
+ * @since 2023/03/02 13:20
  */
 public class TestMultiThreadDeadLock {
 

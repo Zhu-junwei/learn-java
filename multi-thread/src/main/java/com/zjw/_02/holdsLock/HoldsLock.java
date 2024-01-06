@@ -2,7 +2,7 @@ package com.zjw._02.holdsLock;
 
 /**
  * @author 朱俊伟
- * @date 2023/02/25 16:55
+ * @since 2023/02/25 16:55
  */
 public class HoldsLock {
     public static void main(String[] args) {

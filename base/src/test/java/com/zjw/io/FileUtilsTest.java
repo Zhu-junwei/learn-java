@@ -1,14 +1,14 @@
 package com.zjw.io;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author 朱俊伟
- * @date 2023/06/25 11:22
+ * @since 2023/06/25 11:22
  */
-public class FileUtilsTest extends TestCase {
+public class FileUtilsTest{
 
-
+    @Test
     public void testGetFileMD5() {
         String md5 = FileUtils.getFileMD5("D:\\test.txt");
         System.out.println(md5);

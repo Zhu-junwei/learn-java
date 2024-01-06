@@ -1,11 +1,11 @@
 package com.zjw.number;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author zjw
- * @date 2023/07/03 10:54
+ * @since 2023/07/03 10:54
  */
 public class LongTest {
 

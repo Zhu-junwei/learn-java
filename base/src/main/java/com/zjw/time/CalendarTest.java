@@ -1,13 +1,13 @@
 package com.zjw.time;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Calendar;
 import java.util.Date;
 
 /**
  * @author zjw
- * @date 2023/05/19 14:15
+ * @since 2023/05/19 14:15
  */
 public class CalendarTest {
 

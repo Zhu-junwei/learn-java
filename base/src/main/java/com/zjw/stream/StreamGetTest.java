@@ -1,7 +1,7 @@
 package com.zjw.stream;
 
 import com.zjw.domain.Student;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -12,7 +12,7 @@ import java.util.stream.Stream;
  * 测试获取Stream流
  *
  * @author 朱俊伟
- * @date 2023/07/24 0:02
+ * @since 2023/07/24 0:02
  */
 public class StreamGetTest {
 

@@ -1,13 +1,13 @@
 package com.zjw.collection.map;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * @author 朱俊伟
- * @date 2022/04/13 23:53
+ * @since 2022/04/13 23:53
  */
 public class HashMapTest {
     public static void main(String[] args) {

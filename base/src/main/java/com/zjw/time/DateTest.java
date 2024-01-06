@@ -9,7 +9,7 @@ import java.util.TimeZone;
 
 /**
  * @author 朱俊伟
- * @date 2021/03/25
+ * @since 2021/03/25
  */
 public class DateTest {
     public static void main(String[] args) {
@@ -49,7 +49,7 @@ public class DateTest {
     public static String stampToDate(String s){
         String res;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        long lt = new Long(s);
+        long lt = Long.parseLong(s);
         Date date = new Date(lt);
         res = simpleDateFormat.format(date);
         return res;

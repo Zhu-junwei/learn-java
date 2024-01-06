@@ -1,6 +1,6 @@
 package com.zjw.time;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,7 +8,7 @@ import java.util.Date;
 
 /**
  * @author 朱俊伟
- * @date 2021/11/05
+ * @since 2021/11/05
  */
 public class TimeTest {
     public static void main(String[] args) throws InterruptedException {

@@ -3,7 +3,7 @@ package com.zjw._01.alive;
 /**
  * 使用isAlive方法判断线程是否存活
  * @author 朱俊伟
- * @date 2023/02/19 10:37
+ * @since 2023/02/19 10:37
  */
 public class ThreadIsAlive extends Thread {
 

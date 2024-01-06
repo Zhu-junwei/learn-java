@@ -1,6 +1,6 @@
 package com.zjw.collection.set;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashSet;
 import java.util.Set;

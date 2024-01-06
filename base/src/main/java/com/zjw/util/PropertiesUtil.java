@@ -8,7 +8,7 @@ import java.util.Properties;
 
 /**
  * @author 朱俊伟
- * @date 2022/07/14
+ * @since 2022/07/14
  */
 public class PropertiesUtil {
 

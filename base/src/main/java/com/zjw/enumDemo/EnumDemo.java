@@ -1,12 +1,12 @@
 package com.zjw.enumDemo;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
 /**
  * @author 朱俊伟
- * @date 2022/01/06
+ * @since 2022/01/06
  */
 public class EnumDemo {
     public static void main(String[] args) {

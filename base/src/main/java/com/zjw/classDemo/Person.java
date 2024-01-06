@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * 人类
  * @author 朱俊伟
- * @date 2021/12/28
+ * @since 2021/12/28
  */
 @Data
 public class Person {

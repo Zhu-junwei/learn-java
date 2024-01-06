@@ -1,12 +1,10 @@
 package com.zjw.util;
 
-import org.junit.Test;
-
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author 朱俊伟
- * @date 2023/07/14 23:36
+ * @since 2023/07/14 23:36
  */
 public class RandomUtilTest {
 

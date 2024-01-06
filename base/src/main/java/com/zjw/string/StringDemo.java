@@ -1,6 +1,6 @@
 package com.zjw.string;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * @author 朱俊伟
- * @date 2021/11/16
+ * @since 2021/11/16
  */
 public class StringDemo {
 

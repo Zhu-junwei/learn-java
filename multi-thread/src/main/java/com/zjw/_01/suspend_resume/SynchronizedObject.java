@@ -3,7 +3,7 @@ package com.zjw._01.suspend_resume;
 /**
  * suspend造成公共同步对象被占用
  * @author 朱俊伟
- * @date 2023/02/21 22:31
+ * @since 2023/02/21 22:31
  */
 public class SynchronizedObject {
 

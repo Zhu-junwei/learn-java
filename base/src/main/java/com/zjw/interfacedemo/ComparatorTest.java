@@ -7,7 +7,7 @@ import java.util.Comparator;
  * Comparator接口
  * Arrays.sort排序时使用自定义比较器
  * @author 朱俊伟
- * @date 2022/03/31 1:02
+ * @since 2022/03/31 1:02
  */
 public class ComparatorTest {
     public static void main(String[] args) {

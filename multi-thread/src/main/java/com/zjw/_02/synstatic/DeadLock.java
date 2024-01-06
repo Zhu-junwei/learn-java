@@ -12,7 +12,7 @@ package com.zjw._02.synstatic;
  * 　　这四个条件是死锁的必要条件，只要系统发生死锁，这些条件必然成立，而只要上述条件之一不满足，就不会发生死锁。
  *
  * @author 朱俊伟
- * @date 2023/03/01 23:22
+ * @since 2023/03/01 23:22
  */
 public class DeadLock {
     public static void main(String[] args) {

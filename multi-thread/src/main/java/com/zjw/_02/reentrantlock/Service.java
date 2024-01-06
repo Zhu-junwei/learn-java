@@ -4,7 +4,7 @@ package com.zjw._02.reentrantlock;
  * 可重入锁
  * 某个线程已经获得某个锁，可以再次获取锁而不会出现死锁
  * @author 朱俊伟
- * @date 2023/02/25 13:59
+ * @since 2023/02/25 13:59
  */
 public class Service {
     synchronized public void method1(){

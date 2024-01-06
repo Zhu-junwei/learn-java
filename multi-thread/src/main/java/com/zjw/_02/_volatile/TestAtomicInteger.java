@@ -2,7 +2,7 @@ package com.zjw._02._volatile;
 
 /**
  * @author 朱俊伟
- * @date 2023/03/03 0:06
+ * @since 2023/03/03 0:06
  */
 public class TestAtomicInteger {
     public static void main(String[] args) {

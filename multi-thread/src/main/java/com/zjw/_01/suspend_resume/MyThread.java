@@ -4,7 +4,7 @@ package com.zjw._01.suspend_resume;
  * suspend和resume方法可以实现线程的暂停和恢复
  * 但是容易造成锁不释放和数据不完整，可以使用wait() notify() notifyAll()方法
  * @author 朱俊伟
- * @date 2023/02/21 21:59
+ * @since 2023/02/21 21:59
  */
 public class MyThread extends Thread {
 

@@ -14,7 +14,7 @@ package com.zjw._03._07_wait_nofity;
  * - void remove():移除当前线程的变量副本值。
  *
  * @author 朱俊伟
- * @date 2023/04/16 16:11
+ * @since 2023/04/16 16:11
  */
 public class ThreadLocalExample {
     public static void main(String[] args) {

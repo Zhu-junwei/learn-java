@@ -11,7 +11,7 @@ import java.util.Collections;
  *
  * 接口的使用 实现Comparable接口
  * @author 朱俊伟
- * @date 2022/03/30 15:17
+ * @since 2022/03/30 15:17
  */
 public class EmployeeSortTest {
     public static void main(String[] args) {

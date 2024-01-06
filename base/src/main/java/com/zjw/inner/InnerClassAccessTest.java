@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * 由外部方法访问变量
  * @author 朱俊伟
- * @date 2022/04/02 1:37
+ * @since 2022/04/02 1:37
  */
 public class InnerClassAccessTest {
     public static void main(String[] args) {

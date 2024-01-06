@@ -1,13 +1,13 @@
 package com.zjw._03._03_wait_notifyAll;
 
 import lombok.SneakyThrows;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * notifyAll通知所有wait线程
  * @author 朱俊伟
- * @date 2023/03/18 19:27
+ * @since 2023/03/18 19:27
  */
 public class WaitNotifyAllTest {
 
@@ -24,7 +24,7 @@ public class WaitNotifyAllTest {
      * 初始化10个等待线程
      */
     @SneakyThrows
-    @Before
+    @BeforeEach
     public void initWaitThread(){
         for (int i = 0; i < waitThreadNum; i++) {
             WaitThread waitThread = new WaitThread(object);

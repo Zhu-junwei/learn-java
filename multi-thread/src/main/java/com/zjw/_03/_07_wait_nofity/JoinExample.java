@@ -6,7 +6,7 @@ package com.zjw._03._07_wait_nofity;
  * 1. 主线程等待子线程结束。主线程可以调用子线程的join()方法,等待子线程运行结束之后再继续运行。
  *
  * @author 朱俊伟
- * @date 2023/04/16 0:15
+ * @since 2023/04/16 0:15
  */
 public class JoinExample {
     public static void main(String[] args) throws InterruptedException {

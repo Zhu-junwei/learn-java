@@ -1,13 +1,13 @@
 package com.zjw.collection.set;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * @author zjw
- * @date 2023/07/07 15:46
+ * @since 2023/07/07 15:46
  */
 public class SetTest {
 

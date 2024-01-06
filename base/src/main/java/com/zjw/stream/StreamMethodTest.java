@@ -1,7 +1,7 @@
 package com.zjw.stream;
 
 import com.zjw.domain.Student;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -11,7 +11,7 @@ import java.util.stream.Stream;
  * 测试Stream中的常见方法
  *  filter limit skip distinct concat map
  * @author 朱俊伟
- * @date 2023/07/23 23:20
+ * @since 2023/07/23 23:20
  */
 public class StreamMethodTest {
 

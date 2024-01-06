@@ -9,7 +9,7 @@ import java.util.UUID;
  *  UUID 含义是通用唯一识别码 (Universally Unique Identifier)，这是一个软件建构的标准。
  *  UUID是由128位的二进制数据组成，通常使用32位的十六进制数据表示，并使用连字符连接。其表示格式为8-4-4-4-12。
  * @author 朱俊伟
- * @date 2022/05/18 9:13
+ * @since 2022/05/18 9:13
  */
 public class UUIDTest {
     public static void main(String[] args) {

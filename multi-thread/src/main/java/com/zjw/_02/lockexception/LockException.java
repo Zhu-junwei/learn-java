@@ -2,7 +2,7 @@ package com.zjw._02.lockexception;
 
 /**
  * @author 朱俊伟
- * @date 2023/02/25 16:29
+ * @since 2023/02/25 16:29
  */
 public class LockException {
 

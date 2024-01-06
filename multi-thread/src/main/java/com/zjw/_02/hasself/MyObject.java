@@ -2,7 +2,7 @@ package com.zjw._02.hasself;
 
 /**
  * @author 朱俊伟
- * @date 2023/02/25 0:20
+ * @since 2023/02/25 0:20
  */
 public class MyObject {
     //同步方法，同一个对象访问此方法时同步执行

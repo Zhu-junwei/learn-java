@@ -1,12 +1,12 @@
 package com.zjw.assertDemo;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * 使用断言测试时需要开启断言
  *  开启 -enableassertions 或 -ea
  * @author 朱俊伟
- * @date 2022/04/08 1:03
+ * @since 2022/04/08 1:03
  */
 public class AssertTest {
 

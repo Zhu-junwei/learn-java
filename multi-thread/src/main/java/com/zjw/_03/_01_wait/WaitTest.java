@@ -3,7 +3,7 @@ package com.zjw._03._01_wait;
 /**
  * wait() 使当前线程暂停运行，并释放锁
  * @author 朱俊伟
- * @date 2023/03/12 18:50
+ * @since 2023/03/12 18:50
  */
 public class WaitTest {
     public static void main(String[] args) throws InterruptedException {

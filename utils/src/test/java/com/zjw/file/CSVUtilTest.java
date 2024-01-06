@@ -1,7 +1,7 @@
 package com.zjw.file;
 
 import lombok.SneakyThrows;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * 测试CSV文件处理工具类
  * @author zjw
- * @date 2023/03/21 16:27
+ * @since 2023/03/21 16:27
  */
 public class CSVUtilTest {
 

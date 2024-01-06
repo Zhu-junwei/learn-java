@@ -3,7 +3,7 @@ package com.zjw._03._07_wait_nofity;
 /**
  * 数据库备份工具类
  * @author 朱俊伟
- * @date 2023/04/15 23:46
+ * @since 2023/04/15 23:46
  */
 public class DBTools {
     // 用于标记当前执行的是A还是B备份方法

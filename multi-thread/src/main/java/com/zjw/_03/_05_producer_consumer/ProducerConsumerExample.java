@@ -9,7 +9,7 @@ import java.util.Random;
 /**
  *
  * @author 朱俊伟,ChatGPT
- * @date 2023/03/18 23:55
+ * @since 2023/03/18 23:55
  */
 public class ProducerConsumerExample {
 

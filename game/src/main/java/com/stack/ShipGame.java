@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * 输入船只的坐标
  * @author 朱俊伟
- * @date 2023/10/10 22:32
+ * @since 2023/10/10 22:32
  */
 public class ShipGame {
     public static void main(String[] args) {

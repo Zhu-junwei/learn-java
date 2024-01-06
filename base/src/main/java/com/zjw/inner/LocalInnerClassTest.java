@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * 局部内部类 在一个方法中声明内部类
  * @author 朱俊伟
- * @date 2022/04/02 1:09
+ * @since 2022/04/02 1:09
  */
 public class LocalInnerClassTest {
     public static void main(String[] args) {

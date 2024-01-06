@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 /**
  * @author 朱俊伟
- * @date 2022/04/05 16:13
+ * @since 2022/04/05 16:13
  */
 public class ExceptionTest {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 package com.zjw.stream.set;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
@@ -8,7 +8,7 @@ import java.util.Set;
  * 不可变Set集合测试
  * 		不可以修改、添加、删除
  * @author 朱俊伟
- * @date 2023/07/23 22:37
+ * @since 2023/07/23 22:37
  */
 public class UnChangeSetTest {
 

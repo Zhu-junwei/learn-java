@@ -3,7 +3,7 @@ import java.lang.reflect.Field;
 /**
  * 这是一个演示如何通过反射获取类及其父类中声明的所有字段的示例代码
  * @author 朱俊伟
- * @date 2021/12/28
+ * @since 2021/12/28
  */
 public class ClassDemo {
     public static void main(String[] args) {

@@ -6,7 +6,7 @@ package com.zjw._03._07_wait_nofity;
  * 1. join(long)会等待被调用的线程结束,或者超过指定的毫秒数,以先达到的条件为准。sleep(long)只是简单地使当前线程睡眠指定毫秒数。
  *
  * @author 朱俊伟
- * @date 2023/04/16 10:55
+ * @since 2023/04/16 10:55
  */
 public class JoinVsSleep {
     public static void main(String[] args) throws InterruptedException {

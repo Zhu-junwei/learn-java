@@ -3,7 +3,7 @@ package com.zjw._02._volatile;
 /**
  * 测试Synchronized代码块具有增加可见性的作用。
  * @author 朱俊伟
- * @date 2023/03/02 23:19
+ * @since 2023/03/02 23:19
  */
 public class TestSyncCodeBlock {
     public static void main(String[] args) throws InterruptedException {

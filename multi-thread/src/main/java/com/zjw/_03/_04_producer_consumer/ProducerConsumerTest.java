@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 测试生产者消费者
  * @author 朱俊伟
- * @date 2023/03/18 21:36
+ * @since 2023/03/18 21:36
  */
 public class ProducerConsumerTest {
 

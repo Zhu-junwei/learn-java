@@ -14,7 +14,7 @@ import java.util.List;
  *       a_n^n + a_n-1^n + ... + a_1^n = 原数
  *       则这个数就是一个 n 位的水仙花数。
  * @author 朱俊伟
- * @date 2023/10/06 8:56
+ * @since 2023/10/06 8:56
  */
 public class NarcissisticNumber {
 

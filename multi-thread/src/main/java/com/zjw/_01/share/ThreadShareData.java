@@ -4,7 +4,7 @@ package com.zjw._01.share;
  * 线程间不共享数据
  *
  * @author 朱俊伟
- * @date 2023/02/18 23:34
+ * @since 2023/02/18 23:34
  */
 public class ThreadShareData extends Thread {
 

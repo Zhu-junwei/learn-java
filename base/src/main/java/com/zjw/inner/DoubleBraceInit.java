@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 双括号初始化
  * @author 朱俊伟
- * @date 2022/04/02 2:04
+ * @since 2022/04/02 2:04
  */
 public class DoubleBraceInit {
     public static void main(String[] args) {

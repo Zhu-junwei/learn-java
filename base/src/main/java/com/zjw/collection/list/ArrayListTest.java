@@ -2,7 +2,7 @@ package com.zjw.collection.list;
 
 
 import com.zjw.domain.Student;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
@@ -10,7 +10,7 @@ import java.util.*;
  * 测试 ArrayList
  *
  * @author 朱俊伟
- * @date 2022/08/15
+ * @since 2022/08/15
  */
 public class ArrayListTest {
 

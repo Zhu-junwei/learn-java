@@ -1,12 +1,12 @@
 package com.zjw.arrays;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
 /**
  * @author zjw
- * @date 2023/07/26 13:38
+ * @since 2023/07/26 13:38
  */
 public class StringArrayTest {
 

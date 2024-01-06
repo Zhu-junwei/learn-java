@@ -5,7 +5,7 @@ package com.zjw._01.interrupt;
  *  说明：停止一个线程可以使用Thread.stop()方法，但不推荐使用此方法，这个方法是不安全的，而且是被弃用的。
  * isInterrupted方法判断线程是否已停止
  * @author 朱俊伟
- * @date 2023/02/19 23:33
+ * @since 2023/02/19 23:33
  */
 public class ThreadInterrupted extends Thread {
 

@@ -1,14 +1,14 @@
 package com.zjw.regex;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * @author 朱俊伟
- * @date 2021/11/16
+ * @since 2021/11/16
  */
 public class RegexExample2 {
 

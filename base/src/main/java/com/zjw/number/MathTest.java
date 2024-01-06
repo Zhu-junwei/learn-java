@@ -1,10 +1,10 @@
 package com.zjw.number;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author zjw
- * @date 2023/05/05 15:45
+ * @since 2023/05/05 15:45
  */
 public class MathTest {
 

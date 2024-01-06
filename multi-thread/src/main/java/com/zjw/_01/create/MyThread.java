@@ -9,7 +9,7 @@ package com.zjw._01.create;
  * <p>
  * 本例通过方法一实现多线程
  * @author 朱俊伟
- * @date  2023/02/18 15:52
+ * @since  2023/02/18 15:52
  */
 public class MyThread extends Thread{
 

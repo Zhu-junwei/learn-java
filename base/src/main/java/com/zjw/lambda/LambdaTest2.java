@@ -7,7 +7,7 @@ import java.util.Objects;
  * lambda表达式 ArrayList removeIf方法
  * 删除数组所有null值
  * @author 朱俊伟
- * @date 2022/03/31 18:37
+ * @since 2022/03/31 18:37
  */
 public class LambdaTest2 {
     public static void main(String[] args) {

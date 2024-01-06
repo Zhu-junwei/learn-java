@@ -4,7 +4,7 @@ package com.zjw._01.stop;
  * stop方法强行终止线程，是不被采用的方法，原因是stop方法容易造成业务处理的不确定性
  *
  * @author 朱俊伟
- * @date 2023/02/19 23:33
+ * @since 2023/02/19 23:33
  */
 public class ThreadStop extends Thread {
 

@@ -3,7 +3,7 @@ package com.zjw._01.yield;
 /**
  * yield方法的作用是放弃当前CPU资源，让其他任务去占用，放弃的时间不确定，有可能刚刚放弃，马上又获取CPU时间片
  * @author 朱俊伟
- * @date 2023/02/21 22:53
+ * @since 2023/02/21 22:53
  */
 public class MyThread extends Thread {
     boolean yield;

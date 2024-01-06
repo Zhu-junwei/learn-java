@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  * Level.ALL 开启所有级别的记录 Level.OFF 关闭所有级别的记录<p>
  *
  * @author 朱俊伟
- * @date 2022/04/08 1:31
+ * @since 2022/04/08 1:31
  */
 public class SeniorLog {
     //调用 getLogger 方法创建或获取记录器

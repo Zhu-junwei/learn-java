@@ -5,7 +5,7 @@ package com.zjw._03._07_wait_nofity;
  * join(long millis)方法与join()方法类似,但是会有等待时间的限制。调用该方法的线程会一直等待被调用线程运行结束,或者等待指定的毫秒数,以先达到的条件为准。
  *
  * @author 朱俊伟
- * @date 2023/04/16 10:44
+ * @since 2023/04/16 10:44
  */
 public class JoinExample3 {
     public static void main(String[] args) throws InterruptedException {

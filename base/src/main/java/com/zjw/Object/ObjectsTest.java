@@ -1,12 +1,12 @@
 package com.zjw.Object;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
 
 /**
  * @author 朱俊伟
- * @date 2022/05/24 12:30
+ * @since 2022/05/24 12:30
  */
 public class ObjectsTest {
 

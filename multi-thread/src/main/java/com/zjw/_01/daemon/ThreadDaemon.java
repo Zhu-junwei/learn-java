@@ -4,7 +4,7 @@ package com.zjw._01.daemon;
  * 守护线程
  *
  * @author 朱俊伟
- * @date 2023/02/21 23:31
+ * @since 2023/02/21 23:31
  */
 public class ThreadDaemon extends Thread {
 

@@ -4,7 +4,7 @@ package com.zjw;
  * 斐波那契数列
  *
  * @author 朱俊伟
- * @date 2023/09/23 15:27
+ * @since 2023/09/23 15:27
  */
 public class FibonacciSequence {
 

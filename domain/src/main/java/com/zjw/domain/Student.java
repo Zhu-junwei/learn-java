@@ -1,6 +1,5 @@
 package com.zjw.domain;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Builder;
 import lombok.Data;
 
@@ -14,7 +13,6 @@ public class Student {
 
     private Integer age;
 
-    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
 }

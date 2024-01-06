@@ -10,7 +10,7 @@ import java.io.*;
  * 管道流测试类，使用管道流实现字符流通信
  * 使用PipedWriter与PipedReader连接，向管道流中写入数据，然后从管道流中读取数据
  * @author 朱俊伟
- * @date 2023/03/19 22:27
+ * @since 2023/03/19 22:27
  */
 public class CharStreamTest {
 

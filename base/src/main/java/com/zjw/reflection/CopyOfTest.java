@@ -6,7 +6,7 @@ import java.util.Arrays;
 /**
  * 利用反射进行数组扩容 Java核心技术卷Ⅰ（第十版） page 204
  * @author 朱俊伟
- * @date 2022/03/30 0:27
+ * @since 2022/03/30 0:27
  */
 public class CopyOfTest {
     public static void main(String[] args) {

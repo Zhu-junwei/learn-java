@@ -1,6 +1,6 @@
 package com.zjw._01.create;
 
-import org.junit.Test;
+
 
 /**
  * 线程的简单使用 2。
@@ -11,7 +11,7 @@ import org.junit.Test;
  * <p>
  * 本例通过方法二实现多线程
  * @author 朱俊伟
- * @date 2023/02/18 19:17
+ * @since 2023/02/18 19:17
  */
 public class MyThread2 implements Runnable{
 
@@ -25,8 +25,7 @@ public class MyThread2 implements Runnable{
      * 运行实现Runnable接口的多线程类
      * 将实现类交给一个线程去执行
      */
-    @Test
-    public void testMyThread2(){
+    public static void main(String[] args) {
         Runnable runnable = new MyThread2();
         Thread thread = new Thread(runnable);
         thread.start();

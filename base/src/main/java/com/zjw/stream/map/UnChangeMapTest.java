@@ -1,6 +1,7 @@
 package com.zjw.stream.map;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +11,7 @@ import java.util.Set;
  *不可变Map集合测试
  *		不可以修改、添加、删除
  * @author 朱俊伟
- * @date 2023/07/23 22:42
+ * @since 2023/07/23 22:42
  */
 public class UnChangeMapTest {
 

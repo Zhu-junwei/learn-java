@@ -8,7 +8,7 @@ import java.util.Random;
  * setPriority方法设置线程的优先级 1~10 ，1最低，10最高
  *
  * @author 朱俊伟
- * @date 2023/02/21 23:17
+ * @since 2023/02/21 23:17
  */
 @Getter
 public class MyThread extends Thread {

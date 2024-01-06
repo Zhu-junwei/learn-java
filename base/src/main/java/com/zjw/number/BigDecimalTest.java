@@ -1,6 +1,6 @@
 package com.zjw.number;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -8,7 +8,7 @@ import java.math.RoundingMode;
 /**
  * 测试BigDecimal的使用
  * @author 朱俊伟
- * @date 2021/12/23
+ * @since 2021/12/23
  */
 public class BigDecimalTest {
 

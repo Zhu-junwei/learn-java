@@ -3,7 +3,7 @@ package com.zjw._01.name;
 /**
  * 获取线程的名字
  * @author 朱俊伟
- * @date 2023/02/19 10:37
+ * @since 2023/02/19 10:37
  */
 public class ThreadName extends Thread {
 

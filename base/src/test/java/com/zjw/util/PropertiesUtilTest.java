@@ -1,14 +1,12 @@
 package com.zjw.util;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
-import static org.junit.Assert.*;
-
 /**
  * @author 朱俊伟
- * @date 2023/07/14 23:21
+ * @since 2023/07/14 23:21
  */
 public class PropertiesUtilTest {
 

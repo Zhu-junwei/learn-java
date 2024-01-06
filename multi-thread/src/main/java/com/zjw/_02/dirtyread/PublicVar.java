@@ -3,7 +3,7 @@ package com.zjw._02.dirtyread;
 /**
  * 脏读问题及解决办法
  * @author 朱俊伟
- * @date 2023/02/25 0:42
+ * @since 2023/02/25 0:42
  */
 public class PublicVar {
     public String username = "A";

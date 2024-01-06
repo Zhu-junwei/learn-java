@@ -2,7 +2,7 @@ package com.zjw.enumDemo;
 
 /**
  * @author 朱俊伟
- * @date 2022/01/06
+ * @since 2022/01/06
  */
 public enum ColorEnum {
 
