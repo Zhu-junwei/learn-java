@@ -28,11 +28,8 @@
 
     <modules>
         <module>base</module>
-        <module>component/json/fastjson</module>
-        <module>component/json/gson</module>
-        <module>component/json/jackson</module>
-        <module>component/net/commons-net</module>
-        <module>component/net/okhttp</module>
+        <module>component/json</module>
+        <module>component/net</module>
         <module>design-pattern</module>
         <module>domain</module>
         <module>game</module>
