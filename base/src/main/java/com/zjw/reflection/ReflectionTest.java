@@ -1,14 +1,13 @@
 package com.zjw.reflection;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 
 /**
  * @author 朱俊伟
  * @since 2022/03/25 11:37
  */
 public class ReflectionTest {
-    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) throws Exception {
 
         Class<? extends ReflectionTest> aClass2 = ReflectionTest.class;
         System.out.println(aClass2.getName());
