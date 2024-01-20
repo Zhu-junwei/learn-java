@@ -4,12 +4,12 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 /**
- * DNSClient，调用的是java的API
+ * get IP Address，调用的是java的API
  *
  * @author 朱俊伟
  * @since 2024/01/20 1:30
  */
-public class DNSClient {
+public class IPClient {
     public static void main(String[] args) throws UnknownHostException {
         // 本机地址
         System.out.println("InetAddress.getLocalHost() = " + InetAddress.getLocalHost());
