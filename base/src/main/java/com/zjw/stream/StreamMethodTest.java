@@ -3,13 +3,20 @@ package com.zjw.stream;
 import com.zjw.domain.Student;
 import org.junit.jupiter.api.Test;
 
+import java.text.Collator;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
  * 测试Stream中的常见方法
- *  filter limit skip distinct concat map
+ *  filter limit skip distinct concat map sorted peek takeWhile dropWhile
+ * <p>
+ *  mapToInt mapToLong mapToDouble
+ *  flatMap flatMapToInt flatMapToLong flatMapToDouble
+ *  mapMulti mapMultiToInt mapMultiToLong mapMultiToDouble
+ *  parallel unordered onClose sequential
+ *
  * @author 朱俊伟
  * @since 2023/07/23 23:20
  */
@@ -94,6 +101,38 @@ public class StreamMethodTest {
     }
 
     /**
+     * sorted排序
+     */
+    @Test
+    public void sortedTest() {
+        List<String> list = new ArrayList<>();
+        Collections.addAll(list, "张无忌", "周芷若", "周芷若", "李芷若", "赵敏", "王强", "张三丰");
+        //sorted排序
+        list.stream()
+                .distinct()
+                // 按照拼音排序
+                .sorted((n1, n2) -> Collator.getInstance(Locale.CHINA).compare(n1, n2))
+                .forEach(System.out::println);
+    }
+
+    /**
+     * peek查看管道中流过的元素
+     */
+    @Test
+    public void peekTest() {
+        List<String> list = new ArrayList<>();
+        Collections.addAll(list, "张无忌", "周芷若", "周芷若", "李芷若", "赵敏", "王强", "张三丰");
+        //sorted排序
+        List<String> sortedList = list.stream()
+                // 查看管道中流过的元素
+                .peek(System.out::println)
+                .distinct()
+                .sorted((n1, n2) -> Collator.getInstance(Locale.CHINA).compare(n1, n2))
+                .toList();
+        System.out.println(sortedList);
+    }
+
+    /**
      * concat合并流
      */
     @Test
@@ -127,6 +166,25 @@ public class StreamMethodTest {
     }
 
     /**
+     * flatMap 拆分为一对多
+     */
+    @Test
+    public void flatMapTest() {
+
+        String[] names = {"张无忌", "周芷若", "张强"};
+        List<Student> studentList = Stream.of(names)
+                .map(name -> Student.builder()
+                        .age(18)
+                        .name(name)
+                        .build())
+                .toList();
+        //将名字拆分为姓和名
+        studentList.stream()
+                .flatMap(student -> Stream.of(student.getName().substring(0, 1), student.getName().substring(1)))
+                .forEach(System.out::println);
+    }
+
+    /**
      * stream forEach方法遍历
      */
     @Test
@@ -155,6 +213,26 @@ public class StreamMethodTest {
         studentList.add(Student.builder().age(18).name("张强").build());
         //count方法计数
         long count = studentList.stream().count();
+        System.out.println(count);
+        System.out.println(studentList.size());
+    }
+
+    /**
+     * 并发流
+     */
+    @Test
+    public void parallelTest() {
+        List<Student> studentList = new ArrayList<>();
+        studentList.add(Student.builder().age(18).name("张无忌").build());
+        studentList.add(Student.builder().age(18).name("周芷若").build());
+        studentList.add(Student.builder().age(18).name("张强").build());
+        //count方法计数
+        long count = studentList.stream()
+                .parallel() // 并发流
+                .filter(student -> {
+                    System.out.println("student = " + student + Thread.currentThread());
+                    return student.getAge() > 10;
+                }).count();
         System.out.println(count);
         System.out.println(studentList.size());
     }

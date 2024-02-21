@@ -18,9 +18,11 @@ public class LambdaTest {
         Arrays.sort(planets);
         System.out.println(Arrays.toString(planets));
         System.out.println("Sorted by length:");
+        // 比较器
         Arrays.sort(planets, (first, second) -> first.length() - second.length());
         System.out.println(Arrays.toString(planets));
 
+        // 监听器
         Timer t = new Timer(1000,event -> System.out.println("The time is " + new Date()));
         t.start();
 
