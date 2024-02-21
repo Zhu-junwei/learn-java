@@ -35,6 +35,7 @@
         <module>game</module>
         <module>multi-thread</module>
         <module>utils</module>
+        <module>leetcode</module>
     </modules>
 
     <!--版本定义-->
