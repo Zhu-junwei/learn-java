@@ -36,6 +36,7 @@
         <module>multi-thread</module>
         <module>utils</module>
         <module>leetcode</module>
+        <module>reactive</module>
     </modules>
 
     <!--版本定义-->
