@@ -51,6 +51,34 @@ public class ArrayListTest {
     }
 
     /**
+     * 添加元素到头部 jdk21后支持
+     */
+    @Test
+    public void testAddFirst() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println("添加前:" + list);
+        list.addFirst("d");//其位置元素先后移
+        System.out.println("添加后:" + list);
+    }
+
+    /**
+     * 添加元素到尾部 jdk21后支持
+     */
+    @Test
+    public void testAddLast() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println("添加前:" + list);
+        list.addLast("d");
+        System.out.println("添加后:" + list);
+    }
+
+    /**
      * 测试set()方法,将此列表中指定位置的元素替换为指定元素
      */
     @Test
