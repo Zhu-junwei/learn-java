@@ -1,0 +1,107 @@
+<mxfile host="Electron" modified="2024-02-29T16:14:01.855Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.21 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="gDrF-SyktkudCGbxqQC1" version="22.1.21" type="device">
+  <diagram name="第 1 页" id="kbPpe0INBqEuD4-uGKwf">
+    <mxGraphModel dx="1036" dy="654" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-13" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="480" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="GDIVH4A4wbiBblaxcUgq-7" target="GDIVH4A4wbiBblaxcUgq-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="260" />
+              <mxPoint x="240" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-7" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="60" width="240" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-1" value="线程主体" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="80" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="GDIVH4A4wbiBblaxcUgq-2" target="GDIVH4A4wbiBblaxcUgq-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="335" y="170" />
+              <mxPoint x="335" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-2" value="工作内存" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="180" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-3" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="GDIVH4A4wbiBblaxcUgq-1" target="GDIVH4A4wbiBblaxcUgq-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="350" as="sourcePoint" />
+            <mxPoint x="440" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-5" value="线程读取" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="140" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-6" value="线程写入" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="200" y="140" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="GDIVH4A4wbiBblaxcUgq-8" target="GDIVH4A4wbiBblaxcUgq-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="360" y="310" />
+              <mxPoint x="360" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-8" value="主内存" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="330" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-10" value="读取该数据" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="370" y="270" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-11" value="写入主内存" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="150" y="270" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-14" value="&lt;pre&gt;&lt;font face=&quot;Comic Sans MS&quot;&gt;线程具有私有内部结构&lt;/font&gt;&lt;/pre&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=0;fontSize=17;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="195" y="430" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-15" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="70" y="590" width="480" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-17" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="610" width="240" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-18" value="线程主体" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="630" width="210" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-20" value="工作内存" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="710" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-21" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.218;entryY=0.038;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" target="GDIVH4A4wbiBblaxcUgq-25" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="237" y="670" as="sourcePoint" />
+            <mxPoint x="250" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-25" value="主内存" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="185" y="880" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-26" value="volatile变量读取" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="820" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-27" value="volatile变量写入" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="820" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-28" value="&lt;pre&gt;&lt;font face=&quot;Comic Sans MS&quot;&gt;volatile读取公共内存结构&lt;/font&gt;&lt;/pre&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=0;fontSize=17;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="194" y="980" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="GDIVH4A4wbiBblaxcUgq-29" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.863;exitY=-0.022;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.878;entryY=1.025;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="GDIVH4A4wbiBblaxcUgq-25" target="GDIVH4A4wbiBblaxcUgq-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="389" y="673" as="sourcePoint" />
+            <mxPoint x="440" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -22,12 +22,7 @@ public class Service {
     }
 
     public static void main(String[] args) {
-        Runnable runnable = () -> {
-            Service service = new Service();
-            service.method1();
-        };
-        Thread thread = new Thread(runnable);
-        thread.start();
+        new Thread(() -> new Service().method1()).start();
         //如果可重入锁，method1方法就不会调用到method2
     }
 }

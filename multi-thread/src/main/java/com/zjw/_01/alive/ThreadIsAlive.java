@@ -10,10 +10,11 @@ public class ThreadIsAlive extends Thread {
     public ThreadIsAlive() {
         System.out.println("构造方法……start");
         //Thread.currentThread() 当前方法被哪个对象调用
-        System.out.println("Thread.currentThread().getName() =" + Thread.currentThread().getName());
+        System.out.println("Thread.currentThread().getName() = " + Thread.currentThread().getName());
+        System.out.println("Thread.currentThread().isAlive() = " + Thread.currentThread().isAlive());
         //this.getName() 当前对象的Name属性
-        System.out.println("this.getName() =" + this.getName());
-        System.out.println("构造方法……end");
+        System.out.println("this.getName() = " + this.getName());
+        System.out.println("构造方法……end\n");
     }
 
     @Override
@@ -25,9 +26,9 @@ public class ThreadIsAlive extends Thread {
             throw new RuntimeException(e);
         }
         //Thread.currentThread() 当前方法被哪个对象调用
-        System.out.println("Thread.currentThread().getName() =" + Thread.currentThread().getName());
+        System.out.println("Thread.currentThread().getName() = " + Thread.currentThread().getName());
         //this.getName() 当前对象的Name属性
-        System.out.println("this.getName() =" + this.getName());
+        System.out.println("this.getName() = " + this.getName());
         System.out.println("run……end");
     }
 
@@ -35,7 +36,7 @@ public class ThreadIsAlive extends Thread {
         ThreadIsAlive threadIsAlive = new ThreadIsAlive();
         Thread thread = new Thread(threadIsAlive, "A");
         thread.start();
-        System.out.println("threadIsAlive isAlive = " + threadIsAlive.isAlive());
-        System.out.println("thread isAlive = " + thread.isAlive());
+        System.out.println("**threadIsAlive isAlive = " + threadIsAlive.isAlive());
+        System.out.println("**thread isAlive = " + thread.isAlive());
     }
 }

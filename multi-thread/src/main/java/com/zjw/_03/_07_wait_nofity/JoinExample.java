@@ -22,6 +22,7 @@ public class JoinExample {
                 System.out.println("Child thread end");
             }
         });
+//        thread.setDaemon(true);
         thread.start();
         thread.join();  //主线程调用子线程的join()方法,等待其运行结束
         System.out.println("Main thread end");

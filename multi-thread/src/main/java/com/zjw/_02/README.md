@@ -1,0 +1,16 @@
+对象及变量的并发访问
+
+# [成员变量与方法变量为线程安全问题](./hasself/HasSelfPrivateArg.java)
+# [两个线程调用同一对象的同步和异步方法](./hasself/MyObject.java)
+# [脏读问题及解决办法](./dirtyread/PublicVar.java)
+# [可重入锁](./reentrantlock/Service.java)
+# [锁重入支持父子类继承的环境](./locksupportextends/Main.java)
+# [出现异常，锁自动释放](./lockexception/LockException.java)
+# [Thread.holdsLock(Object obj) 判断当前线程是否持有obj对象的锁](./holdsLock/HoldsLock.java)
+# [String对象作为锁的问题](./synstatic/TestSyncString.java)
+# [死锁问题](./synstatic/DeadLock.java)
+# [单线程死循环，多线程解决死循环](./_volatile/PrintString.java)
+# [volatile解决可见性](./_volatile/TestMultiThreadDeadLock.java)
+# [synchronized增加可见性](./_volatile/TestSyncCodeBlock.java)
+# [++操作非原子性](./_volatile/TestAtomicInteger.java)
+# [使用AtomicInteger解决++操作的非原子性问题](./_volatile/TestAtomicInteger2.java)

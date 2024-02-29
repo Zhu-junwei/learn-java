@@ -9,21 +9,8 @@ public class TestSyncCodeBlock {
     public static void main(String[] args) throws InterruptedException {
         Service service = new Service();
 
-        Runnable runnableA = new Runnable() {
-            @Override
-            public void run() {
-                service.runMethod();
-            }
-        };
-        Runnable runnableB = new Runnable() {
-            @Override
-            public void run() {
-                service.stopMethod();
-            }
-        };
-
-        Thread threadA = new Thread(runnableA);
-        Thread threadB = new Thread(runnableB);
+        Thread threadA = new Thread(service::runMethod);
+        Thread threadB = new Thread(service::stopMethod);
         threadA.start();
         Thread.sleep(1000);
         threadB.start();
@@ -37,8 +24,9 @@ class Service{
         System.out.println("runMethod..start");
         String str = "";
         while (isContinueRun){
-            //增加synchronized代码块，增加可见性
-            //可见公共堆栈中的值？
+            // 增加synchronized代码块，增加可见性
+            // 它仍然迫使线程在每次循环时，都去检查共享变量isContinueRun的最新值
+            // 但是最佳实践是使用volatile关键字来声明isContinueRun变量
             synchronized (str){};
         }
         System.out.println("runMethod..end");

@@ -1,7 +1,7 @@
 package com.zjw._01.share;
 
 /**
- * 线程间不共享数据
+ * 线程间共享数据
  *
  * @author 朱俊伟
  * @since 2023/02/18 23:34
@@ -25,7 +25,7 @@ public class ThreadShareData extends Thread {
     }
 
     public static void main(String[] args) {
-        //每个线程都有各自的变量，不共享数据
+        //共享数据
         Thread myThread = new ThreadShareData("myThread");
         Thread threadA = new Thread(myThread, "A");
         Thread threadB = new Thread(myThread, "B");

@@ -13,7 +13,7 @@ public class ThreadName extends Thread {
         System.out.println("Thread.currentThread().getName() =" + Thread.currentThread().getName());//main
         //this.getName() 当前对象的Name属性
         System.out.println("this.getName() =" + this.getName());//Thread-0
-        System.out.println("构造方法……end");
+        System.out.println("构造方法……end\n");
     }
 
     @Override
@@ -28,6 +28,9 @@ public class ThreadName extends Thread {
 
     public static void main(String[] args) {
         ThreadName threadName = new ThreadName();
-        threadName.start();
+//        threadName.start();
+//        System.out.println("main Thread.currentThread().getName() = " + Thread.currentThread().getName());
+        Thread thread = new Thread(threadName);
+        thread.start();
     }
 }

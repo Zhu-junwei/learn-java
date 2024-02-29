@@ -43,6 +43,7 @@ public class PrintString {
         System.out.println("我想停止");
         //属性设置为了false后子线程停止
         printString.setContinuePrint(false);
+        Thread.sleep(5050);
     }
 
 

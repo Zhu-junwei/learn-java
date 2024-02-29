@@ -29,16 +29,16 @@ public class ThreadInterrupted extends Thread {
         //Thread.interrupted判断的是当前线程（这里是main）是否停止
         System.out.println("Thread.interrupted():" + Thread.interrupted());//false
         //停止主线程
-        System.out.println(Thread.currentThread().getName() + ":" + Thread.currentThread().isInterrupted());
+        System.out.println(Thread.currentThread().getName() + ":" + Thread.currentThread().isInterrupted());//main:false
         Thread.currentThread().interrupt();
-        System.out.println(Thread.currentThread().getName() + ":" + Thread.currentThread().isInterrupted());
+        System.out.println(Thread.currentThread().getName() + ":" + Thread.currentThread().isInterrupted());//main:true
         /*
          * 测试当前线程是否已经中断。线程的中断状态由该方法清除。
          * 换句话说，如果连续两次调用该方法，则第二次调用将返回 false
          * (在第一次调用已清除了其中断状态之后，且第二次调用检验完中断状态前，当前线程再次中断的情况除外)。
          * 这个方法根据没有必要使用。最好使用Thread.currentThread().isInterrupted()代替
          */
-        System.out.println("Thread.interrupted():" + Thread.interrupted());//false
-        System.out.println("Thread.interrupted():" + Thread.interrupted());//true
+        System.out.println("*Thread.interrupted():" + Thread.interrupted());//true
+        System.out.println("*Thread.interrupted():" + Thread.interrupted());//false
     }
 }

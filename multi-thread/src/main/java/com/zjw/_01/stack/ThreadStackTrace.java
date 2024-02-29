@@ -49,11 +49,11 @@ public class ThreadStackTrace {
     public void printThread(Thread thread){
         System.out.println("打印线程信息******start");
         String threadInfo = "Name:" + thread.getName() + "," +
-                "ID:" + thread.getId() + "," +
+                "ID:" + thread.threadId() + "," +
                 "Priority:" + thread.getPriority() + "," +
-                "State:" + thread.getState() + "";
+                "State:" + thread.getState();
         System.out.println(threadInfo);
-        System.out.println("打印线程信息******end");
+        System.out.println("打印线程信息******end\n");
     }
 
     public void dumpStack(){
@@ -63,7 +63,7 @@ public class ThreadStackTrace {
 
     public void allStackTraces() {
         Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
-        if (allStackTraces != null && !allStackTraces.isEmpty()){
+        if (!allStackTraces.isEmpty()){
             Set<Thread> threadSet = allStackTraces.keySet();
             for (Thread thread : threadSet) {
                 printThread(thread);

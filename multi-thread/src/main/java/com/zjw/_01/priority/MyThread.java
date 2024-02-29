@@ -16,7 +16,7 @@ public class MyThread extends Thread {
 
     @Override
     public void run() {
-        while (true) {
+        for (int i = 0; i < 100000000; i++) {
             Random random = new Random();
             random.nextInt();
             count++;
@@ -31,16 +31,10 @@ public class MyThread extends Thread {
         threadA.start();
         threadB.start();
         Thread.sleep(1000);
-        threadA.stop();
-        threadB.stop();
+//        threadA.stop();
+//        threadB.stop();
         System.out.println("线程A循环次数：" + threadA.getCount());
         System.out.println("线程B循环次数：" + threadB.getCount());
-        /*
-         * 线程A循环次数：7341454
-         * 线程B循环次数：7312004
-         * 好像差别不大
-         */
-
 
     }
 }

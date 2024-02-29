@@ -27,11 +27,11 @@ public class PublicVar {
     public static void main(String[] args) throws InterruptedException {
         PublicVar publicVar = new PublicVar();
         ThreadChangeValue threadChangeValueA = new ThreadChangeValue(publicVar);
-        threadChangeValueA.setName("threadChangeValueA");
+        threadChangeValueA.setName("thread-ChangeValueA");
         threadChangeValueA.start();
         Thread.sleep(2000);
         publicVar.getValue();
-        /* 在getValue方法没有synchronized关键字室，出现了脏读，在线程A还没有执行完setValue方法时，main线程就调用了getValue
+        /* 在getValue方法没有synchronized关键字时，出现了脏读，在线程A还没有执行完setValue方法时，main线程就调用了getValue
          * 解决脏读的办法是在getValue方法上加上synchronized关键字
          */
     }

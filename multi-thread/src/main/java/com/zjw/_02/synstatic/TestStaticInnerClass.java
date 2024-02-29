@@ -10,13 +10,13 @@ import lombok.Data;
 public class TestStaticInnerClass {
     public static void main(String[] args) {
         PublicClass publicClass = new PublicClass();
-        publicClass.setUsername("usernameValue");
-        publicClass.setPassword("passwordValue");
+        publicClass.setUsername("张三");
+        publicClass.setPassword("123456");
         System.out.println(publicClass);
 
         PublicClass.InnerClass innerClass= new PublicClass.InnerClass();
-        innerClass.setAge("ageValue");
-        innerClass.setAddress("addressValue");
+        innerClass.setAge("18");
+        innerClass.setAddress("上海");
         System.out.println(innerClass);
 
     }

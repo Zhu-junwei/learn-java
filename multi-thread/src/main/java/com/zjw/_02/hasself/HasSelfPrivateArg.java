@@ -20,7 +20,11 @@ public class HasSelfPrivateArg {
                 age += 200;
             }
             str += name;
+
+            //name=b,str=testb,age=301
+            //name=a,str=testa,age=301
             System.out.println("name=" + name + ",str=" + str + ",age=" + age);
+            // 发现str没有线程安全问题，age有线程安全问题
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

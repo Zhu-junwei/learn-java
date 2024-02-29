@@ -113,3 +113,4 @@ local.properties
 out
 gen
 /.idea/*
+*.drawio.bkp

@@ -21,8 +21,9 @@ public class TimerTaskTest{
     public void testTimerTask() {
         System.out.println("testTimerTask start: " + DateUtil.now());
         Timer timer = new Timer();
-        timer.schedule(new MyTimerTask(), 1000);
+        timer.schedule(new MyTimerTask("task1"), 1000);
         //不加cancel timer不会停止，加了cancel有没有时间去执行
+        ThreadUtil.sleep(10000);
         timer.cancel();
     }
 
@@ -44,10 +45,10 @@ public class TimerTaskTest{
     public void testTimerOrder(){
         System.out.println("testTimerTask start: " + DateUtil.now());
         Timer timer = new Timer();
-        timer.schedule(new MyTimerTask(), 10000);
-        timer.schedule(new MyTimerTask(), 1000);
+        timer.schedule(new MyTimerTask("task1"), 5000);
+        timer.schedule(new MyTimerTask("task2"), 1000);
         //不加cancel timer不会停止，加了cancel又没有时间去执行
-        ThreadUtil.sleep(15000);
+        ThreadUtil.sleep(30000);
 //        timer.cancel();
     }
 }

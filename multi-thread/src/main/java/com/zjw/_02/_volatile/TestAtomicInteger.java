@@ -6,19 +6,18 @@ package com.zjw._02._volatile;
  */
 public class TestAtomicInteger {
     public static void main(String[] args) {
-        MyThread2 myThread2 = new MyThread2();
-        MyThread2[] myThread2s = new MyThread2[100];
-        for (int i = 0; i < myThread2s.length; i++) {
-            myThread2s[i] = new MyThread2();
+        MyThread[] myThreads = new MyThread[100];
+        for (int i = 0; i < myThreads.length; i++) {
+            myThreads[i] = new MyThread();
         }
-        for (MyThread2 thread2 : myThread2s) {
-            thread2.start();
+        for (MyThread thread : myThreads) {
+            thread.start();
         }
 
     }
 }
 
-class MyThread2 extends Thread{
+class MyThread extends Thread{
 
     volatile public static int count;
 
