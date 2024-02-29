@@ -2,6 +2,7 @@ package com.zjw.collection.set;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -21,6 +22,12 @@ public class LinkedHashSetTest {
         set.add(3);
         set.add(5);
         set.add(4);
+        set.add(0);
+        Iterator<Integer> iterator = set.stream().iterator();
+        // [1, 3, 5, 4, 0]
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
         System.out.println(set);//[1, 3, 5, 4]
     }
 }
