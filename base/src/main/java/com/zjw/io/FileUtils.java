@@ -57,7 +57,7 @@ public class FileUtils {
     /**
      * 保存字符串到指定文件
      *
-     * @param str 字符串内容
+     * @param str      字符串内容
      * @param fileName 文件名
      * @return 保存成功
      */
@@ -73,43 +73,8 @@ public class FileUtils {
     }
 
     /**
-     * 判断文件的编码格式，此方法不对，需要重新写
-     *
-     * @param fileName 文件名
-     * @return 文件的编码格式
-     * @throws IOException
-     */
-    public static Charset getCharset(String fileName) throws IOException {
-        Charset charset = Charset.defaultCharset();
-        byte[] bom = new byte[3];
-        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(fileName));
-        bis.mark(3);
-        bis.read(bom);
-        bis.reset();
-        if (bom[0] == -17 && bom[1] == -69 && bom[2] == -65) {
-            charset = Charset.forName("UTF-8");
-        } else if (bom[0] == -2 && bom[1] == -1) {
-            charset = Charset.forName("UTF-16BE");
-        } else if (bom[0] == -1 && bom[1] == -2) {
-            charset = Charset.forName("UTF-16LE");
-        } else {
-            // 不包含BOM标记，则按照默认编码格式读取文件
-            String fileContent = new String(bom, charset);
-            int pos = fileContent.indexOf("<meta charset=\"");
-            if (pos >= 0) {
-                int end = fileContent.indexOf("\"", pos + 15);
-                if (end >= 0) {
-                    String charsetName = fileContent.substring(pos + 15, end);
-                    charset = Charset.forName(charsetName);
-                }
-            }
-        }
-        bis.close();
-        return charset;
-    }
-
-    /**
      * 计算文件大小，带单位如：4.13M
+     *
      * @param filename 文件名
      * @return 文件大小
      */
@@ -141,6 +106,7 @@ public class FileUtils {
 
     /**
      * 获取一个文件的信息
+     *
      * @param fileName 文件名
      * @return 文件信息
      */
@@ -155,7 +121,7 @@ public class FileUtils {
             }
             sb.append("文件名：" + file.getName() + "\n");
             sb.append("文件路径：" + file.getAbsolutePath() + "\n");
-            sb.append("文件大小：" + getFileSize(fileName) + " (" +file.length() + " 字节)" + "\n");
+            sb.append("文件大小：" + getFileSize(fileName) + " (" + file.length() + " 字节)" + "\n");
             sb.append("是否可读：" + file.canRead() + "\n");
             sb.append("是否可写：" + file.canWrite() + "\n");
             sb.append("是否可执行：" + file.canExecute() + "\n");
@@ -178,6 +144,7 @@ public class FileUtils {
 
     /**
      * 计算文件的MD5值
+     *
      * @param fileName 文件
      * @return MD5值
      */
@@ -186,7 +153,8 @@ public class FileUtils {
             MessageDigest md = MessageDigest.getInstance("MD5");
             try (InputStream is = Files.newInputStream(Paths.get(fileName))) {
                 DigestInputStream dis = new DigestInputStream(is, md);
-                while (dis.read() != -1) {}
+                while (dis.read() != -1) {
+                }
             }
             byte[] digest = md.digest();
             BigInteger bigInteger = new BigInteger(1, digest);
@@ -199,41 +167,27 @@ public class FileUtils {
 
     /**
      * 拷贝文件
+     *
      * @param sourceFile 源文件路径
      * @param targetFile 目标文件路径
      * @throws IOException
      */
     public static void copy(String sourceFile, String targetFile) throws IOException {
-        FileInputStream fis = null;
-        FileOutputStream fos = null;
-        FileChannel inChannel = null;
-        FileChannel outChannel = null;
-        try {
-            fis = new FileInputStream(sourceFile);
-            fos = new FileOutputStream(targetFile);
-            inChannel = fis.getChannel();
-            outChannel = fos.getChannel();
+
+        try (
+                FileInputStream fis = new FileInputStream(sourceFile);
+                FileOutputStream fos = new FileOutputStream(targetFile);
+                FileChannel inChannel = fis.getChannel();
+                FileChannel outChannel = fos.getChannel();
+        ) {
             int position = 0;
             long size = inChannel.size();
-            while (size > 0){
+            while (size > 0) {
                 long count = inChannel.transferTo(position, size, outChannel);
-                if (count > 0){
+                if (count > 0) {
                     position += count;
                     size -= count;
                 }
-            }
-        } finally {
-            if (fis != null) {
-                fis.close();
-            }
-            if (inChannel != null) {
-                inChannel.close();
-            }
-            if (fos != null) {
-                fos.close();
-            }
-            if (outChannel != null) {
-                outChannel.close();
             }
         }
     }

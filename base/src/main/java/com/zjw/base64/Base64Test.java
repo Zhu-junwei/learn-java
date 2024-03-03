@@ -34,13 +34,14 @@ public class Base64Test {
         Base64.Decoder decoder = Base64.getDecoder();
         byte[] decode = decoder.decode(str);
         System.out.println(Arrays.toString(decode));
-        System.out.println(new String(decode,"UTF-8"));
+        System.out.println(new String(decode));
+        System.out.println(new String(decode, StandardCharsets.UTF_8));
         System.out.println(new String(decode,"GBK"));
-        System.out.println(new String(decode, "US-ASCII"));
-        System.out.println(new String(decode, "ISO-8859-1"));
-        System.out.println(new String(decode, "UTF-16BE"));
-        System.out.println(new String(decode, "UTF-16LE"));
-        System.out.println(new String(decode, "UTF-16"));
+        System.out.println(new String(decode, StandardCharsets.US_ASCII));
+        System.out.println(new String(decode, StandardCharsets.ISO_8859_1));
+        System.out.println(new String(decode, StandardCharsets.UTF_16BE));
+        System.out.println(new String(decode, StandardCharsets.UTF_16LE));
+        System.out.println(new String(decode, StandardCharsets.UTF_16));
     }
 
     /**
@@ -49,7 +50,7 @@ public class Base64Test {
      */
     @Test
     public void testUrlEncode() {
-        String originalData = "你好";
+        String originalData = "测试";
         // 进行 BASE64 编码并将结果作为 URL 参数传递
         Base64.Encoder urlEncoder = Base64.getUrlEncoder();
         String encodedData = urlEncoder.encodeToString(originalData.getBytes(StandardCharsets.UTF_8));
@@ -62,7 +63,7 @@ public class Base64Test {
      */
     @Test
     public void testUrlDecode() {
-        String url = "https://example.com/api?data=5L2g5aW9";
+        String url = "https://example.com/api?data=5rWL6K-V";
         // 解码 URL 中的 BASE64 数据
         Base64.Decoder urlDecoder = Base64.getUrlDecoder();
         byte[] data = urlDecoder.decode(url.substring(url.lastIndexOf("=") + 1));

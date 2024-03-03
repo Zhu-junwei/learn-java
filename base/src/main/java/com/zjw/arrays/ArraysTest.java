@@ -32,6 +32,19 @@ public class ArraysTest {
     }
 
     /**
+     * 拷贝数组的一部分
+     */
+    @Test
+    public void testCopyOfRange() {
+        int[] a = new int[] {5,6,4,1,3,2};
+		int[] b = Arrays.copyOf(a, 3);
+        int[] c = Arrays.copyOfRange(a, 2, a.length);
+        System.out.println(Arrays.toString(a)); // [5, 6, 4, 1, 3, 2]
+        System.out.println(Arrays.toString(b)); // [5, 6, 4]
+        System.out.println(Arrays.toString(c)); // [4, 1, 3, 2]
+    }
+
+    /**
      * 测试sort排序，升序
      */
     @Test

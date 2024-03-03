@@ -49,7 +49,7 @@ public class ThreadStackTrace {
     public void printThread(Thread thread){
         System.out.println("打印线程信息******start");
         String threadInfo = "Name:" + thread.getName() + "," +
-                "ID:" + thread.threadId() + "," +
+                "ID:" + thread.getId() + "," +
                 "Priority:" + thread.getPriority() + "," +
                 "State:" + thread.getState();
         System.out.println(threadInfo);

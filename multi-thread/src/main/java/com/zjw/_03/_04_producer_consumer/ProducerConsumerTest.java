@@ -75,7 +75,7 @@ class Consumer implements Runnable{
                     while (Container.food.isEmpty()){
                         Container.food.wait();
                     }
-                    String food = Container.food.removeFirst();
+                    String food = Container.food.remove(0);
                     System.out.println(Thread.currentThread().getName()+ ":我把"+food+"吃了。");
                     System.out.println(Container.food);
                     Thread.sleep(500);

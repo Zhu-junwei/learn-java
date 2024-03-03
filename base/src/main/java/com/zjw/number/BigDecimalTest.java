@@ -7,6 +7,7 @@ import java.math.RoundingMode;
 
 /**
  * 测试BigDecimal的使用
+ *
  * @author 朱俊伟
  * @since 2021/12/23
  */
@@ -16,7 +17,7 @@ public class BigDecimalTest {
      * 取余数
      */
     @Test
-    public void remainder(){
+    public void remainder() {
         BigDecimal bd = new BigDecimal(100);
         BigDecimal remainder = bd.remainder(new BigDecimal(9));
         // 相当于 100%9 = 1
@@ -27,7 +28,7 @@ public class BigDecimalTest {
      * 将其他类型数据转为BigDecimal类型数据
      */
     @Test
-    public void parseBigDecimal(){
+    public void parseBigDecimal() {
         /*
         禁止使用构造方法 BigDecimal(double)的方式把 double 值转化为 BigDecimal 对象。
         说明： BigDecimal(double)存在精度损失风险，在精确计算或值比较的场景中可能会导致业务逻辑异常。
@@ -44,7 +45,7 @@ public class BigDecimalTest {
         recommend1.toPlainString();
     }
 
-    public static BigDecimal getMin(BigDecimal first, BigDecimal second){
+    public static BigDecimal getMin(BigDecimal first, BigDecimal second) {
         return first.min(second);
     }
 
@@ -52,25 +53,79 @@ public class BigDecimalTest {
      * 测试除法
      */
     @Test
-    public void toStringBigDecimal(){
-        //没有舍入模式导致异常
-        //java.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.
-        //new BigDecimal("5").divide(new BigDecimal("3"));
+    public void testBigDecimalDivide() {
 
-        // 5/3保留两位小数
-        BigDecimal bigDecimal = new BigDecimal(5).divide(new BigDecimal(3),2,BigDecimal.ROUND_HALF_UP);
-        System.out.println(new BigDecimal(5).divide(new BigDecimal(3),2,BigDecimal.ROUND_CEILING));
-        System.out.println(bigDecimal.toPlainString());
-        double aDouble = Double.parseDouble(bigDecimal.toPlainString());
-        System.out.println(aDouble);
+        /*
+            1. BigDecimal divide(BigDecimal divisor)
+            不推荐使用，没有舍入模式导致异常，java.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.
+         */
+        try {
+            System.out.println("1. BigDecimal divide(BigDecimal divisor)");
+            new BigDecimal("5").divide(new BigDecimal("3"));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
 
+        /*
+            2. BigDecimal divide(BigDecimal divisor, RoundingMode roundingMode)
+                结果只保留整数部分
+         */
+        System.out.println("2. BigDecimal divide(BigDecimal divisor, RoundingMode roundingMode)");
+        BigDecimal result1 = new BigDecimal("5").divide(new BigDecimal("3"), RoundingMode.HALF_UP);
+        System.out.println("5/3 = " + result1); // 2
+        System.out.println("6/3 = " + new BigDecimal("6").divide(new BigDecimal("3"), RoundingMode.HALF_UP));// 2
+
+        /*
+            3. BigDecimal divide(BigDecimal divisor, int scale, RoundingMode roundingMode)
+                scale设置保留的精度
+         */
+        System.out.println("3. BigDecimal divide(BigDecimal divisor, int scale, RoundingMode roundingMode)");
+        System.out.println("5/3 = " + new BigDecimal("5").divide(new BigDecimal("3"), 2, RoundingMode.HALF_UP)); // 1.67
+        System.out.println("10/3 = " + new BigDecimal("10").divide(new BigDecimal("3"), 2, RoundingMode.HALF_UP));// 3.33
+        System.out.println("6/3 = " + new BigDecimal("6").divide(new BigDecimal("3"), 2, RoundingMode.HALF_UP));// 2.00
+    }
+
+    /**
+     * 测试舍入模式
+     * <p>
+     * 参见{@link RoundingMode}说明
+     * <p>
+     * {@link RoundingMode#UP}  从零舍入的舍入模式。
+     * <p>
+     * {@link RoundingMode#DOWN} 向零舍入的舍入模式。
+     * <p>
+     * {@link RoundingMode#CEILING} 向正无穷大舍入的舍入模式。
+     * <p>
+     * {@link RoundingMode#FLOOR} 向负无穷大舍入的舍入模式。
+     * <p>
+     * {@link RoundingMode#HALF_UP} 【常用】舍入模式向“最近的邻居”舍入，除非两个邻居是等距的，在这种情况下舍入。
+     * <p>
+     * {@link RoundingMode#HALF_DOWN} 舍入模式向“最近的邻居”舍入，除非两个邻居是等距的，在这种情况下向下舍入。
+     * <p>
+     * {@link RoundingMode#HALF_EVEN} 舍入模式向“最近的邻居”舍入，除非两个邻居都是等距的，在这种情况下，向偶数邻居舍入。
+     * <p>
+     * {@link RoundingMode#UNNECESSARY} 舍入模式断言所请求的操作具有准确的结果，因此不需要舍入。
+     */
+    @Test
+    public void testRoundingMode() {
+        /*
+            5/3 = 1.6……
+            6/3 = 2
+            10/3 = 3.333
+         */
+        // 1.67
+        System.out.println("5/3 = " + new BigDecimal("5").divide(new BigDecimal("3"), 2, RoundingMode.HALF_UP));
+        // 2.00
+        System.out.println("6/3 = " + new BigDecimal("6").divide(new BigDecimal("3"), 2, RoundingMode.HALF_UP));
+        // 3.33
+        System.out.println("10/3 = " + new BigDecimal("10").divide(new BigDecimal("3"), 2, RoundingMode.HALF_UP));
     }
 
     /**
      * 测试BigDecimal比较大小
      */
     @Test
-    public void testCompareTo(){
+    public void testCompareTo() {
         BigDecimal bigDecimal80 = new BigDecimal(80);
         BigDecimal bigDecimal100_0 = new BigDecimal(100.0);
         BigDecimal bigDecimal100 = new BigDecimal(100);
@@ -87,7 +142,7 @@ public class BigDecimalTest {
      * 测试取反
      */
     @Test
-    public void testNegate(){
+    public void testNegate() {
         BigDecimal bigDecimal80 = new BigDecimal(80);
         System.out.println(bigDecimal80.negate());//-80
     }
@@ -96,7 +151,7 @@ public class BigDecimalTest {
      * 测试乘法
      */
     @Test
-    public void testMultiply(){
+    public void testMultiply() {
         BigDecimal bg1 = new BigDecimal("3.2");
         BigDecimal bg2 = new BigDecimal("1.2");
         BigDecimal bg3 = new BigDecimal("-1");
@@ -107,14 +162,13 @@ public class BigDecimalTest {
      * 测试转为double
      */
     @Test
-    public void testToDouble(){
+    public void testToDouble() {
         BigDecimal decimal = new BigDecimal("123.456789");
         Double result = decimal.setScale(2, RoundingMode.HALF_UP).doubleValue();
         System.out.println(result);
-        BigDecimal decimal2 = new BigDecimal("123.456789").setScale(2,RoundingMode.HALF_UP);
+        BigDecimal decimal2 = new BigDecimal("123.456789").setScale(2, RoundingMode.HALF_UP);
         System.out.println(decimal2);
     }
-
 
 
 }
