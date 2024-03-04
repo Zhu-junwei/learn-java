@@ -1,4 +1,4 @@
-package com.zjw.io;
+package com.zjw.io.reader_writer;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -6,9 +6,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
 /**
- * @描述：字符输入流：读取键盘上输入的数据
- * @作者: zjw
- * @时间: 2018年7月16日 下午2:17:39
+ * 字符输入流缓冲
  */
 public class InputStreamReaderTest {
     public static void main(String[] args) throws Exception {

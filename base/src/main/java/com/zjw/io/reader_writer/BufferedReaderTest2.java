@@ -1,4 +1,4 @@
-package com.zjw.io;
+package com.zjw.io.reader_writer;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -8,9 +8,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 /**
- * @描述：字符输入流 读取网页数据
- * @作者: zjw
- * @时间: 2018年7月16日 下午3:02:31
+ * 字符输入流缓冲 读取网页数据
  */
 public class BufferedReaderTest2 {
     public static void main(String[] args) throws Exception {

@@ -1,13 +1,11 @@
-package com.zjw.io;
+package com.zjw.io.reader_writer;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
 /**
- * @描述：字符输入流 读取文件的数据
- * @作者: zjw
- * @时间: 2018年7月16日 下午2:17:39
+ * 字符输入流缓冲
  */
 public class BufferedReaderTest {
     public static void main(String[] args) throws Exception {

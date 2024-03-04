@@ -1,4 +1,4 @@
-package com.zjw.io;
+package com.zjw.io.stream;
 
 import java.io.*;
 import java.nio.file.Files;

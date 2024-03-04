@@ -1,13 +1,11 @@
-package com.zjw.io;
+package com.zjw.io.reader_writer;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.Writer;
 
 /**
- * @描述：字节输出流Writer,子类FileWriter,BufferedWriter 输出文件中的数据
- * @作者: zjw
- * @时间: 2018年7月16日 下午12:16:58
+ * 描述：字符输出流 FileWriter
  */
 public class FileWriterTest {
     public static void main(String[] args) throws Exception {

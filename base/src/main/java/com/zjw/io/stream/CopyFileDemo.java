@@ -1,10 +1,10 @@
-package com.zjw.io;
+package com.zjw.io.stream;
 
 import java.io.*;
 import java.nio.file.Files;
 
 /**
- * @描述：java--文件拷贝
+ * @描述：java--文件拷贝 BufferedInputStream BufferedOutputStream
  * @作者: zjw
  * @时间: 2018年7月15日 下午10:24:04
  */
