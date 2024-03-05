@@ -1,28 +1,29 @@
 package com.zjw._01.interrupt;
 
+import cn.hutool.core.thread.ThreadUtil;
+
 /**
- * 让线程停下来
- *
- * @author 朱俊伟
- * @since 2023/02/19 23:33
+ * 线程停止：interrupt方法停止线程
+ * <p>
+ * sleep wait join中的线程interrupt,会抛出Exception
  */
 public class ThreadInterrupted2 extends Thread {
 
     @Override
     public void run() {
-        try {
-            for (int i = 0; i < 5; i++) {
-                if (i == 2) {
-                    Thread.currentThread().interrupt();
-                    //虽然线程是停止状态，但是后面的代码并没有停止运行
-                    //抛出异常，使线程停止
-                    throw new InterruptedException();
+
+        while (true) {
+            if (Thread.currentThread().isInterrupted()) {
+                return;
+            } else {
+                try {
+//                    wait(5000);
+                    sleep(5000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    System.out.println(Thread.currentThread().getName()+":我异常了");
                 }
-                System.out.println(Thread.currentThread().getName() + ":" + Thread.currentThread().isInterrupted());
             }
-        } catch (InterruptedException e) {
-            System.out.println(Thread.currentThread().getName()+":我异常了");
-            throw new RuntimeException(e);
         }
 
     }
@@ -30,5 +31,16 @@ public class ThreadInterrupted2 extends Thread {
     public static void main(String[] args) {
         ThreadInterrupted2 thread = new ThreadInterrupted2();
         thread.start();
+        ThreadUtil.sleep(3000);
+        //sleep wait join中的线程interrupt,会抛出Exception
+        /*
+        sleep wait join中的线程interrupt,会抛出Exception
+            sleep   InterruptedException
+            wait    IllegalMonitorStateException
+            join
+         */
+        thread.interrupt();
+        System.out.println("thread.isInterrupted() = " + thread.isInterrupted()); // true
+        System.out.println("thread.isInterrupted() = " + thread.isInterrupted()); // true
     }
 }

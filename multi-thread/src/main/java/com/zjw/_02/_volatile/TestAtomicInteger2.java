@@ -1,5 +1,7 @@
 package com.zjw._02._volatile;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -9,14 +11,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class TestAtomicInteger2 {
     public static void main(String[] args) {
-        MyThread2[] myThread2s = new MyThread2[100];
-        for (int i = 0; i < myThread2s.length; i++) {
-            myThread2s[i] = new MyThread2();
+        List<MyThread2> thread2List = new ArrayList<>();
+        for (int i = 0; i < 1000; i++) {
+            thread2List.add(new MyThread2());
         }
-        for (MyThread2 thread2 : myThread2s) {
-            thread2.start();
-        }
-
+        thread2List.forEach(Thread::start);
     }
 }
 

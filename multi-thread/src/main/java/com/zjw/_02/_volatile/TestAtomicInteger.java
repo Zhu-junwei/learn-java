@@ -1,18 +1,21 @@
 package com.zjw._02._volatile;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author 朱俊伟
  * @since 2023/03/03 0:06
  */
 public class TestAtomicInteger {
     public static void main(String[] args) {
-        MyThread[] myThreads = new MyThread[100];
-        for (int i = 0; i < myThreads.length; i++) {
-            myThreads[i] = new MyThread();
+
+        List<MyThread> threadList = new ArrayList<>();
+
+        for (int i = 0; i < 1000; i++) {
+            threadList.add(new MyThread());
         }
-        for (MyThread thread : myThreads) {
-            thread.start();
-        }
+        threadList.forEach(Thread::start);
 
     }
 }
