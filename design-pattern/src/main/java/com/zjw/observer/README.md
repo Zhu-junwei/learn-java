@@ -17,11 +17,6 @@
 > 以下是一个简单的观察者模式示例，演示了一个简单的天气应用，其中`WeatherStation`作为`Subject`，当天气更新时，它会通知所有注册的观察者。
 
 ```java
-package com.zjw.observer;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Observer（观察者）：所有观察者需要实现的接口，定义了当主题状态改变时需要调用的更新方法。
  */
