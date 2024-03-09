@@ -7,9 +7,13 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 1.1 ThreadPoolExecutor创建线程池拒绝策略：
+ * <p>
  * AbortPolicy：默认，直接抛出 RejectedExecutionException 异常。
+ * <p>
  * CallerRunsPolicy：直接在调用者线程中运行被拒绝的任务。
+ * <p>
  * DiscardPolicy：默默地丢弃被拒绝的任务，不做任何处理。
+ * <p>
  * DiscardOldestPolicy：丢弃队列最前面的任务，然后重新尝试执行任务（如果再次失败，则重复此过程）。
  *
  */

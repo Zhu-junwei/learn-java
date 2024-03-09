@@ -20,7 +20,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author 朱俊伟
  * @since 2023/04/16 18:32
  */
-public class ReentrantLockDemo {
+public class ReentrantLock1 {
 
     @SneakyThrows
     public static void main(String[] args) {
