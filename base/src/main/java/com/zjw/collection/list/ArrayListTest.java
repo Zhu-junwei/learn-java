@@ -446,46 +446,54 @@ public class ArrayListTest {
         for (int i = 0; i < size; i++) {
             nums[i] = i + 1;
         }
+        System.out.println("nums sorted before = " + Arrays.toString(nums));
         // 随机打乱数组元素
-        Collections.shuffle(Arrays.asList(nums));
-        // Integer[] -> int[]
-        int[] res = new int[size];
-        for (int i = 0; i < size; i++) {
-            res[i] = nums[i];
-        }
-        System.out.println(Arrays.toString(res));
-    }
-
-    @Test
-    public void testShuffle2() {
-        int size = 30;
-        Integer[] nums = new Integer[size];
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        for (int i = 0; i < size; i++) {
-            nums[i] = i + 1;
-        }
-        // 随机打乱数组元素
-        Collections.shuffle(Arrays.asList(nums));
-        // Integer[] -> int[]
-        int[] res = new int[size];
-        for (int i = 0; i < size; i++) {
-            res[i] = nums[i];
-        }
-        System.out.println(Arrays.toString(res));
+        List<Integer> integerList = Arrays.asList(nums);
+        Collections.shuffle(integerList);
+        // 数组 nums 与 list 数组的顺序一致!
+        System.out.println("nums sorted after = " + Arrays.toString(nums));
+        System.out.println("integerList = " + integerList);
     }
 
     /**
-     * list去重
-     *  利用ArrayList的构造方法可以传入LinkedHashSet，将list中的元素去重。
-     *  new ArrayList<>(new LinkedHashSet<>(list))
+     * list去重 利用LinkedHashSet和HashSet只能存放不重复的特性去重
+     * <p>
+     * LinkedHashSet 去重方法：
+     * <p>
+     * 顺序保持: 使用 LinkedHashSet 可以保持元素的插入顺序，即去重后的列表中元素的顺序与原始列表中的顺序相同。
+     * <p>
+     * 无需再排序: 由于保持了插入顺序，因此不需要额外的排序步骤。
+     * <p>
+     * 内存占用: 会占用更多的内存，因为它需要维护元素的插入顺序。
+     * <p>
+     * 性能: 在添加元素时，由于要维护顺序，可能会比较 HashSet 稍慢一些。
+     *
+     * <p>
+     * HashSet 去重方法：
+     * <p>
+     * 无序: HashSet 不保证元素的顺序，因此去重后的列表中的元素顺序可能与原始列表不同。
+     * <p>
+     * 内存占用: 通常比 LinkedHashSet 更节省内存，因为它不需要维护元素的插入顺序。
+     * <p>
+     * 性能: 在添加元素时，由于不需要维护顺序，HashSet 可能会稍快一些。
      */
     @Test
     public void removeDuplicates() {
-        List<String> list = Arrays.asList(new String[]{"a", "b", "a"});
+        List<String> list = Arrays.asList(new String[]{"z", "b", "e", "a", "a"});
         //去重
         List<String> list2 = new ArrayList<>(new LinkedHashSet<>(list));
         System.out.println(list); //[a, b, a]
         System.out.println(list2);//[a, b]
+    }
+
+    /**
+     * 使用stream去重
+     */
+    @Test
+    public void streamDistinct() {
+        List<String> list = Arrays.asList(new String[]{"z", "b", "e", "a", "a"});
+        List<String> distinctList = list.stream().distinct().toList();
+        System.out.println("distinctList = " + distinctList);
     }
 
 }

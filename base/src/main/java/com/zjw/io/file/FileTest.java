@@ -30,7 +30,8 @@ public class FileTest {
         //获取父路径 D:\
         System.out.println(file1.getParent());
         //当前最后一级的名字 test
-        System.out.println(file1.getName());
+        System.out.println(file1.getName()); //目录名
+        System.out.println(file2.getName()); //文件名
 
         System.out.println("****文件的大小****");
         //文件的大小
