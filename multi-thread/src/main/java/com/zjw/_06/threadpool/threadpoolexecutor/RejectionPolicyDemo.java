@@ -1,4 +1,4 @@
-package com.zjw._06.threadpool;
+package com.zjw._06.threadpool.threadpoolexecutor;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;

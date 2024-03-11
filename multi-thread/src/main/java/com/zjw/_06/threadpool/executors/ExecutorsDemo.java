@@ -1,4 +1,4 @@
-package com.zjw._06.threadpool;
+package com.zjw._06.threadpool.executors;
 
 import cn.hutool.core.thread.ThreadUtil;
 
