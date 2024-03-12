@@ -5,6 +5,7 @@ import com.zjw.domain.Student;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 测试 ArrayList
@@ -261,14 +262,24 @@ public class ArrayListTest {
     }
 
     /**
-     * 测试数组转List集合 Arrays.asList(T... a)
+     * 数组转List集合
      */
     @Test
     public void testArrayToList() {
+
         String[] strings = {"a", "b", "c"};
-        //要求参数不能为空
-        List<String> list = Arrays.asList(strings);
-        System.out.println(list);
+
+        List<String> list1 = new ArrayList<>(Arrays.asList(strings)); //modifiable List
+        list1.add("e"); // ok
+
+        List<String> list2 = Arrays.stream(strings).collect(Collectors.toList()); //modifiable List
+        list2.add("e"); // ok
+
+        List<String> list3 = Arrays.stream(strings).toList(); //unmodifiable List
+        list3.add("e"); // UnsupportedOperationException
+
+        List<String> list4 = Arrays.asList(strings); //unmodifiable List
+        list4.add("e"); // UnsupportedOperationException
     }
 
     /**
@@ -277,10 +288,10 @@ public class ArrayListTest {
     @Test
     public void testArrayToList2() {
         String[] strings = {"a", "b", "c"};
-        List<String> list = transferArrayToList(strings);
+        List<String> list = transferArrayToList(strings);//这是可变的list
         System.out.println(list);
         String[] remove = {"a", "b"};
-        List<String> removeList = Arrays.asList(remove);
+        List<String> removeList = Arrays.asList(remove); //这是不可变的list
         list.removeAll(removeList);
         System.out.println(list);
     }
@@ -297,6 +308,7 @@ public class ArrayListTest {
         Arrays.stream(array).forEach(arr -> transferList.add(arr));
         return transferList;
     }
+
 
     /**
      * listIterator使用 从前往后遍历集合

@@ -10,13 +10,13 @@ import java.util.List;
  * @author 朱俊伟
  * @since 2023/07/23 9:34
  */
-public class UnChangeListTest {
+public class UnModifiableListTest {
 
     /**
      * 创建不可变List集合
      */
     @Test
-    public void createUnChangeList(){
+    public void createUnModifiableList(){
         List<String> list = List.of("A", "B", "C");
         System.out.println(list);
     }
@@ -26,7 +26,7 @@ public class UnChangeListTest {
      * 		抛出异常 java.lang.UnsupportedOperationException
      */
     @Test
-    public void modifyUnChangeList(){
+    public void ModifyUnModifiableList(){
         List<String> list = List.of("A", "B", "C");
         System.out.println(list);
         list.set(0,"aa");
@@ -37,7 +37,7 @@ public class UnChangeListTest {
      * 		抛出异常 java.lang.UnsupportedOperationException
      */
     @Test
-    public void addUnChangeList(){
+    public void addUnModifiableList(){
         List<String> list = List.of("A", "B", "C");
         System.out.println(list);
         list.add("dd");
@@ -48,7 +48,7 @@ public class UnChangeListTest {
      * 		抛出异常 java.lang.UnsupportedOperationException
      */
     @Test
-    public void deleteUnChangeList(){
+    public void deleteUnModifiableList(){
         List<String> list = List.of("A", "B", "C");
         System.out.println(list);
         list.remove(0);

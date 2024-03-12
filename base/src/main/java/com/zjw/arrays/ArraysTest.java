@@ -106,7 +106,8 @@ public class ArraysTest {
     }
 
     /**
-     * 测试asList方法，将数组装换为List集合
+     * 测试asList方法，将数组装换为List集合，需要注意的是，
+     * 此方法返回的是一个不可变List
      */
     @Test
     public void testAsList() {
