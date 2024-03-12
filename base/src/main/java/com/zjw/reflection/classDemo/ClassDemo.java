@@ -1,4 +1,4 @@
-package com.zjw.classDemo;
+package com.zjw.reflection.classDemo;
 import java.lang.reflect.Field;
 /**
  * 这是一个演示如何通过反射获取类及其父类中声明的所有字段的示例代码

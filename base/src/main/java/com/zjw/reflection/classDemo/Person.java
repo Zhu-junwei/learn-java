@@ -1,4 +1,4 @@
-package com.zjw.classDemo;
+package com.zjw.reflection.classDemo;
 
 import lombok.Data;
 
