@@ -4,7 +4,7 @@
 
 # base
 
-> Java学习必备，一些长用类的使用方法。
+> Java学习必备，一些常用类的使用方法。
 
 - [Java基础](./base/README.md)
 
