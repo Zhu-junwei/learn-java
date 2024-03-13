@@ -10,28 +10,40 @@ import java.util.Map;
  * @since 2022/04/13 23:53
  */
 public class HashMapTest {
-    public static void main(String[] args) {
-        Map<String , String> map = new HashMap<>();
-        map.put("1","a");
+
+    /**
+     * 测试 containsKey
+     * <p>
+     * 判断map中是否包含该key
+     */
+    @Test
+    public void testContainsKey(){
+        Map<String , String> map = new HashMap<>(){{
+            put("1","a");
+        }};
         System.out.println(map);//{1=a}
         System.out.println(map.get("1"));//a
         System.out.println(map.get("2"));//null
         System.out.println(map.containsKey("1"));//true
         System.out.println(map.containsKey("2"));//false
-
     }
 
+    /**
+     * 测试 putIfAbsent
+     * <p>
+     * 将指定的<K,V>放入map中。
+     * <p>
+     * 如果Map中不包含该key，那么putIfAbsent会返回null，否则返回该key对应的value
+     */
     @Test
-    public void testContainsKey(){
+    public void testPutIfAbsent(){
         Map<Long , String> map = new HashMap<>();
-        map.put(Long.parseLong("1"),"a");
-        map.put(Long.parseLong("123456"),"b");
-        map.put(Long.parseLong("123456"),"c");
-        System.out.println(map);//{1=a}
-        System.out.println(map.get(Long.parseLong("1")));//a
-        System.out.println(map.get(Long.parseLong("123456")));//c
-        System.out.println(map.get(Long.parseLong("123457")));//null
-        System.out.println(map.containsKey(Long.parseLong("123456")));//true
-        System.out.println(map.containsKey(Long.parseLong("123457")));//false
+        String string = map.putIfAbsent(1L, "2");
+        System.out.println("string = " + string);
+        System.out.println("map = " + map);
+
+        string = map.putIfAbsent(1L, "2");
+        System.out.println("string = " + string);
+        System.out.println("map = " + map);
     }
 }

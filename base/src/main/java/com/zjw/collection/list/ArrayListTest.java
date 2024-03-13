@@ -262,24 +262,48 @@ public class ArrayListTest {
     }
 
     /**
-     * 数组转List集合
+     * 数组转不可变List集合
      */
     @Test
-    public void testArrayToList() {
+    public void testArrayToUnmodifiableList() {
+
+        String[] strings = {"a", "b", "c",null};
+
+
+        List<String> list1 = new ArrayList<>();
+        Collections.addAll(list1, strings);  //modifiable List，这种方法更容易理解
+        list1.add("e"); // ok
+
+
+        List<String> list2 = new ArrayList<>(Arrays.asList(strings)); //modifiable List
+        list2.add("e"); // ok
+
+        List<String> list3 = Arrays.stream(strings).collect(Collectors.toList()); // 不保证可变性，但在该例子中是可变的
+        list3.add("e"); // ok
+
+
+        List<String> list4 = Arrays.stream(strings).collect(Collectors.toCollection(ArrayList::new)); // 不保证可变性，但在该例子中是可变的
+        list4.add("e"); // ok
+
+    }
+
+    /**
+     * 数组转可变List集合
+     */
+    @Test
+    public void testArrayToModifiableList() {
 
         String[] strings = {"a", "b", "c"};
 
-        List<String> list1 = new ArrayList<>(Arrays.asList(strings)); //modifiable List
+        List<String> list1 = Arrays.stream(strings)
+                .collect(Collectors.toUnmodifiableList()); // unmodifiable List，和toList()一样
         list1.add("e"); // ok
 
-        List<String> list2 = Arrays.stream(strings).collect(Collectors.toList()); //modifiable List
-        list2.add("e"); // ok
+        List<String> list2 = Arrays.stream(strings).toList(); //unmodifiable List
+        list2.add("e"); // UnsupportedOperationException
 
-        List<String> list3 = Arrays.stream(strings).toList(); //unmodifiable List
+        List<String> list3 = Arrays.asList(strings); //unmodifiable List
         list3.add("e"); // UnsupportedOperationException
-
-        List<String> list4 = Arrays.asList(strings); //unmodifiable List
-        list4.add("e"); // UnsupportedOperationException
     }
 
     /**
