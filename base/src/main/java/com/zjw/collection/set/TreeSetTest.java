@@ -2,6 +2,7 @@ package com.zjw.collection.set;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -26,14 +27,15 @@ public class TreeSetTest {
      */
     @Test
     public void testTreeSet() {
-        Set<String> sortSet = new TreeSet<>((o1, o2) -> o1.compareTo(o2));
+        Set<String> sortSet = new TreeSet<>();
         sortSet.add("1");
         sortSet.add("2");
         sortSet.add("5");
         sortSet.add("4");
         System.out.println(sortSet);//[1, 2, 4, 5]
 
-        sortSet = new TreeSet<>((o1, o2) -> o2.compareTo(o1));
+        // 自定义比较器
+        sortSet = new TreeSet<>(Comparator.reverseOrder());
         sortSet.add("1");
         sortSet.add("2");
         sortSet.add("5");
