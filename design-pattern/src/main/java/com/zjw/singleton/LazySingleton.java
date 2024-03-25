@@ -17,4 +17,8 @@ public class LazySingleton {
         }
         return instance;
     }
+
+    public static void main(String[] args) {
+        LazySingleton instance1 = LazySingleton.getInstance();
+    }
 }

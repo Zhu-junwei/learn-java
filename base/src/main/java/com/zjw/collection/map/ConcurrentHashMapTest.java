@@ -1,5 +1,7 @@
 package com.zjw.collection.map;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -11,11 +13,11 @@ import java.util.concurrent.Executors;
  */
 public class ConcurrentHashMapTest {
 
-    private static final Map<String, Integer> hashMap = new HashMap<>();
-    private static final Map<String, Integer> concurrentHashMap = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
 
+        Map<String, Integer> hashMap = new HashMap<>();
+        Map<String, Integer> concurrentHashMap = new ConcurrentHashMap<>();
         ExecutorService executorService = Executors.newFixedThreadPool(10);
 
         // 模拟 10 个线程同时向 map 中写入数据
@@ -45,5 +47,18 @@ public class ConcurrentHashMapTest {
         // HashMap输出的结果会大于10000
         System.out.println(hashMap.size());
         System.out.println(concurrentHashMap.size());
+    }
+
+    /**
+     * ConcurrentHashMap 不能添加 null 值
+     */
+    @Test
+    public void testAdd(){
+        Map<String, Integer> hashMap = new HashMap<>();
+        hashMap.put(null, 1);
+        System.out.println("hashMap = " + hashMap);
+
+        Map<String, Integer> concurrentHashMap = new ConcurrentHashMap<>();
+//        concurrentHashMap.put(null, 1); // NullPointerException
     }
 }

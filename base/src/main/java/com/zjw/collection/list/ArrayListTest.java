@@ -80,6 +80,25 @@ public class ArrayListTest {
     }
 
     /**
+     * 反转集合元素， java21
+     */
+    @Test
+    public void testReversed(){
+        List<String> list = new ArrayList<>(){{
+           add("a");
+           add("b");
+           add("c");
+        }};
+        System.out.println("list = " + list);
+        // 反转集合元素，返回一个新列表，不改变原集合
+        // Collections.reverse(list); 会修改原集合
+        List<String> reversed = list.reversed();
+
+        System.out.println("list = " + list);
+        System.out.println("reversed = " + reversed);
+    }
+
+    /**
      * 测试set()方法,将此列表中指定位置的元素替换为指定元素
      */
     @Test

@@ -45,8 +45,14 @@ public class BigDecimalTest {
         recommend1.toPlainString();
     }
 
-    public static BigDecimal getMin(BigDecimal first, BigDecimal second) {
-        return first.min(second);
+    /**
+     * 测试取最小值
+     */
+    @Test
+    public void TestMin() {
+        BigDecimal first = new BigDecimal("100");
+        BigDecimal second = new BigDecimal("10");
+        System.out.println("first.min(second) = " + first.min(second));
     }
 
     /**
@@ -136,7 +142,16 @@ public class BigDecimalTest {
         System.out.println(bigDecimal100.compareTo(bigDecimal101));//-1
         System.out.println(new BigDecimal("-1").compareTo(new BigDecimal("0")));//-1
 
+        System.out.println("--------------------------");
+
+        /*
+         BigDecimal 的等值比较应使用 compareTo()方法，而不是 equals()方法。
+            说明： equals()方法会比较值和精度（ 1.0 与 1.00 返回结果为 false） ， 而 compareTo()则会忽略精度。
+         */
+        System.out.println(new BigDecimal("1.0").equals(new BigDecimal("1.00")));//false
+        System.out.println(new BigDecimal("1.0").compareTo(new BigDecimal("1.00")) == 0);//true
     }
+
 
     /**
      * 测试取反

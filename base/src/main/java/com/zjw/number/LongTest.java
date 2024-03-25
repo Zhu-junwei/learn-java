@@ -10,6 +10,18 @@ import org.junit.jupiter.api.Test;
 public class LongTest {
 
     /**
+     * 在循环中避免使用Long包装类型，否则会创建大量的对象，影响性能
+     */
+    @Test
+    public void sum() {
+        long sum = 0L;
+        for (int i = 0; i < Integer.MAX_VALUE; i++) {
+            sum += i;
+        }
+        System.out.println(sum);
+    }
+
+    /**
      * 测试Long相等
      */
     @Test

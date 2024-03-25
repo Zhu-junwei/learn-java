@@ -2,6 +2,7 @@ package com.zjw.time;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -13,10 +14,11 @@ import java.util.TimeZone;
  */
 public class DateTest {
     public static void main(String[] args) {
-
+        Date from = Date.from(Instant.now());
+        System.out.println("from = " + from);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS");
         System.out.println(sdf.format(new Date()));
-        //获取当前时间戳,也可以是你自已给的一个随机的或是别人给你的时间戳(一定是long型的数据)
+        //获取当前时间戳,也可以是你自己给的一个随机的或是别人给你的时间戳(一定是long型的数据)
         long timeStamp = System.currentTimeMillis();
         //这个是你要转成后的时间的格式
         SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS");

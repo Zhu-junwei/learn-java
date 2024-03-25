@@ -1,7 +1,9 @@
-package com.feature.java14.records;
+package com.feature.java16.records;
 
 /**
  * 测试记录
+ * <p>
+ * 在java16被添加<a href="https://openjdk.org/jeps/395">EJP395</a>
  *
  * @author 朱俊伟
  * @since 2024/03/20 0:59
