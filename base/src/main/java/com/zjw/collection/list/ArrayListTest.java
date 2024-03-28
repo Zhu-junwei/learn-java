@@ -126,6 +126,8 @@ public class ArrayListTest {
         System.out.println("删除前:" + list);
         list.remove("a");//只会删除第一个出现的元素
         System.out.println("删除后:" + list);
+        list.removeFirst();//只会删除第一个出现的元素
+        System.out.println("删除后:" + list);
     }
 
     /**
@@ -155,6 +157,7 @@ public class ArrayListTest {
         System.out.println("删除前:" + list);
         list.remove(1);//删除指定位置上的元素
         System.out.println("删除后:" + list);
+
     }
 
     /**
