@@ -1,4 +1,4 @@
-package com.zjw.stream.map;
+package com.zjw.collection.map;
 
 
 import org.junit.jupiter.api.Test;

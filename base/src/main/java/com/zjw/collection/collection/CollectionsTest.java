@@ -56,7 +56,45 @@ public class CollectionsTest {
         //使用指定元素替换集合中的所有元素
         Collections.fill(list, 0);
         System.out.println("元素填充后：" + list);
+    }
 
+    /**
+     * 降序集合
+     *  使用List接口中的sort方法进行降序，里面传入一个比较器
+     */
+    @Test
+    public void sortTest1() {
+        List<Integer> list = new ArrayList<>(){{
+            add(23);
+            add(4);
+            add(45);
+            add(76);
+            add(12);
+        }};
+        System.out.println("原始集合：" + list);
+        // 必须是可变的集合，不可变的集合，会抛出异常UnsupportedOperationException
+        list.sort(Collections.reverseOrder());
+        System.out.println("降序集合：" + list);
+    }
+
+    /**
+     * 降序集合
+     *  先使用sort方法升序，再使用Collections.reverse方法反转来降序
+     */
+    @Test
+    public void sortTest2() {
+        List<Integer> list = new ArrayList<>(){{
+            add(23);
+            add(4);
+            add(45);
+            add(76);
+            add(12);
+        }};
+        System.out.println("原始集合：" + list);
+        list.sort(Integer::compare);
+        System.out.println("升序集合：" + list);
+        Collections.reverse(list);
+        System.out.println("降序集合：" + list);
     }
 
     /**

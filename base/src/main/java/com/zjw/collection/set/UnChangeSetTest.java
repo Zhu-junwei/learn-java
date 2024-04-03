@@ -1,4 +1,4 @@
-package com.zjw.stream.set;
+package com.zjw.collection.set;
 
 import org.junit.jupiter.api.Test;
 

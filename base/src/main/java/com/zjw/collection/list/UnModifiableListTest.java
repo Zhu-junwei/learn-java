@@ -1,4 +1,4 @@
-package com.zjw.stream.list;
+package com.zjw.collection.list;
 
 import org.junit.jupiter.api.Test;
 

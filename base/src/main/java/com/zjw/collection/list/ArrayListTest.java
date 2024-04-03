@@ -52,7 +52,9 @@ public class ArrayListTest {
     }
 
     /**
-     * 添加元素到头部 jdk21后支持
+     * 添加元素到头部
+     * <p>
+     * jdk21后支持
      */
     @Test
     public void testAddFirst() {
@@ -126,7 +128,7 @@ public class ArrayListTest {
         System.out.println("删除前:" + list);
         list.remove("a");//只会删除第一个出现的元素
         System.out.println("删除后:" + list);
-        list.removeFirst();//只会删除第一个出现的元素
+        list.removeFirst();//删除集合第一个出现的元素
         System.out.println("删除后:" + list);
     }
 
@@ -155,7 +157,8 @@ public class ArrayListTest {
         list.add("b");
         list.add("c");
         System.out.println("删除前:" + list);
-        list.remove(1);//删除指定位置上的元素
+        String removed = list.remove(1);//删除指定位置上的元素
+        System.out.println("removed = " + removed);
         System.out.println("删除后:" + list);
 
     }
@@ -169,7 +172,7 @@ public class ArrayListTest {
         list.add("a");
         list.add("b");
         list.add("c");
-        System.out.println(list.get(0));
+        System.out.println(list.get(1));
     }
 
     /**
@@ -552,6 +555,17 @@ public class ArrayListTest {
         List<String> list = Arrays.asList(new String[]{"z", "b", "e", "a", "a"});
         List<String> distinctList = list.stream().distinct().toList();
         System.out.println("distinctList = " + distinctList);
+    }
+
+    /**
+     * 统计某个元素出现的次数
+     */
+    @Test
+    public void elementCountTest() {
+        List<String> list = Arrays.asList("111", "111", "222", "111");
+        String target = "111";
+        long count = list.stream().filter(e -> e.equals(target)).count();
+        System.out.println("count = " + count);
     }
 
 }
