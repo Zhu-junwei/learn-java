@@ -38,7 +38,6 @@
         <module>game</module>
         <module>multi-thread</module>
         <module>utils</module>
-        <module>leetcode</module>
         <module>reactive</module>
     </modules>
 

@@ -39,9 +39,6 @@
 - [水仙花数](./game/src/main/java/com/zjw/NarcissisticNumber.java)
 - [找唯一](./game/src/main/java/com/zjw/OnlyOne.java)
 
-# leetcode
-- [ ] [刷题](./leetcode/)
-
 # multi-thread
 
 - [多线程](./multi-thread/README.md)
