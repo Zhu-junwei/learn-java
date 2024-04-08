@@ -40,6 +40,5 @@ public class TypeTest {
 		 boolean bool = true ;
 		 System.out.println(bool);
 		 
-		 
 	}
 }

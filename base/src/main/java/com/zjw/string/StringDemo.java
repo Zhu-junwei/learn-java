@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Scanner;
 
 /**
  * @author 朱俊伟
@@ -45,10 +46,10 @@ public class StringDemo {
         System.out.println("*************************");
         String str1 = new String("I'm Junwei Zhu");
         String str2 = new String("I'M Junwei Zhu");
-        System.out.println("equal:"+str1.equals(str2));
+        System.out.println("equal:" + str1.equals(str2));
         //比较是忽略大小写
-        System.out.println("equalsIgnoreCase:"+str1.equalsIgnoreCase(str2));
-        System.out.println("==:"+(str1 == str2));
+        System.out.println("equalsIgnoreCase:" + str1.equalsIgnoreCase(str2));
+        System.out.println("==:" + (str1 == str2));
 
 
         /*
@@ -121,6 +122,16 @@ public class StringDemo {
         String[] strings2 = str2.split("_");//"a","","b","c"
         System.out.println(Arrays.toString(strings));
         System.out.println(Arrays.toString(strings2));
+    }
+
+    /**
+     * 根据多个分隔符拆分
+     */
+    @Test
+    public void testStringSplit3() {
+        String str = "17140216;80.845,90.55,100.00";
+        String[] strings = str.split(";|,");
+        System.out.println(Arrays.toString(strings));//[17140216, 80.845, 90.55, 100.00]
     }
 
     @Test
@@ -279,6 +290,35 @@ public class StringDemo {
         String str = "123456";
         System.out.println(str.contains("1"));//true
         System.out.println(str.contains("A"));//false
+    }
+
+    /**
+     * String format
+     * 为什么在Test里面不能输入呀？
+     */
+    @Test
+    public void stringFormatTest() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("输入整数：");
+        int anInt = scanner.nextInt();
+        System.out.println(anInt);
+        System.out.print("输入小数：");
+        double aDouble = scanner.nextDouble();
+        System.out.println(aDouble);
+        String doubleFormat = String.format(".3f", aDouble);
+        System.out.println(doubleFormat);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("输入整数：");
+        int anInt = scanner.nextInt();
+        System.out.println(anInt);
+        System.out.print("输入小数：");
+        double aDouble = scanner.nextDouble();
+        System.out.println(aDouble);
+        String doubleFormat = String.format("%.3f", aDouble);
+        System.out.println(doubleFormat);
     }
 
 }
