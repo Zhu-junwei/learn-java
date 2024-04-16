@@ -28,10 +28,7 @@
 
     <modules>
         <module>base</module>
-        <module>component/h2</module>
-        <module>component/json</module>
-        <module>component/net</module>
-        <module>component/hutool</module>
+        <module>component</module>
         <module>data-structures-algorithm</module>
         <module>design-pattern</module>
         <module>domain</module>

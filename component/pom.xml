@@ -5,20 +5,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.zjw</groupId>
-    <artifactId>reactive</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>component</artifactId>
     <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>reactor</module>
+        <module>h2</module>
+        <module>json</module>
+        <module>net</module>
+        <module>hutool</module>
     </modules>
 
+    <!--版本定义-->
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
 
 
 </project>

@@ -10,12 +10,12 @@ import java.util.stream.Stream;
 
 /**
  * 测试Stream中的常见方法
- *  filter limit skip distinct concat map sorted peek takeWhile dropWhile
+ * filter limit skip distinct concat map sorted peek takeWhile dropWhile
  * <p>
- *  mapToInt mapToLong mapToDouble
- *  flatMap flatMapToInt flatMapToLong flatMapToDouble
- *  mapMulti mapMultiToInt mapMultiToLong mapMultiToDouble
- *  parallel unordered onClose sequential
+ * mapToInt mapToLong mapToDouble
+ * flatMap flatMapToInt flatMapToLong flatMapToDouble
+ * mapMulti mapMultiToInt mapMultiToLong mapMultiToDouble
+ * parallel unordered onClose sequential
  *
  * @author 朱俊伟
  * @since 2023/07/23 23:20
@@ -188,6 +188,7 @@ public class StreamMethodTest {
      * stream forEach方法遍历
      */
     @Test
+    @SuppressWarnings("all")
     public void forEachTest() {
         List<Student> studentList = new ArrayList<>();
         studentList.add(Student.builder().age(18).name("张无忌").build());
@@ -212,7 +213,9 @@ public class StreamMethodTest {
         studentList.add(Student.builder().age(18).name("周芷若").build());
         studentList.add(Student.builder().age(18).name("张强").build());
         //count方法计数
-        long count = studentList.stream().count();
+        long count = studentList.stream()
+                .filter(student -> student.getName().startsWith("张"))
+                .count();
         System.out.println(count);
         System.out.println(studentList.size());
     }
@@ -246,9 +249,12 @@ public class StreamMethodTest {
         studentList.add(Student.builder().age(18).name("张无忌").build());
         studentList.add(Student.builder().age(18).name("周芷若").build());
         studentList.add(Student.builder().age(18).name("张强").build());
-        Object[] objects = studentList.stream().toArray();
+        Object[] objects = studentList.stream()
+                .peek(student -> student.setAge(student.getAge() + 1))
+                .toArray();
         System.out.println(Arrays.toString(objects));
-        Student[] students = studentList.stream().toArray(Student[]::new);
+        Student[] students = studentList.stream().peek(student -> student.setAge(student.getAge() + 1))
+                .toArray(Student[]::new);
         System.out.println(Arrays.toString(students));
     }
 

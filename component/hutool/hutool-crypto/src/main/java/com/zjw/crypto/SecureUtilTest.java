@@ -12,6 +12,9 @@ import org.junit.jupiter.api.Test;
  */
 public class SecureUtilTest {
 
+    /**
+     * AES对称加密
+     */
     @Test
     public void testAES() {
         AES aes = SecureUtil.aes();
