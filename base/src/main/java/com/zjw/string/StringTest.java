@@ -12,7 +12,8 @@ import java.util.Scanner;
  * @author 朱俊伟
  * @since 2021/11/16
  */
-public class StringDemo {
+@SuppressWarnings("all")
+public class StringTest {
 
     /**
      * 测试String常用方法
@@ -307,6 +308,15 @@ public class StringDemo {
         System.out.println(aDouble);
         String doubleFormat = String.format(".3f", aDouble);
         System.out.println(doubleFormat);
+    }
+
+    @Test
+    public void stringFormat2Test() {
+
+
+        System.out.printf("|%s|%n", "hello");
+        System.out.printf("|%20s|%n", "hello");//指定宽度,右对齐   |                  93|
+        System.out.printf("|%20s|%n", "hellohellohellohellohellohellohellohellohellohellohellohellohello");//指定宽度,右对齐   |                  93|
     }
 
     public static void main(String[] args) {
