@@ -304,4 +304,18 @@ public class StreamMethodTest {
         System.out.println(ageMap);
     }
 
+    /**
+     * groupingBy练习，统计一个数组中每个元素出现的次数
+     */
+    @Test
+    public void groupingBy2Test() {
+        List<Integer> list = Arrays.asList(1, 2, 3, 1, 2, 1);
+        Map<Integer, Long> countMap = list.stream()
+                .collect(Collectors.groupingBy(
+                        i -> i,
+                        Collectors.counting()
+                ));
+        countMap.forEach((k, v) -> System.out.println(k + " : " + v));
+    }
+
 }

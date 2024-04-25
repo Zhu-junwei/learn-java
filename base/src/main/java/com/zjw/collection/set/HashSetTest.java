@@ -9,11 +9,10 @@ import java.util.Set;
  * @author zjw
  * @since 2023/07/07 15:46
  */
-public class SetTest {
+public class HashSetTest {
 
     /**
      * HashSet是无序的，不允许重复
-     * 测试TreeSet
      */
     @Test
     public void testSet() {
