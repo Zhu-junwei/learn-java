@@ -3,7 +3,6 @@ package com.zjw.lambda;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 /**
  * lambda表达式 构造器引用
@@ -15,17 +14,16 @@ public class ContractReferenceTest {
     public static void main(String[] args) {
         List<String> names = Arrays.asList("a","b","c");
         //调用Person(String)构造器
-        Stream<Person> stream = names.stream().map(Person::new);
-//        List<Person> personList = stream.collect(Collectors.toList());
-//        System.out.println(personList);
+        List<Person> personList = names.stream().map(Person::new).toList();
+        System.out.println(personList);
 
         //创建Object数组
-//        Object[] people = stream.toArray();
-//        System.out.println(Arrays.toString(people));
+        Object[] people = names.stream().toArray();
+        System.out.println(Arrays.toString(people));
 
         //创建Person数组
-        Person[] people = stream.toArray(Person[]::new);
-        System.out.println(Arrays.toString(people));
+        Person[] peopleArr = names.stream().map(Person::new).toArray(Person[]::new);
+        System.out.println(Arrays.toString(peopleArr));
 
     }
 }

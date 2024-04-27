@@ -16,7 +16,7 @@ public class ExceptionTest {
         /*
             不论这个块如何退出，in和out都会关闭，就好像使用了finally块一样
          */
-        try (Scanner in = new Scanner(new FileInputStream("E:/logs/a.txt"), StandardCharsets.UTF_8.name());
+        try (Scanner in = new Scanner(new FileInputStream("E:/logs/a.txt"), StandardCharsets.UTF_8);
              PrintWriter out = new PrintWriter("out.txt")){
             while (in.hasNext()){
                 String next = in.next();

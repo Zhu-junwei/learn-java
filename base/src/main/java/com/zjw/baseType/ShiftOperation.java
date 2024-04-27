@@ -1,6 +1,7 @@
-package com.zjw.bit;
+package com.zjw.baseType;
 
 /**
+ * 移位操作
  * @author 朱俊伟
  * @since 2024/03/30 16:10
  */

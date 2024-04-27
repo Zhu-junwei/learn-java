@@ -5,9 +5,9 @@ package com.feature.java14.switchs;
  * <p>
  * Java 12 (2019): 作为预览功能引入了 switch 表达式，支持：
  * <p>
- *  - 直接从 switch 块中返回值。
+ * - 直接从 switch 块中返回值。
  * <p>
- *  - 为单个 case 标签使用多个值。
+ * - 为单个 case 标签使用多个值。
  * <p>
  * Java 14 (2020): Switch 表达式成为标准语言功能，使用 -> 语法返回值。
  *
@@ -17,6 +17,7 @@ package com.feature.java14.switchs;
 public class SwitchUpdate {
     public static void main(String[] args) {
 
+        // 获取返回值
         int number = 2;
         String day = switch (number) {
             case 1 -> "Monday";
@@ -25,5 +26,18 @@ public class SwitchUpdate {
             default -> "Weekend";
         };
         System.out.println(day);
+
+        // 使用大括号
+        number = 3;
+        switch (number) {
+            case 1 -> {
+                System.out.println("Monday");
+            }
+            case 2 -> System.out.println("Tuesday");
+            case 3, 4, 5 -> {
+                System.out.println("Midweek");
+            }
+            default -> System.out.println("Weekend");
+        }
     }
 }
