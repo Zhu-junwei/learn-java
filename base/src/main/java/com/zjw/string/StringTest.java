@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -22,19 +23,20 @@ public class StringTest {
     public void testStringMethod() {
         String str = "hello123 456";
         //返回子字符串处的索引
-        System.out.println(str.indexOf("e"));
+        System.out.println(str.indexOf("e")); // 1
         //返回最后子索引字符串的索引
-        System.out.println(str.lastIndexOf("6"));
+        System.out.println(str.lastIndexOf("o"));// 4
         //返回索引处的字符
-        System.err.println(str.charAt(2));
+        System.out.println(str.charAt(2)); // l
         //截取子字符串
-        System.out.println(str.substring(1));
-        System.out.println(str.substring(1, 3));
+        System.out.println(str.substring(1)); // ello123 456
+        System.out.println(str.substring(1, 3)); // el
         //除去前后的空格
-        System.out.println(" ni  ".trim());
+        System.out.println(" ni  ".trim()); // ni
         //字符替换
-        System.out.println(str.replace('l', 'L'));
+        System.out.println(str.replace('l', 'L')); // heLLo123 456
         System.out.println(str.replaceAll("l", "L"));
+        System.out.println(str);
 
         //判断开始结尾
         System.out.println(str.startsWith("he"));
@@ -139,6 +141,30 @@ public class StringTest {
     public void testSubString() {
         String str = "helloWorld";
         System.out.println(str.substring(1, str.length() - 1));
+    }
+
+    /**
+     * repeat, 字符串重复
+     */
+    @Test
+    public void repeatTest() {
+        String repeated = "hello".repeat(3);
+        System.out.println(repeated); // hellohellohello
+    }
+
+    /**
+     * formatted，格式化
+     *
+     * @since 15
+     */
+    @Test
+    public void formattedTest() {
+        String name = null;
+        String formatted = "Your name is %s".formatted(name != null ? name : "unkonwn");
+        System.out.println(formatted);
+        // since 9
+        String formatted2 = "Your name is " + Objects.requireNonNullElse(name, "unkonwn");
+        System.out.println(formatted2);
     }
 
     /**
@@ -312,23 +338,9 @@ public class StringTest {
 
     @Test
     public void stringFormat2Test() {
-
-
         System.out.printf("|%s|%n", "hello");
         System.out.printf("|%20s|%n", "hello");//指定宽度,右对齐   |                  93|
         System.out.printf("|%20s|%n", "hellohellohellohellohellohellohellohellohellohellohellohellohello");//指定宽度,右对齐   |                  93|
-    }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("输入整数：");
-        int anInt = scanner.nextInt();
-        System.out.println(anInt);
-        System.out.print("输入小数：");
-        double aDouble = scanner.nextDouble();
-        System.out.println(aDouble);
-        String doubleFormat = String.format("%.3f", aDouble);
-        System.out.println(doubleFormat);
     }
 
 }

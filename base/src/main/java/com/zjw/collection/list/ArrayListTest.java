@@ -396,6 +396,21 @@ public class ArrayListTest {
     }
 
     /**
+     * replaceAll 替换所有
+     */
+    @Test
+    public void replaceTest() {
+        List<String> list = new ArrayList<>(){{
+            add(" a ");
+            add("b  ");
+            add("  c");
+        }};
+        System.out.println(list);
+        list.replaceAll(String::trim);
+        System.out.println(list);
+    }
+
+    /**
      * 使用迭代器Iterator遍历集合,<b>在遍历的过程中可以对集合修改</b>
      */
     @Test

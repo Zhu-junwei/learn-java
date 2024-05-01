@@ -1,5 +1,7 @@
 package com.feature.java15;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * 文本块
  *
@@ -7,7 +9,9 @@ package com.feature.java15;
  * @since 2024/03/24 15:03
  */
 public class TextBlock {
-    public static void main(String[] args) {
+
+    @Test
+    public void stringTemplateTest() {
         String simpleJSONMessage = """
                 {
                         "firstName": "Billy",
@@ -17,5 +21,15 @@ public class TextBlock {
                 }
                 """;
         System.out.println(simpleJSONMessage);
+
+        String simpleJSONMessage2 = """
+                {
+                        "firstName": "$firstName$",
+                        "lastName": "Korando",
+                        "jobTitle": "Java Developer Advocate",
+                        "twitterHandle": "@BillyKorando"
+                }
+                """.replace("$firstName$", "Billy");
+        System.out.println(simpleJSONMessage2);
     }
 }

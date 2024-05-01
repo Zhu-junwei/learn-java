@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import java.util.Objects;
 
 /**
+ * Objects类的使用
+ *
  * @author 朱俊伟
  * @since 2022/05/24 12:30
  */
@@ -29,15 +31,21 @@ public class ObjectsTest {
     }
 
     /**
-     * 测试Object转boolean
+     * requireNonNullElse 如果第一个参数为 non-null ，则返回第一个参数，否则返回非第二个null 参数。
      */
     @Test
-    public void testObjectToBoolean(){
-        Object objTrue = true;
-        Object objFalse = false;
-        boolean b1 = (boolean) objTrue;
-        boolean b2 = (boolean) objFalse;
-        System.out.println(b1);
-        System.out.println(b2);
+    public void requireNonNullElseTest() {
+        String str = Objects.requireNonNullElse(null, "unknown");
+        System.out.println(str);
+    }
+
+    /**
+     * requireNonNull，如果不是 null，返回对象引用，如果是 null，则抛出 NullPointerException
+     */
+    @Test
+    public void requireNonNullTest() {
+        Object o = null;
+//        Objects.requireNonNull(o);
+        Objects.requireNonNull(o, "参数不能为null"); //在抛出 NullPointerException 时使用的详细消息
     }
 }

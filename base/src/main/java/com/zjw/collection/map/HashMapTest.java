@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 /**
  * @author 朱俊伟
@@ -44,12 +45,50 @@ public class HashMapTest {
         String string = map.putIfAbsent(1L, "2");
         System.out.println("string = " + string); // string = null
         System.out.println("map = " + map); // map = {1=2}
+        map.computeIfAbsent(2L, k -> "3");
 
         // 集合中存在key,返回key对应的value, 不会将key-value放入map中
         string = map.putIfAbsent(1L, "3");
         System.out.println("string = " + string); // string = 2
         System.out.println("map = " + map); // map = {1=2}
     }
+
+    /**
+     * computeIfAbsent 测试
+     * 此方法演示了如何使用computeIfAbsent作为缓存机制，避免重复计算。
+     * 假设我们有一个昂贵的计算过程，它接受一个ID并返回与之关联的数据。
+     * 我们可以使用HashMap来存储已经计算过的数据，以避免重复计算。
+     */
+    @Test
+    public void computeIfAbsentTest() {
+        // 初始化一个空的HashMap来存储计算结果
+        Map<Long, String> cache = new HashMap<>();
+
+        // 定义一个模拟的昂贵计算过程
+        Function<Long, String> dataCalculator = id -> {
+            // 模拟耗时计算
+            try {
+                Thread.sleep(1000); // 睡眠1秒，代表耗时操作
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            return "Data for ID: " + id;
+        };
+
+        // 计算ID为1的数据，如果不在缓存中，会调用dataCalculator进行计算并存入缓存
+        String data1 = cache.computeIfAbsent(1L, dataCalculator);
+        System.out.println("Data for ID 1: " + data1);
+
+        // 尝试再次计算ID为1的数据，由于已存在于缓存中，不会重新计算
+        String data1Again = cache.computeIfAbsent(1L, dataCalculator);
+        System.out.println("Data for ID 1 (cached): " + data1Again);
+
+        // 计算ID为2的数据，假设之前未计算过
+        String data2 = cache.computeIfAbsent(2L, dataCalculator);
+        System.out.println("Data for ID 2: " + data2);
+    }
+
+
 
     /**
      * 测试hashmap merge
