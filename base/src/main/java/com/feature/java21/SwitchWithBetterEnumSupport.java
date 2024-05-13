@@ -35,6 +35,10 @@ public class SwitchWithBetterEnumSupport {
     }
 }
 
+// 牌分类
+// sealed密封接口，只有Suit，Tarot可以继承
 sealed interface CardClassification permits Suit, Tarot {}
+// 四种传统花色
 enum Suit implements CardClassification { CLUBS, DIAMONDS, HEARTS, SPADES }
+// 塔罗牌
 final class Tarot implements CardClassification {}
