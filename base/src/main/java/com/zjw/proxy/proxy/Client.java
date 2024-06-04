@@ -3,6 +3,7 @@ package com.zjw.proxy.proxy;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.Arrays;
 
 /**
  * 模拟一个消费者
@@ -35,15 +36,18 @@ public class Client {
                    它是让我们写如何代理。我们一般都是写一个接口的实现类，通常情况下都是匿名内部类，但不是必须的。
                    此接口的实现类都是谁用谁写。
          */
-        IProducer proxyProducer = (IProducer) Proxy.newProxyInstance(producer.getClass().getClassLoader(),
+        IProducer proxyProducer = (IProducer) Proxy.newProxyInstance(
+                producer.getClass().getClassLoader(),
                 producer.getClass().getInterfaces(),
                 new InvocationHandlerImpl(producer));
         proxyProducer.saleProduct(10000f);
         proxyProducer.afterService(10000f);
-
     }
 }
 
+/**
+ * 提供增强的代码
+ */
 class InvocationHandlerImpl implements InvocationHandler {
 
     private final Producer producer;
@@ -53,16 +57,20 @@ class InvocationHandlerImpl implements InvocationHandler {
     }
 
     /**
-     * 作用：执行被代理对象的任何接口方法都会经过该方法
+     * 作用：执行被代理对象的任何方法都会经过该方法
      * 方法参数的含义
      *
      * @param proxy  代理对象的引用
      * @param method 当前执行的方法
      * @param args   当前执行方法所需的参数
-     * @return 和被代理对象方法有相同的返回值
+     * @return 和被代理对象方法有相同返回值
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        System.out.println("##invoke………start");
+        System.out.println("proxy class = " + proxy.getClass().getName());
+        System.out.println("method = " + method.getName());
+        System.out.println("args = " + Arrays.toString(args));
         //提供增强的代码
         Object object = null;
         //判断当前方法是不是销售
@@ -74,6 +82,7 @@ class InvocationHandlerImpl implements InvocationHandler {
             //不需要代码增强
             object = method.invoke(producer, args);
         }
+        System.out.println("##invoke………end\n");
         return object;
     }
 }

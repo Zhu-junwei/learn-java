@@ -6,7 +6,7 @@ package com.zjw.proxy.proxy;
  */
 public interface IProducer {
 
-    public void saleProduct(float money);
+    void saleProduct(float money);
 
-    public void afterService(float money);
+    void afterService(float money);
 }

@@ -1,35 +1,8 @@
-**Cglib以及不再维护[#191](https://github.com/cglib/cglib/issues/191)，建议使用SpringFramework中的cglib**
+package com.zjw.cglibProxy;
 
-# ~~CglibProxy代理~~
-
-```java
-package com.zjw.proxy.proxy3;
-
-/**
- * 一个生产者
- */
-public class Producer {
-
-    public void saleProduct(float money){
-        System.out.println("销售产品，并拿到钱："+money);
-    }
-
-    public void afterService(float money){
-        System.out.println("提供售后服务，并拿到钱："+money);
-    }
-
-    public final void hello(){
-        System.out.println("你能代理我嘛？？");
-    }
-}
-```
-
-```java
-package com.zjw.proxy.proxy3;
-
-import net.sf.cglib.proxy.Enhancer;
-import net.sf.cglib.proxy.MethodInterceptor;
-import net.sf.cglib.proxy.MethodProxy;
+import org.springframework.cglib.proxy.Enhancer;
+import org.springframework.cglib.proxy.MethodInterceptor;
+import org.springframework.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
 
@@ -67,7 +40,7 @@ public class CglibProxy implements MethodInterceptor {
     }
     
     public <T> T getProxy() {
-        return (T)Enhancer.create(target.getClass(), this);
+        return (T) Enhancer.create(target.getClass(), this);
     }
 
 
@@ -79,4 +52,3 @@ public class CglibProxy implements MethodInterceptor {
         cglibProducer.hello();
     }
 }
-```
