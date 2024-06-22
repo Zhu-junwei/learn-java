@@ -11,6 +11,7 @@
     <modules>
         <module>../hutool-crypto</module>
         <module>../hutool-core</module>
+        <module>../hutool-captcha</module>
     </modules>
 
     <properties>
