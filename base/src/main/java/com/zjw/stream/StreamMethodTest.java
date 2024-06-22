@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.text.Collator;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -56,6 +57,28 @@ public class StreamMethodTest {
         System.out.println(list22);
         List<String> list33 = list22.stream().filter(item -> item.length() == 3).toList();
         System.out.println(list33);
+    }
+
+    /**
+     * takeWhile 谓词为真时获取元素，否则停止
+     */
+    @Test
+    public void takeWhileTest() {
+        List<Integer> list = List.of(1, 2, 3, 5, 4, 6, 7, 8, 9, 10);
+        // 获取集合前面小于5的元素
+        list.stream().takeWhile(item -> item < 5)
+                .forEach(System.out::println);
+    }
+
+    /**
+     * dropWhile 谓词为真时丢弃元素，为假时忽略谓词开始处理后续元素
+     */
+    @Test
+    public void dropWhileTest() {
+        List<Integer> list = List.of(1, 2, 3, 5, 4, 6, 7, 8, 9, 10);
+        // 丢弃集合前面小于5的元素，直到只要遇到大于等于5的元素才处理，并忽略掉条件
+        list.stream().dropWhile(item -> item < 5)
+                .forEach(System.out::println);
     }
 
     /**
@@ -113,6 +136,12 @@ public class StreamMethodTest {
                 // 按照拼音排序
                 .sorted((n1, n2) -> Collator.getInstance(Locale.CHINA).compare(n1, n2))
                 .forEach(System.out::println);
+
+        Stream.generate(Math::random)
+                .limit(10)
+                .peek(e -> System.out.println("生成：" + e))
+                .sorted(Comparator.comparing(Double::doubleValue))
+                .forEach(System.out::println);
     }
 
     /**
@@ -133,6 +162,63 @@ public class StreamMethodTest {
     }
 
     /**
+     * findFirst 找第一个姓"王"的人
+     * findAny 找任意一个姓"王"的人
+     * anyMatch 判断是否包含姓"王"的人
+     * allMatch 判断是否所有姓"王"的人
+     * noneMatch 判断没有姓"王"的人
+     */
+    @Test
+    public void findFirstTest() {
+        List<String> list = new ArrayList<>();
+        Collections.addAll(list, "张无忌", "周芷若", "王芷若", "李芷若", "赵敏", "王强", "张三丰");
+        // 找第一个姓"王"的人
+        Optional<String> optional = list.stream()
+                .filter(item -> item.startsWith("王"))
+                .findFirst();
+        System.out.println(optional.orElse("没找到"));
+        // 找任意一个姓"王"的人
+        Optional<String> findAny = list.stream()
+                .filter(item -> item.startsWith("王"))
+                .findAny();
+        System.out.println("findAny:" + findAny.orElse("没找到"));
+        // 判断是否包含姓"王"的人
+        boolean anyMatch = list.stream()
+                .anyMatch(item -> item.startsWith("王"));
+        System.out.println("anyMatch:" + anyMatch);
+        // 判断是否所有姓"王"的人
+        boolean allMatch = list.stream()
+                .allMatch(item -> item.startsWith("王"));
+        System.out.println("allMatch:" + allMatch);
+        // 判断没有姓"王"的人
+        boolean noneMatch = list.stream()
+                .noneMatch(item -> item.startsWith("王"));
+        System.out.println("noneMatch:" + noneMatch);
+    }
+
+    /**
+     * max min
+     */
+    @Test
+    public void maxMinTest() {
+        // 生成5个随机数
+        List<Double> list = Stream.generate(Math::random)
+                .peek(e -> System.out.println("生成：" + e))
+                .limit(5).toList();
+        // stream max获取最大值
+        list.stream()
+                .max(Comparator.comparing(Double::doubleValue))
+                .ifPresent(System.out::println);
+        // stream min获取最小值
+        list.stream()
+                .min(Comparator.comparing(Double::doubleValue))
+                .ifPresent(System.out::println);
+        // 其他方法获取最大最小
+        System.out.println(Collections.max(list));
+        System.out.println(Collections.min(list));
+    }
+
+    /**
      * concat合并流
      */
     @Test
@@ -145,6 +231,7 @@ public class StreamMethodTest {
         List<String> concatList = Stream.concat(list1.stream(), list2.stream()).toList();
         System.out.println(concatList);
     }
+
 
     /**
      * stream map方法
@@ -166,13 +253,13 @@ public class StreamMethodTest {
     }
 
     /**
-     * flatMap 拆分为一对多
+     * flatMap 将每个元素转换为一个流
      */
     @Test
     public void flatMapTest() {
 
-        String[] names = {"张无忌", "周芷若", "张强"};
-        List<Student> studentList = Stream.of(names)
+        List<String> nameList = List.of("张无忌", "周芷若", "张强");
+        List<Student> studentList = nameList.stream()
                 .map(name -> Student.builder()
                         .age(18)
                         .name(name)
@@ -221,23 +308,33 @@ public class StreamMethodTest {
     }
 
     /**
-     * 并发流
+     * 并行流
      */
     @Test
     public void parallelTest() {
-        List<Student> studentList = new ArrayList<>();
-        studentList.add(Student.builder().age(18).name("张无忌").build());
-        studentList.add(Student.builder().age(18).name("周芷若").build());
-        studentList.add(Student.builder().age(18).name("张强").build());
-        //count方法计数
+        List<Student> studentList = new ArrayList<>() {{
+            add(Student.builder().age(18).name("张无忌").build());
+            add(Student.builder().age(18).name("周芷若").build());
+            add(Student.builder().age(18).name("张强").build());
+        }};
+
+        //count方法计数 .stream().parallel()
         long count = studentList.stream()
-                .parallel() // 并发流
+                .parallel() // 并行流
                 .filter(student -> {
                     System.out.println("student = " + student + Thread.currentThread());
                     return student.getAge() > 10;
                 }).count();
+
+        // 方式二 调用parallelStream()
+        long count2 = studentList.parallelStream() // 并行流
+                .filter(student -> {
+                    System.out.println("student = " + student + Thread.currentThread());
+                    return student.getAge() > 10;
+                }).count();
+
         System.out.println(count);
-        System.out.println(studentList.size());
+        System.out.println(count2);
     }
 
     /**
@@ -284,6 +381,45 @@ public class StreamMethodTest {
                         student -> student
                 ));
         System.out.println(collectMap);
+        studentList.stream()
+                // valueMapper 返回一个总是返回其输入参数的函数
+                .collect(Collectors.toMap(
+                        Student::getName,
+                        Function.identity()
+                )).forEach((k, v) -> System.out.println("key = " + k + " value = " + v));
+    }
+
+    /**
+     * toMap
+     */
+    @Test
+    public void toMapTest() {
+        Stream<Locale> locales = Stream.of(Locale.getAvailableLocales());
+        locales.filter(loc -> !loc.getDisplayLanguage().isEmpty())
+                // mergeFunction 函数，用于解决key重复时的处理方式
+                .collect(
+                        Collectors.toMap(
+                                Locale::getDisplayLanguage,
+                                loc -> loc.getDisplayLanguage(loc),
+                                (existingValue, newValue) -> existingValue))
+                .forEach((k, v) -> System.out.println(k + " = " + v));
+
+        System.out.println("*************************");
+        Map<String, Set<String>> countryLanguageSets = Stream.of(Locale.getAvailableLocales())
+                .filter(loc -> !loc.getDisplayLanguage().isEmpty())
+                .collect(
+                        Collectors.toMap(
+                                Locale::getDisplayLanguage,
+                                l -> Collections.singleton(l.getDisplayLanguage())
+//                                (a, b) ->
+//                                { // Union of a and b
+////                                    return List.of(a).addAll(b);
+//                                    var union = new HashSet<String>(a);
+//                                    union.addAll(b);
+//                                    return union;
+//                                }
+                                ));
+        countryLanguageSets.forEach((k, v) -> System.out.println(k + " = " + v));
     }
 
     /**
@@ -316,6 +452,69 @@ public class StreamMethodTest {
                         Collectors.counting()
                 ));
         countMap.forEach((k, v) -> System.out.println(k + " : " + v));
+    }
+
+    /**
+     * partitioningBy 结果划分为两部分
+     */
+    @Test
+    public void partitioningByTest() {
+        Locale[] availableLocales = Locale.getAvailableLocales();
+        // 拆分使用汉语的和非汉语的
+        Map<Boolean, List<Locale>> zhAndOtherLocaleMap =  Stream.of(availableLocales)
+                .collect(Collectors.partitioningBy(l -> l.getLanguage().equals("zh")));
+        List<Locale> zhLocales = zhAndOtherLocaleMap.get(Boolean.TRUE);
+        zhLocales.forEach(System.out::println);
+        System.out.println("****************");
+        List<Locale> otherLocales = zhAndOtherLocaleMap.get(Boolean.FALSE);
+        otherLocales.forEach(System.out::println);
+    }
+
+    /**
+     * reduce 将流中的元素结合起来，生成一个单一的值
+     *
+     */
+    @Test
+    public void reduceTest() {
+        List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        Integer result = integerList.stream()
+                .reduce(Integer::sum)
+                .orElse(0);
+        System.out.println(result);
+
+        Integer result2 = integerList.stream()
+                .reduce(0, Integer::sum);
+        System.out.println(result2);
+
+    }
+
+    /**
+     * summaryStatistic 用于收集统计信息，如count、min、max、sum和average。
+     */
+    @Test
+    public void summaryStatisticTest() {
+        // 获取1-10之间的随机数
+        Random random = new Random();
+        IntSummaryStatistics summaryStatistics = Stream.generate(() -> random.nextInt(1, 10))
+                .peek(item -> System.out.println("生成：" + item))
+                .limit(10)
+                // 获取总结统计
+                .collect(Collectors.summarizingInt(Integer::intValue));
+
+        long count = summaryStatistics.getCount();
+        long sum = summaryStatistics.getSum();
+        double average = summaryStatistics.getAverage();
+        int max = summaryStatistics.getMax();
+        int min = summaryStatistics.getMin();
+
+        System.out.println("count = " + count);
+        System.out.println("sum = " + sum);
+        System.out.println("average = " + average);
+        System.out.println("max = " + max);
+        System.out.println("min = " + min);
+        System.out.println(summaryStatistics);
+
     }
 
 }

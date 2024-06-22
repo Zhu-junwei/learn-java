@@ -343,4 +343,15 @@ public class StringTest {
         System.out.printf("|%20s|%n", "hellohellohellohellohellohellohellohellohellohellohellohellohello");//指定宽度,右对齐   |                  93|
     }
 
+    /**
+     * codePoints获取Unicode编码点
+     */
+    @Test
+    public void codePointsTest() {
+        String str = "hello";
+        str.codePoints().forEach(System.out::println);
+        str = "你好";
+        str.codePoints().forEach(System.out::println);
+    }
+
 }
