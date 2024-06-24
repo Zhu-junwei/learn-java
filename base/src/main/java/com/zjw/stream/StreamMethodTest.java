@@ -405,21 +405,30 @@ public class StreamMethodTest {
                 .forEach((k, v) -> System.out.println(k + " = " + v));
 
         System.out.println("*************************");
-        Map<String, Set<String>> countryLanguageSets = Stream.of(Locale.getAvailableLocales())
+        // 获取一个国家有哪些语言
+        Map<String, Set<String>> countryLanguageMap = Stream.of(Locale.getAvailableLocales())
                 .filter(loc -> !loc.getDisplayLanguage().isEmpty())
                 .collect(
                         Collectors.toMap(
+                                Locale::getDisplayCountry,
+                                l -> new HashSet<>(Collections.singleton(l.getDisplayLanguage())),
+                                (a, b) ->
+                                {
+                                    a.addAll(b);
+                                    return a;
+                                }
+                        ));
+        countryLanguageMap.forEach((k, v) -> System.out.println(k + " = " + v));
+        // 获取一个语言有哪些国家
+        Map<String, Set<String>> languageToCountries = Stream.of(Locale.getAvailableLocales())
+                .filter(loc -> !loc.getDisplayCountry().isEmpty() && !loc.getDisplayLanguage().isEmpty())
+                .collect(
+                        Collectors.groupingBy(
                                 Locale::getDisplayLanguage,
-                                l -> Collections.singleton(l.getDisplayLanguage())
-//                                (a, b) ->
-//                                { // Union of a and b
-////                                    return List.of(a).addAll(b);
-//                                    var union = new HashSet<String>(a);
-//                                    union.addAll(b);
-//                                    return union;
-//                                }
-                                ));
-        countryLanguageSets.forEach((k, v) -> System.out.println(k + " = " + v));
+                                Collectors.mapping(Locale::getDisplayCountry, Collectors.toSet())
+                        ));
+
+        languageToCountries.forEach((k, v) -> System.out.println(k + " = " + v));
     }
 
     /**
@@ -461,7 +470,7 @@ public class StreamMethodTest {
     public void partitioningByTest() {
         Locale[] availableLocales = Locale.getAvailableLocales();
         // 拆分使用汉语的和非汉语的
-        Map<Boolean, List<Locale>> zhAndOtherLocaleMap =  Stream.of(availableLocales)
+        Map<Boolean, List<Locale>> zhAndOtherLocaleMap = Stream.of(availableLocales)
                 .collect(Collectors.partitioningBy(l -> l.getLanguage().equals("zh")));
         List<Locale> zhLocales = zhAndOtherLocaleMap.get(Boolean.TRUE);
         zhLocales.forEach(System.out::println);
@@ -472,7 +481,6 @@ public class StreamMethodTest {
 
     /**
      * reduce 将流中的元素结合起来，生成一个单一的值
-     *
      */
     @Test
     public void reduceTest() {
