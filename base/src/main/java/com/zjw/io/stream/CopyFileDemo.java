@@ -1,52 +1,42 @@
 package com.zjw.io.stream;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
- * @描述：java--文件拷贝 BufferedInputStream BufferedOutputStream
- * @作者: zjw
- * @时间: 2018年7月15日 下午10:24:04
+ * java--文件拷贝 BufferedInputStream BufferedOutputStream
+ *
+ * @author : zjw
+ * @since : 2018年7月15日 下午10:24:04
  */
 public class CopyFileDemo {
     public static void main(String[] args) throws Exception {
-        long start = System.currentTimeMillis();//开始时间
+        long start = System.currentTimeMillis();
 
-        File readFile = new File("g:/my.mp3");//源文件
-        File writeFile = new File("g:/MyMusic/my.mp3");//目标文件
+        Path readFile = Paths.get("g:/my.mp3");
+        Path writeFile = Paths.get("g:/MyMusic/my.mp3");
 
-        //源文件是否存在
-        if (!readFile.exists()) {
+        if (!Files.exists(readFile)) {
             System.out.println("文件不存在！");
             System.exit(1);
         }
-        //目标目录是否存在
-        if (!writeFile.getParentFile().exists()) {
-            writeFile.getParentFile().mkdirs();//不存在创建
+
+        Files.createDirectories(writeFile.getParent());
+
+        try (BufferedInputStream bis = new BufferedInputStream(Files.newInputStream(readFile));
+             BufferedOutputStream bos = new BufferedOutputStream(Files.newOutputStream(writeFile))) {
+
+            byte[] data = new byte[1024];
+            int temp;
+            while ((temp = bis.read(data)) != -1) {
+                bos.write(data, 0, temp);
+            }
         }
 
-        InputStream is = Files.newInputStream(readFile.toPath());//输入流
-        OutputStream os = Files.newOutputStream(writeFile.toPath());//输出流
-
-
-        BufferedInputStream bis = new BufferedInputStream(is);//缓冲输入流
-        BufferedOutputStream bos = new BufferedOutputStream(os);//缓冲输出流
-
-
-        byte[] data = new byte[1024];//输入的缓冲区
-        int temp = 0;//读取的文件大小
-        while ((temp = bis.read(data)) != -1) {
-            bos.write(data, 0, temp);//写到目标文件
-//			bos.flush();
-        }
-        //关闭操作
-//		is.close();
-//		os.close();
-
-        bis.close();
-        bos.close();
-
-        long end = System.currentTimeMillis();//结束时间
+        long end = System.currentTimeMillis();
         System.out.println("操作时间：" + (end - start) + "ms");
     }
 }
