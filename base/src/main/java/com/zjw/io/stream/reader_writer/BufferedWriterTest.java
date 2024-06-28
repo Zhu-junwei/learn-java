@@ -1,4 +1,4 @@
-package com.zjw.io.reader_writer;
+package com.zjw.io.stream.reader_writer;
 
 import java.io.BufferedWriter;
 import java.io.File;

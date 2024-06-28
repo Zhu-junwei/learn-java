@@ -21,7 +21,7 @@
 - [IO](./src/main/java/com/zjw/io)
     - [File](./src/main/java/com/zjw/io/file)
     - [Paths](./src/main/java/com/zjw/io/paths)
-    - [字符流](./src/main/java/com/zjw/io/reader_writer)
+    - [字符流](./src/main/java/com/zjw/io/stream/reader_writer)
     - [字节流](./src/main/java/com/zjw/io/stream)
 - [Lambda](./src/main/java/com/zjw/lambda)
 - [Logger](./src/main/java/com/zjw/logger)
