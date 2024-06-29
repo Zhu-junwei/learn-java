@@ -42,4 +42,30 @@ public class TreeSetTest {
         sortSet.add("4");
         System.out.println(sortSet);//[5, 4, 2, 1]
     }
+
+    @Test
+    public void testTreeSet2() {
+        // 创建一个自定义的Comparator，根据字符串中的/号后面的部分进行排序
+        Comparator<String> comparator = (s1, s2) -> {
+            String part1 = s1.substring(s1.indexOf('/') + 1);
+            String part2 = s2.substring(s2.indexOf('/') + 1);
+            return part1.compareTo(part2);
+        };
+
+        // 使用这个Comparator创建一个TreeSet
+        TreeSet<String> sortedSet = new TreeSet<>(comparator);
+
+        // 添加数据
+        sortedSet.add("aa/bb");
+        sortedSet.add("cc/dd");
+        sortedSet.add("ee/aa");
+        sortedSet.add("ff/cc");
+
+        // 打印结果
+        for (String s : sortedSet) {
+            System.out.println(s);
+        }
+    }
+
+
 }

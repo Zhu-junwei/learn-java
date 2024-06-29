@@ -1,4 +1,4 @@
-package com.zjw.socket;
+package com.advanced.net.socket.tcp;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,6 +34,8 @@ public class TCPClient {
                 // Receive response from server
                 String responseMessage = reader.readLine();
                 System.out.println("Received response from server: " + responseMessage);
+                if ("Bye".equals(responseMessage))
+                    break;
             }
 
         } catch (IOException e) {

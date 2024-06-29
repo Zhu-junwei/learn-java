@@ -1,4 +1,4 @@
-package com.zjw.heartbeat;
+package com.advanced.net.socket.heartbeat;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -40,7 +40,7 @@ public class HeartbeatServer {
                 System.out.println("Received heartbeat: " + message);
 
                 // Respond to the heartbeat
-                writer.println("Heartbeat response");
+                writer.println("I'm OK.");
             }
 
             clientSocket.close();

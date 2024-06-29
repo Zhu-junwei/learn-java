@@ -340,6 +340,7 @@ public class PathTest {
     @Test
     @SneakyThrows
     public void walkTest() {
+        System.out.println(System.getProperty("user.dir"));
         Path path = Paths.get(System.getProperty("user.dir")).getParent();
 
         try (Stream<Path> pathStream = Files.walk(path)) {

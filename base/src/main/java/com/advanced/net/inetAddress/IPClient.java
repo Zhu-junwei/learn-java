@@ -1,4 +1,4 @@
-package com.zjw.time;
+package com.advanced.net.inetAddress;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

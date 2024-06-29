@@ -1,4 +1,4 @@
-package com.advanced.httpserver;
+package com.advanced.net.http;
 
 import com.sun.net.httpserver.HttpServer;
 import com.sun.net.httpserver.HttpHandler;

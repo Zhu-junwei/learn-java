@@ -1,4 +1,4 @@
-package com.zjw.dns;
+package com.advanced.net.dns;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

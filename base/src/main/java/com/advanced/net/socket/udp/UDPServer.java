@@ -1,4 +1,4 @@
-package com.zjw.socket;
+package com.advanced.net.socket.udp;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
