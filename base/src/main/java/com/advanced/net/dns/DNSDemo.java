@@ -5,6 +5,9 @@ import java.net.UnknownHostException;
 
 /**
  * DNS查询ip地址
+ *
+ * @author 朱俊伟
+ * @date 2024/06/30
  */
 public class DNSDemo {
     public static void main(String[] args) {

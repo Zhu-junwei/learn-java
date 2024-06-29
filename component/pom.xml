@@ -15,6 +15,7 @@
         <module>net</module>
         <module>hutool</module>
         <module>spring</module>
+        <module>oshi</module>
     </modules>
 
     <!--版本定义-->

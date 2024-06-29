@@ -21,6 +21,10 @@ public class CustomAnnoTest {
     }
 }
 
+/**
+ * @author 朱俊伟
+ * @date 2024/06/30
+ */
 @CustomAnno(name = "小明",month = {1,3,7,9})
 class UserInfo{
 
