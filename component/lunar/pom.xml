@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>oshi</artifactId>
+    <artifactId>lunar</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -18,16 +18,10 @@
     </properties>
 
     <dependencies>
-        <!-- 本机操作系统和硬件信息 https://github.com/oshi/oshi-->
         <dependency>
-            <groupId>com.github.oshi</groupId>
-            <artifactId>oshi-core-java11</artifactId>
-            <version>6.6.1</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.5.6</version>
+            <groupId>cn.6tail</groupId>
+            <artifactId>lunar</artifactId>
+            <version>1.3.14</version>
         </dependency>
     </dependencies>
 
