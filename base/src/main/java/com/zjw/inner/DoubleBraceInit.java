@@ -10,22 +10,15 @@ import java.util.List;
  */
 public class DoubleBraceInit {
     public static void main(String[] args) {
-        ArrayList<String> friend = new ArrayList<>();
-        friend.add("Harry");
-        friend.add("Tony");
-//        invite(friend);
-
         //外层括号建立了ArrayList的一个匿名子类。 内层括号则是一个对象构造块。
-        invite(new ArrayList<String>(){
-            {
-                add("Harry");
-                add("Tony");
-            }
-        });
-
+        ArrayList<String> friend = new ArrayList<>() {{
+            add("Harry");
+            add("Tony");
+        }};
+        invite(friend);
     }
 
-    public static void invite(List list){
+    public static <T> void invite(List<T> list){
         System.out.println(list);
     }
 }

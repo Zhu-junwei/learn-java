@@ -5,11 +5,12 @@ import java.util.ArrayList;
 /**
  * var类型
  * <p>
- *  Java引入var类型推断关键字是在Java 10中。这个关键字使得声明局部变量时更加简洁，编译器会根据右侧的表达式自动推断变量的类型。
+ *  Java引入var类型推断关键字是在Java 10中 <a href="https://openjdk.org/jeps/286">EJP286</a>。这个关键字使得声明局部变量时更加简洁，编译器会根据右侧的表达式自动推断变量的类型。
  *  这是Java的一项语言增强功能，有助于减少冗长的类型声明，提高了代码的可读性。
  * @author 朱俊伟
  * @since 2023/10/13 21:10
  */
+@SuppressWarnings("all")
 public class VarTest {
     public static void main(String[] args) {
 
@@ -21,7 +22,6 @@ public class VarTest {
         for (var item : list) {
             System.out.println(item);
         }
-
 
     }
 }

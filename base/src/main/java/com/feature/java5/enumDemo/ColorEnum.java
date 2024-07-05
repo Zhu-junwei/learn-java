@@ -1,9 +1,14 @@
-package com.zjw.enumDemo;
+package com.feature.java5.enumDemo;
+
+import lombok.Getter;
 
 /**
+ * 枚举类型
+ *
  * @author 朱俊伟
  * @since 2022/01/06
  */
+@Getter
 public enum ColorEnum {
 
     GREEN("green","绿色"),
@@ -18,11 +23,4 @@ public enum ColorEnum {
         this.chineseName = chineseName;
     }
 
-    public String getEnglishName() {
-        return englishName;
-    }
-
-    public String getChineseName() {
-        return chineseName;
-    }
 }

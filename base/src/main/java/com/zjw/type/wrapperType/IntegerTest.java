@@ -1,8 +1,10 @@
-package com.zjw.number;
+package com.zjw.type.wrapperType;
 
 import org.junit.jupiter.api.Test;
 
 /**
+ * Integer包装类
+ *
  * @author 朱俊伟
  * @since 2024/03/27 14:27
  */

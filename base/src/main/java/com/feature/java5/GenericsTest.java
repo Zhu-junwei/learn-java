@@ -3,6 +3,8 @@ package com.feature.java5;
 import java.util.ArrayList;
 
 /**
+ * 泛型
+ *
  * @author 朱俊伟
  * @since 2024/01/02 19:00
  */
@@ -19,6 +21,7 @@ public class GenericsTest {
         // 比如  ArrayList<String> list = new ArrayList<>();
         // 这行代码就指明了该 ArrayList 对象只能传入 String 对象，如果传入其他类型的对象就会报错。
         ArrayList<String> list = new ArrayList<>();
+        System.out.println(list);
     }
 
 

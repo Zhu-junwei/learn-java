@@ -1,4 +1,4 @@
-package com.zjw.baseType;
+package com.zjw.type.baseType;
 
 /**
  * 移位操作

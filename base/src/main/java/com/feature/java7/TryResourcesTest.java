@@ -5,8 +5,10 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
+ * try-resources用法
+ *
  * @author 朱俊伟
- * @since 2024/01/02 18:47
+ * @date 2024/07/02
  */
 public class TryResourcesTest {
 

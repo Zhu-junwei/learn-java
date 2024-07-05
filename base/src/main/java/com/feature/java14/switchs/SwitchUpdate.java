@@ -14,6 +14,7 @@ package com.feature.java14.switchs;
  * @author 朱俊伟
  * @since 2024/03/24 15:06
  */
+@SuppressWarnings("all")
 public class SwitchUpdate {
     public static void main(String[] args) {
 

@@ -1,9 +1,11 @@
-package com.zjw.number;
+package com.zjw.type.wrapperType;
 
 
 import org.junit.jupiter.api.Test;
 
 /**
+ * Long包装类
+ *
  * @author zjw
  * @since 2023/07/03 10:54
  */
@@ -22,20 +24,12 @@ public class LongTest {
     }
 
     /**
-     * 测试Long相等
+     * testCache测试Long包装类中的缓存
+     * 和Integer包装类中的缓存一样，缓存的范围是-128~127
      */
     @Test
-    public void testEquals() {
-        Long a = 1000L;
-        Long b = 1000L;
-        System.out.println(a == b);//false
-        System.out.println(a.equals(b));//true
-
-        System.out.println("**********");
-        Long c1 = 100L;
-        Long c2 = 100L;
-        System.out.println(c1 == c2);//true
-        System.out.println(c1.equals(c2));//true
+    @SuppressWarnings("all")
+    public void testCache() {
 
         System.out.println("127**********");
         Long d1 = 127L;

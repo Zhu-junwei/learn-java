@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
+import java.time.LocalTime;
 
 /**
  * 使用内部类访问对象状态
@@ -19,7 +19,7 @@ public class InnerClassTest {
         clock.start();
 
         // keep program running until user selects "Ok"
-        JOptionPane.showMessageDialog(null, "Quit program?");
+        JOptionPane.showMessageDialog(null, "确认退出吗?", "退出", JOptionPane.WARNING_MESSAGE);
         System.exit(0);
     }
 }
@@ -48,14 +48,14 @@ class TalkingClock{
     public class TimerPrinter implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("At the tone, the time is " + new Date().toLocaleString());
+            System.out.println(info +" "+ LocalTime.now());
             //内部类访问外部类属性 beep 也可以使用TalkingClock.this.beep
 //            if (beep) Toolkit.getDefaultToolkit().beep();
             if (TalkingClock.this.beep) Toolkit.getDefaultToolkit().beep();
         }
 
         //静态域只能声明为final
-//        public static final String info = "hello";
+        public static final String info = "hello";
 
         //内部类不能有static方法 编译报错
 //        public static void hello(){}

@@ -1,4 +1,4 @@
-package com.feature.java16.records;
+package com.feature.java16;
 
 /**
  * instanceof模式匹配
