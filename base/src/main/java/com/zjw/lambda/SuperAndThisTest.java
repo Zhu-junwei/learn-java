@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
  * @author 朱俊伟
  * @since 2022/03/31 18:37
  */
-public class LambdaTest3 {
+public class SuperAndThisTest {
     public static void main(String[] args) {
 
         TimedGreeter greeter = new TimedGreeter();
@@ -28,10 +28,17 @@ class Greeter{
 class TimedGreeter extends Greeter{
     public void greet(){
         //调用父类的greet方法
-        Timer timer = new Timer(1000, super::greet);
-        timer.start();
+//        Timer timer = new Timer(1000, super::greet);
+        Timer timer1 = new Timer(1000, this::childGreet);
+        timer1.start();
+        Timer timer2 = new Timer(3000, super::greet);
+        timer2.start();
         // keep program running until user selects "OK"
         JOptionPane.showMessageDialog(null, "Quit program?");
         System.exit(0);
+    }
+
+    private void childGreet(ActionEvent actionEvent) {
+        System.out.println("TimedGreeter Hello, world!");
     }
 }

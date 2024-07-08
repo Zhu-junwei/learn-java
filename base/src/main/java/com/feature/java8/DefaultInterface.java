@@ -19,7 +19,7 @@ public interface DefaultInterface {
     }
 
 
-    public static void main(String[] args) {
-
+    static void main(String[] args) {
+        DefaultInterface.staticMethod();
     }
 }
