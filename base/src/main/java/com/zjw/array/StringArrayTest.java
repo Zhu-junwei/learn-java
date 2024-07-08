@@ -1,8 +1,9 @@
-package com.zjw.arrays;
+package com.zjw.array;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * @author zjw
@@ -15,8 +16,8 @@ public class StringArrayTest {
      */
     @Test
     public void testStringArray(){
-        String[] strings = null;
-        if (2<1){
+        String[] strings;
+        if (new Random().nextBoolean()){
             strings = new String[]{"1", "2"};
         } else {
             strings = new String[]{"1", "2", "3"};

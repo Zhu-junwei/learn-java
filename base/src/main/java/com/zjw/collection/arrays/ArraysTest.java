@@ -1,4 +1,4 @@
-package com.zjw.arrays;
+package com.zjw.collection.arrays;
 
 
 import org.junit.jupiter.api.Test;
@@ -115,6 +115,8 @@ public class ArraysTest {
         // 将数组装换为List集合
         List<Integer> list = Arrays.asList(numbers);
         System.out.println(list);
+        // 需要注意的是，此方法返回的是一个不可变List，所以不能添加元素
+//        list.add(2); // UnsupportedOperationException
 
         //基本数据类型
         int[] nums = {1, 2, 3};

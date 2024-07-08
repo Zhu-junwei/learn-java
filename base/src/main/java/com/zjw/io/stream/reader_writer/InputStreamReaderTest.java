@@ -14,7 +14,7 @@ public class InputStreamReaderTest {
         InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
         BufferedReader br = new BufferedReader(isr);
 
-        String str = null;
+        String str;
         System.out.println("请输入数据：");
         while ((str = br.readLine()) != null) {
             System.out.println(str);
