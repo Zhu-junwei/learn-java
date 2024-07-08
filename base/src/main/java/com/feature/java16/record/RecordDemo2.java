@@ -27,6 +27,7 @@ record RedDwarf(double brightness) implements Star {
     }
 }
 
+@SuppressWarnings("unused")
 interface Star {
     double brightness(); // 亮度
 

@@ -110,6 +110,7 @@ public class ArraysTest {
      * 此方法返回的是一个不可变List
      */
     @Test
+    @SuppressWarnings("all")
     public void testAsList() {
         Integer[] numbers = {1, 2, 3, 4, 5};
         // 将数组装换为List集合
