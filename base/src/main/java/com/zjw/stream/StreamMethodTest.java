@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 import java.text.Collator;
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -28,35 +30,17 @@ public class StreamMethodTest {
      */
     @Test
     public void filterTest() {
-        /*
-         * 创建集合添加元素，完成以下需求:
-         * 	1.把所有以“张”开头的元素存储到新集合中
-         * 	2.把“张”开头的，长度为3的元素再存储到新集合中
-         * 	3.遍历打印最终结果
-         */
         ArrayList<String> list = new ArrayList<>();
         Collections.addAll(list, "张无忌", "周芷若", "赵敏", "张强", "张三丰");
-        //1.把所有以“张”开头的元素存储到新集合中
-        List<String> list2 = new ArrayList<>();
-        for (String str : list) {
-            if (str.startsWith("张"))
-                list2.add(str);
-        }
-        System.out.println(list2);
-        //2.把“张”开头的，长度为3的元素再存储到新集合中
-        List<String> list3 = new ArrayList<>();
-        for (String str : list2) {
-            if (str.length() == 3)
-                list3.add(str);
-        }
-        System.out.println(list3);
 
         System.out.println("*******使用stream操作*********");
-//        list.stream().filter(str -> str.startsWith("张")).forEach(str -> System.out.println(str));
-        List<String> list22 = list.stream().filter(str -> str.startsWith("张")).toList();
-        System.out.println(list22);
-        List<String> list33 = list22.stream().filter(item -> item.length() == 3).toList();
-        System.out.println(list33);
+        // 找到“张”开头的元素
+        List<String> list2 = list.stream().filter(str -> str.startsWith("张")).toList();
+        System.out.println(list2);
+        // 找到“张”开头的，长度为3的元素
+        list2.stream()
+                .filter(item -> item.length() == 3)
+                .forEach(System.out::println);
     }
 
     /**
@@ -64,8 +48,8 @@ public class StreamMethodTest {
      */
     @Test
     public void takeWhileTest() {
-        List<Integer> list = List.of(1, 2, 3, 5, 4, 6, 7, 8, 9, 10);
-        // 获取集合前面小于5的元素
+        List<Integer> list = IntStream.rangeClosed(1, 10).boxed().toList();
+        // 获取集合前面小于5的元素 1,2,3,4
         list.stream().takeWhile(item -> item < 5)
                 .forEach(System.out::println);
     }
@@ -76,7 +60,8 @@ public class StreamMethodTest {
     @Test
     public void dropWhileTest() {
         List<Integer> list = List.of(1, 2, 3, 5, 4, 6, 7, 8, 9, 10);
-        // 丢弃集合前面小于5的元素，直到只要遇到大于等于5的元素才处理，并忽略掉条件
+        // 丢弃集合前面小于5的元素，直到只要遇到大于等于5的元素才处理，并忽略掉条件.
+        // 5, 4, 6, 7, 8, 9, 10
         list.stream().dropWhile(item -> item < 5)
                 .forEach(System.out::println);
     }
@@ -162,6 +147,28 @@ public class StreamMethodTest {
     }
 
     /**
+     * mapToInt 用于将对象流中的元素映射为 int 类型的流 (IntStream)。
+     * 适用于需要进行数值计算或操作的场景。
+     * 常用的方法包括 sum()、max()、min() 和 average() 等。
+     */
+    @Test
+    public void mapToIntTest() {
+        List<String> words = Arrays.asList("hello", "world", "java", "stream");
+
+        // 查找最长的字符串长度
+        OptionalInt max = words.stream()
+                .mapToInt(String::length)
+                .max();
+        System.out.println(max.orElse(0));
+
+        // 查找最短的字符串长度
+        OptionalInt minLength = words.stream()
+                .mapToInt(String::length)
+                .min();
+        System.out.println(minLength.orElse(0));
+    }
+
+    /**
      * findFirst 找第一个姓"王"的人
      * findAny 找任意一个姓"王"的人
      * anyMatch 判断是否包含姓"王"的人
@@ -237,6 +244,7 @@ public class StreamMethodTest {
      * stream map方法
      */
     @Test
+    @SuppressWarnings("all")
     public void mapTest() {
         List<Student> studentList = new ArrayList<>();
         studentList.add(Student.builder().age(18).name("张无忌").build());
@@ -245,11 +253,6 @@ public class StreamMethodTest {
         //获取所有同学的名字
         List<String> nameList = studentList.stream().map(Student::getName).toList();
         System.out.println(nameList);
-        //获取age+1的所有同学年龄
-        List<Integer> ageAddList = studentList.stream()
-                .map(student -> student.getAge() + 1)
-                .toList();
-        System.out.println(ageAddList);
     }
 
     /**
@@ -257,17 +260,9 @@ public class StreamMethodTest {
      */
     @Test
     public void flatMapTest() {
-
-        List<String> nameList = List.of("张无忌", "周芷若", "张强");
-        List<Student> studentList = nameList.stream()
-                .map(name -> Student.builder()
-                        .age(18)
-                        .name(name)
-                        .build())
-                .toList();
         //将名字拆分为姓和名
-        studentList.stream()
-                .flatMap(student -> Stream.of(student.getName().substring(0, 1), student.getName().substring(1)))
+        Stream.of("张无忌", "周芷若", "张强")
+                .flatMap(name -> Stream.of(name.substring(0, 1), name.substring(1)))
                 .forEach(System.out::println);
     }
 
@@ -282,10 +277,7 @@ public class StreamMethodTest {
         studentList.add(Student.builder().age(18).name("周芷若").build());
         studentList.add(Student.builder().age(18).name("张强").build());
         //forEach会改变集合中的内容
-        studentList.stream().forEach(student -> {
-            student.setAge(student.getAge() + 1);
-            System.out.println(student);
-        });
+        studentList.stream().forEach(student -> student.setAge(student.getAge() + 1));
         //发现集合中对象的值被改变了
         System.out.println(studentList);
     }
@@ -294,6 +286,7 @@ public class StreamMethodTest {
      * stream count方法计数
      */
     @Test
+    @SuppressWarnings("all")
     public void countTest() {
         List<Student> studentList = new ArrayList<>();
         studentList.add(Student.builder().age(18).name("张无忌").build());
@@ -304,7 +297,6 @@ public class StreamMethodTest {
                 .filter(student -> student.getName().startsWith("张"))
                 .count();
         System.out.println(count);
-        System.out.println(studentList.size());
     }
 
     /**
@@ -318,20 +310,21 @@ public class StreamMethodTest {
             add(Student.builder().age(18).name("张强").build());
         }};
 
+        Predicate<Student> predicate = student -> {
+            System.out.println("student = " + student + Thread.currentThread());
+            return student.getAge() > 10;
+        };
+
         //count方法计数 .stream().parallel()
         long count = studentList.stream()
                 .parallel() // 并行流
-                .filter(student -> {
-                    System.out.println("student = " + student + Thread.currentThread());
-                    return student.getAge() > 10;
-                }).count();
+                .filter(predicate)
+                .count();
 
         // 方式二 调用parallelStream()
         long count2 = studentList.parallelStream() // 并行流
-                .filter(student -> {
-                    System.out.println("student = " + student + Thread.currentThread());
-                    return student.getAge() > 10;
-                }).count();
+                .filter(predicate)
+                .count();
 
         System.out.println(count);
         System.out.println(count2);
@@ -341,6 +334,7 @@ public class StreamMethodTest {
      * stream toArray 转为数组
      */
     @Test
+    @SuppressWarnings("all")
     public void toArrayTest() {
         List<Student> studentList = new ArrayList<>();
         studentList.add(Student.builder().age(18).name("张无忌").build());
@@ -359,6 +353,7 @@ public class StreamMethodTest {
      * collect转为集合
      */
     @Test
+    @SuppressWarnings("all")
     public void collectTest() {
         List<Student> studentList = new ArrayList<>();
         studentList.add(Student.builder().age(17).name("张无忌").build());
@@ -435,6 +430,7 @@ public class StreamMethodTest {
      * groupingBy练习
      */
     @Test
+    @SuppressWarnings("all")
     public void groupingByTest() {
         List<Student> studentList = new ArrayList<>();
         studentList.add(Student.builder().age(17).name("张无忌").build());
@@ -457,7 +453,7 @@ public class StreamMethodTest {
         List<Integer> list = Arrays.asList(1, 2, 3, 1, 2, 1);
         Map<Integer, Long> countMap = list.stream()
                 .collect(Collectors.groupingBy(
-                        i -> i,
+                        Function.identity(),
                         Collectors.counting()
                 ));
         countMap.forEach((k, v) -> System.out.println(k + " : " + v));

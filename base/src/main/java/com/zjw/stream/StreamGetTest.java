@@ -26,7 +26,7 @@ public class StreamGetTest {
         Stream<Object> empty = Stream.empty();
         empty.forEach(System.out::println);
         Stream<Object> generate = Stream.generate(() -> "Echo");
-        generate.forEach(System.out::println);
+        generate.limit(5).forEach(System.out::println);
     }
 
     /**
@@ -39,25 +39,31 @@ public class StreamGetTest {
     }
 
     /**
-     * 无限流：一个不会结束的流，它可以生成无限多个元素。
+     * 无限流：一个不会结束的流，它可以生成无限多个元素。<br/>
+     * iterate: 适合用于生成具有特定模式的无限流，比如整数序列<br/>
+     * generate: 适合用于生成没有特定模式的无限流，比如随机数流
      */
     @Test
     public void infiniteTest() {
 
+        // 控制生成的数量
         var limit = new BigInteger("10");
 
         // 偶数 iterate生成无限流
-        Stream<Integer> evenStream = Stream.iterate(2, n -> n + 2);
-        evenStream.limit(10).forEach(System.out::println);
+        Stream.iterate(2, n -> n + 2)
+                .limit(10)
+                .forEach(System.out::println);
 
+        // 1-10 BigInteger
         Stream.iterate(BigInteger.ONE,
                         n -> n.compareTo(limit) < 0,
                         n -> n.add(BigInteger.ONE))
                 .forEach(System.out::println);
 
         // 随机数 generate生成无限流
-        Stream<Double> randomStream = Stream.generate(Math::random);
-        randomStream.limit(5).forEach(System.out::println);
+        Stream.generate(Math::random)
+                .limit(limit.longValue()).
+                forEach(System.out::println);
     }
 
 
