@@ -9,11 +9,12 @@ import java.util.logging.Logger;
  */
 public class LoggerTest {
     public static void main(String[] args) {
-        //取消日志
+        // 取消日志
 //        Logger.getGlobal().setLevel(Level.OFF);
         Logger logger = Logger.getGlobal();
-        // Logger.GLOBAL_LOGGER_NAME "global"
+        // global
         System.out.println(logger.getName());
+        System.out.println(Logger.GLOBAL_LOGGER_NAME);
         //null
         System.out.println(logger.getLevel());
 

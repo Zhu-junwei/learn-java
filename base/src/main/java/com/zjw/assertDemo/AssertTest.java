@@ -24,4 +24,29 @@ public class AssertTest {
         assert x == 0 : x;
         System.out.println("hello");
     }
+
+    /**
+     * assert boolean-expression: information-expression;
+     * 如果boolean-expression 为 false，则抛出 AssertionError 异常，
+     * 可以在异常栈里生成一个有用的消息。
+     */
+    @Test
+    public void informationExpTest() {
+        int x = -2;
+        assert x >= 0 : "x is negative, not positive";
+    }
+
+    /**
+     * dynamic动态断言
+     */
+    @Test
+    public void dynamicTest() {
+        int x = -2;
+        assert x >= 0 : "x is negative, not positive";
+    }
+
+    public static void main(String[] args) {
+        int x = -2;
+        assert x >= 0 : "x is negative, not positive";
+    }
 }

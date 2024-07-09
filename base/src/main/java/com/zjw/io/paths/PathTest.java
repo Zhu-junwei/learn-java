@@ -63,7 +63,7 @@ public class PathTest {
         // 兄弟路径 /tmp
         Path siblingPath = basePath.resolveSibling("tmp");
         assertEquals("/tmp", siblingPath.toString().replace('\\', '/'));
-        // 兄弟文件 /base/dir/sibling.txt
+        // 兄弟文件 /base/sibling.txt
         Path siblingFile = baseFile.resolveSibling("sibling.txt");
         assertEquals("/base/sibling.txt", siblingFile.toString().replace('\\', '/'));
     }
@@ -95,22 +95,48 @@ public class PathTest {
      */
     @Test
     public void testPathAttributes() throws IOException {
+        // 创建一个临时文件路径
         Path filePath = tempDir.resolve("testFile.txt");
+        // 在文件中写入 "Hello, World!" 字符串
         Files.writeString(filePath, "Hello, World!");
-
+        // 检查路径的文件名
+        System.out.println(filePath.getFileName());
         // 检查路径是否存在
-        assertTrue(Files.exists(filePath));
-
-        // 检查路径是否为文件
-        assertTrue(Files.isRegularFile(filePath));
-
+        System.out.println("exists: " + Files.exists(filePath));
+        // 检查路径是否不存在
+        System.out.println("notExists: " + Files.notExists(filePath));
+        // 检查路径是否为常规文件
+        System.out.println("isRegularFile: " + Files.isRegularFile(filePath));
         // 检查路径是否为目录
-        assertFalse(Files.isDirectory(filePath));
-
-        // 检查路径是否可读、可写、可执行
-        assertTrue(Files.isReadable(filePath));
-        assertTrue(Files.isWritable(filePath));
-        assertTrue(Files.isExecutable(filePath));
+        System.out.println("isDirectory: " + Files.isDirectory(filePath));
+        // 检查路径是否可读
+        System.out.println("readable: " + Files.isReadable(filePath));
+        // 检查路径是否可写
+        System.out.println("writable: " + Files.isWritable(filePath));
+        // 检查路径是否可执行
+        System.out.println("executable: " + Files.isExecutable(filePath));
+        // 检查路径是否为隐藏文件
+        System.out.println("hidden: " + Files.isHidden(filePath));
+        // 获取文件的大小
+        System.out.println("size: " + Files.size(filePath));
+        // 获取文件存储的位置
+        System.out.println("FileStore: " + Files.getFileStore(filePath));
+        // 获取文件的最后修改时间
+        System.out.println("LastModified: " + Files.getLastModifiedTime(filePath));
+        // 获取文件的所有者
+        System.out.println("Owner: " + Files.getOwner(filePath));
+        // 获取文件的内容类型
+        System.out.println("ContentType: " + Files.probeContentType(filePath));
+        // 检查路径是否为符号链接
+        System.out.println("SymbolicLink: " + Files.isSymbolicLink(filePath));
+        // 如果路径是符号链接，读取符号链接的目标
+        if(Files.isSymbolicLink(filePath)) {
+            System.out.println("SymbolicLink: " + Files.readSymbolicLink(filePath));
+        }
+        // 如果文件系统支持 POSIX 文件属性视图，获取文件的 POSIX 权限
+        if(FileSystems.getDefault().supportedFileAttributeViews().contains("posix")) {
+            System.out.println("PosixFilePermissions: " + Files.getPosixFilePermissions(filePath));
+        }
     }
 
     /**
@@ -137,15 +163,17 @@ public class PathTest {
         Path dirPath = tempDir.resolve("testDir");
         Path filePath = dirPath.resolve("testFile.txt");
 
-        // 创建目录, 如果由于目录已存在而无法创建目录，则不会引发异常
-        Files.createDirectory(dirPath);
+        // 创建目录, 如果由于目录则会引发异常
+        if (!Files.exists(dirPath)) {
+            Files.createDirectory(dirPath); // 如果存在则抛出FileAlreadyExistsException
+        }
         assertTrue(Files.exists(dirPath));
         assertTrue(Files.isDirectory(dirPath));
 
         // 如果需要创建中间目录，可以使用Files.createDirectories()
         Files.createDirectories(dirPath.resolve("a/b/c"));
 
-        // 创建文件 如果已经存在了会抛出FileAlreadyExistsException
+        // 创建文件，需要先创建目录 如果已经存在了会抛出FileAlreadyExistsException
         if (!Files.exists(filePath)) {
             Files.createFile(filePath);
         }

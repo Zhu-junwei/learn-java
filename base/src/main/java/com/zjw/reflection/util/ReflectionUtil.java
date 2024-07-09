@@ -1,4 +1,4 @@
-package com.zjw.reflection;
+package com.zjw.reflection.util;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;

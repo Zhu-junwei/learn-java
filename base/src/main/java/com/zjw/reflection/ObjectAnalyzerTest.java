@@ -1,6 +1,6 @@
 package com.zjw.reflection;
 
-import java.util.ArrayList;
+import com.zjw.reflection.util.ObjectAnalyzer;
 
 /**
  * 利用反射获取对象的属性信息 测试
@@ -9,12 +9,6 @@ import java.util.ArrayList;
  */
 public class ObjectAnalyzerTest {
     public static void main(String[] args) {
-        ArrayList<Integer> squares = new ArrayList<>();
-        for (int i = 1; i <= 5; i++){
-            squares.add(i * i);
-        }
-        System.out.println(squares);
-//        System.out.println(new ObjectAnalyzer().toString(squares));
         Employee employee = new Employee("小明", 12);
         System.out.println(new ObjectAnalyzer().toString(employee));
     }

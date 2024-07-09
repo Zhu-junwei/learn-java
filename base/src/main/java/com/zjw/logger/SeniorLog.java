@@ -25,6 +25,9 @@ public class SeniorLog {
     //调用 getLogger 方法创建或获取记录器
     private static final Logger myLogger = Logger.getLogger("com.zjw.logger.SeniorLog");
 
+    /**
+     * 记录不同级别的日志
+     */
     public static void logHello() {
         System.out.println(myLogger.getLevel());
         myLogger.severe("severe");

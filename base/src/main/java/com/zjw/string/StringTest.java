@@ -24,6 +24,10 @@ public class StringTest {
         String str = "hello123 456";
         //返回子字符串处的索引
         System.out.println(str.indexOf("e")); // 1
+        System.out.println(str.indexOf("ll"));//2
+        System.out.println(str.indexOf("hello123 456"));//0
+        System.out.println(str.indexOf("AA"));//-1
+
         //返回最后子索引字符串的索引
         System.out.println(str.lastIndexOf("o"));// 4
         //返回索引处的字符
@@ -35,8 +39,11 @@ public class StringTest {
         System.out.println(" ni  ".trim()); // ni
         //字符替换
         System.out.println(str.replace('l', 'L')); // heLLo123 456
+        System.out.println(str.replace("l", "L")); // heLLo123 456
         System.out.println(str.replaceAll("l", "L"));
-        System.out.println(str);
+        System.out.println(str.replaceFirst("l", "L")); // heLlo123 456
+        // 重复字符串
+        System.out.println("hello".repeat(3)); // hellohellohello
 
         //判断开始结尾
         System.out.println(str.startsWith("he"));
@@ -63,6 +70,10 @@ public class StringTest {
         //大小写转换
         System.out.println("abc".toUpperCase());
         System.out.println("ABC".toLowerCase());
+
+        // 包含
+        System.out.println(str.contains("123"));//true
+        System.out.println(str.contains("A"));//false
     }
 
     /**
@@ -109,47 +120,19 @@ public class StringTest {
     @Test
     public void testStringSplit() {
         String str = "abc,def,gh,i,jk";
-        //下面两个结果一样，为啥？
         String[] strings = str.split(",");
-        String[] strings2 = str.split("\\,");
-        System.out.println(Arrays.toString(strings));
-        System.out.println(Arrays.toString(strings2));
-    }
+        System.out.println(Arrays.toString(strings)); // [abc, def, gh, i, jk]
 
-    @Test
-    public void testStringSplit2() {
         String str1 = "a_b_c";
         String str2 = "a__b_c";
-        //下面两个结果一样，为啥？
-        String[] strings = str1.split("_");
-        String[] strings2 = str2.split("_");//"a","","b","c"
-        System.out.println(Arrays.toString(strings));
-        System.out.println(Arrays.toString(strings2));
-    }
+        String[] strings1 = str1.split("_"); // "a","b","c"
+        String[] strings2 = str2.split("_"); // "a","","b","c"
+        System.out.println(Arrays.toString(strings1)); // [a, b, c]
+        System.out.println(Arrays.toString(strings2)); // [a, , b, c]
 
-    /**
-     * 根据多个分隔符拆分
-     */
-    @Test
-    public void testStringSplit3() {
-        String str = "17140216;80.845,90.55,100.00";
-        String[] strings = str.split(";|,");
-        System.out.println(Arrays.toString(strings));//[17140216, 80.845, 90.55, 100.00]
-    }
-
-    @Test
-    public void testSubString() {
-        String str = "helloWorld";
-        System.out.println(str.substring(1, str.length() - 1));
-    }
-
-    /**
-     * repeat, 字符串重复
-     */
-    @Test
-    public void repeatTest() {
-        String repeated = "hello".repeat(3);
-        System.out.println(repeated); // hellohellohello
+        // 根据多个分隔符拆分
+        String[] strings3 = "17140216;80.845,90.55,100.00".split(";|,");
+        System.out.println(Arrays.toString(strings3));//[17140216, 80.845, 90.55, 100.00]
     }
 
     /**
@@ -186,94 +169,25 @@ public class StringTest {
      */
     @Test
     public void testStringFormat() {
-        System.out.printf("默认为[%1$s]:%n", 123);
+        System.out.printf("默认为[%1$s]:%n", 123); // 默认为[123]:  %n表示一个平台无关的换行符，相当于 \n，但可以根据平台的不同输出适当的换行符。
         double dou = 3.14;
         System.out.println(dou);
-        System.out.printf("%a\n", dou);
+        System.out.printf("%a\n", dou); // 浮点数的十六进制输出
         System.out.printf("%b \t %b\n", dou, null);
         System.out.printf("%c \t %c\n", '9', '\u03d4');
         System.out.printf("%d \t %d \t %d\n", 012, 0xa, 0b1010);
         System.out.printf("%f\n", 3.14);
-        System.out.printf("%h\n", "I LOVE YOU.");
+        System.out.printf("%h %s\n", "I LOVE YOU.", Integer.toHexString("I LOVE YOU.".hashCode()));
         System.out.printf("%n");
         System.out.printf("%o \t %o \t %o\n", 010, 0x9, 0b1010);
         System.out.printf("%s \t %s \t %s\n", 123, "abc", new Date());
     }
 
-    /**
-     * 日期和时间格式化
-     * FLAG    NOTES
-     * %tA     星期的全名，例如“星期一” “Sunday”
-     * %ta     工作日的缩写，例如“Sun” “星期一”（中文好像和%tA一样）
-     * %tB     月份的全名，例如“January” “三月”
-     * %tb     月份的全名，例如“Jan” “三月”（中文好像和%tB一样）
-     * %tC     用两位数格式化的年份的世纪部分，例如“00”到“99”
-     * %tc     用“”格式化的日期和时间，%ta %tb %td %tT %tZ %tY 例如 Fri Feb 17 07:45:42 PST 2017
-     * %tD	    日期格式为“ %tm/%td/%ty”
-     * %td	    用两位数字格式化的月份中的日期。例如“ 01”到“ 31”
-     * %te	    月份中没有前导 0 的日期，例如“1”到“31”。
-     * %tF	    带有“”的 ISO 8601 格式日期%tY-%tm-%td。
-     * %tH	    24 小时制的一天中的小时，例如“ 00”到“ 23”。
-     * %th	    与 %tb 相同。
-     * %tI	    12 小时制的一天中的小时，例如“01” – “12“。
-     * %tj	    用前导 0 格式化的一年中的一天，例如“ 001”到“ 366”。
-     * %tk	    没有前导 0 的 24 小时制时钟，例如“ 0”到“ 23”。
-     * %tl	    没有前导 0 的 12 小时点击的一天中的小时，例如“ 1”到“ 12”。
-     * %tM	    小时内的分钟格式化为前导 0，例如“ 00”到“ 59”。
-     * %tm     以 0 开头的月份格式，例如“ 01”到“ 12”。
-     * %tN	    纳秒格式为 9 位数字和前导 0，例如“000000000”到“999999999”。
-     * %tp	    特定于区域设置的“am”或“pm”标记。
-     * %tQ	    自 1970 年 1 月 1 日 00:00:00 UTC 纪元以来的毫秒数。
-     * %tR	    时间格式为 24 小时制，例如“ %tH:%tM”。
-     * %tr	    时间格式为 12 小时，例如“ %tI:%tM:%tS %Tp”。
-     * %tS	    分钟内的秒数采用 2 位数字格式，例如“00”到“60”。支持闰秒需要“60”。
-     * %ts	    自 1970 年 1 月 1 日 00:00:00 UTC 纪元以来的秒数。
-     * %tT	    时间格式为 24 小时制，例如“ %tH:%tM:%tS”
-     * %tY	    年份格式为 4 位数字，例如“ 0000”到“ 9999”。
-     * %ty	    年份格式为 2 位数字，例如“ 00”到“ 99”。
-     * %tZ	    时区缩写。例如“ UTC”、“ PST”等。
-     * %tz     与 GMT 的时区偏移量，例如“-0800“.
-     */
-    @Test
-    public void testDateTimeFormat() {
-        Date nowDate = new Date();
-        System.out.printf(String.format("%tr", nowDate));//12:05:12 上午星期一
-        System.out.printf("%tA \n", nowDate);//星期一
-        System.out.printf("%ta \n", nowDate);//星期一
-        System.out.printf("%tB \n", nowDate);//三月
-        System.out.printf("%tb \n", nowDate);//三月
-        System.out.printf("%tC \n", nowDate);//20
-        System.out.printf("%tc \n", nowDate);//星期一 三月 21 23:49:07 CST 2022
-        System.out.printf("%tD \n", nowDate);//03/21/22
-        System.out.printf("%td \n", nowDate);//21
-        System.out.printf("%te \n", nowDate);//21
-        System.out.printf("%tF \n", nowDate);//2022-03-21
-        System.out.printf("%tH \n", nowDate);//23
-        System.out.printf("%th \n", nowDate);//三月
-        System.out.printf("%tI \n", nowDate);//11
-        System.out.printf("%tj \n", nowDate);//080
-        System.out.printf("%tk \n", nowDate);//23
-        System.out.printf("%tM \n", nowDate);//55
-        System.out.printf("%tm \n", nowDate);//03
-        System.out.printf("%tN \n", nowDate);//425000000
-        System.out.printf("%tp \n", nowDate);//下午
-        System.out.printf("%tQ \n", nowDate);//1647878286300
-        System.out.printf("%tR \n", nowDate);//23:58
-        System.out.printf("%tr \n", nowDate);//23:58
-        System.out.printf("%tS \n", nowDate);//27
-        System.out.printf("%ts \n", nowDate);//1647878396
-        System.out.printf("%tT \n", nowDate);//00:00:22
-        System.out.printf("%tY \n", nowDate);//2022
-        System.out.printf("%ty \n", nowDate);//22
-        System.out.printf("%tZ \n", nowDate);//CST
-        System.out.printf("%tz \n", nowDate);//+0800
-
-
-    }
 
     /**
      * 格式化整数
      * 使用%d格式说明符，您可以使用所有整数类型的参数，包括 byte、short、int、long 和 BigInteger。
+     * 字符串使用%s格式说明符
      */
     @Test
     public void testNumberFormat() {
@@ -290,7 +204,21 @@ public class StringTest {
         System.out.printf("%(d%n", -36);//将负数括在括号（“（）”）中并跳过“-”： 打印: (36)
         System.out.printf("%o%n", 93);//八进制输出：打印: 135
         System.out.printf("%x%n", 93);//十六进制输出：打印: 5d
+    }
 
+    /**
+     * System.out.format
+     */
+    @Test
+    public void formatTest() {
+        int x = 5;
+        double y = 5.332542;
+        // 旧的方式：
+        System.out.println("Row 1: [" + x + " " + y + "]");
+        // 新的方式：
+        System.out.format("Row 1: [%d %f]%n", x, y);
+        // 或者：
+        System.out.printf("Row 1: [%d %f]%n", x, y);
     }
 
     /**
@@ -304,20 +232,6 @@ public class StringTest {
         System.out.println(format);//789,464,984,984.13
     }
 
-    @Test
-    public void testIndexOf() {
-        String str = "hello world";
-        System.out.println(str.indexOf("ll"));//2
-        System.out.println(str.indexOf("hello world"));//0
-        System.out.println(str.indexOf("AA"));//-1
-    }
-
-    @Test
-    public void testContains() {
-        String str = "123456";
-        System.out.println(str.contains("1"));//true
-        System.out.println(str.contains("A"));//false
-    }
 
     /**
      * String format
@@ -334,13 +248,6 @@ public class StringTest {
         System.out.println(aDouble);
         String doubleFormat = String.format(".3f", aDouble);
         System.out.println(doubleFormat);
-    }
-
-    @Test
-    public void stringFormat2Test() {
-        System.out.printf("|%s|%n", "hello");
-        System.out.printf("|%20s|%n", "hello");//指定宽度,右对齐   |                  93|
-        System.out.printf("|%20s|%n", "hellohellohellohellohellohellohellohellohellohellohellohellohello");//指定宽度,右对齐   |                  93|
     }
 
     /**

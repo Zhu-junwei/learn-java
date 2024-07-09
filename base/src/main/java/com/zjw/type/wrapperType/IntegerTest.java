@@ -16,6 +16,7 @@ public class IntegerTest {
      *     缓存范围：-128~127
      */
     @Test
+    @SuppressWarnings("all")
     public void IntegerCacheTest() {
         Integer a = 127;
         Integer b = 127;
@@ -26,5 +27,14 @@ public class IntegerTest {
         Integer b1 = 128;
         System.out.println(a1 == b1); // false
         System.out.println(a1.equals(b1)); // true
+    }
+
+    /**
+     * toHexString int转十六进制字符串
+     */
+    @Test
+    public void toHexStringTest() {
+        String hexString = Integer.toHexString("I LOVE YOU.".hashCode());
+        System.out.println(hexString);
     }
 }

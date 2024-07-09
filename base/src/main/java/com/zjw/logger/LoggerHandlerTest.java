@@ -7,18 +7,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * 日志处理器
+ *
  * @author 朱俊伟
- * @since 2022/04/12 14:50
+ * @date 2024/07/11
  */
 public class LoggerHandlerTest {
 
     private static final Logger logger = Logger.getLogger("com.zjw.logger.LoggerHandlerTest");
 
     public static void main(String[] args) throws IOException {
-//        myHandler();
-
+        myHandler();
         myFileHandler();
-        logMessage();
     }
 
     /**
@@ -61,19 +61,6 @@ public class LoggerHandlerTest {
         //为日志记录器设置日志处理器
         logger.addHandler(handler);
         logger.info("Hello World!");
-    }
-
-    /**
-     * 记录不同级别的日志
-     */
-    private static void logMessage(){
-        logger.severe("severe");
-        logger.warning("warning");
-        logger.info("Hello World!");
-        logger.config("config");
-        logger.fine("fine");
-        logger.finer("finer");
-        logger.finest("finest");
     }
 
 }
