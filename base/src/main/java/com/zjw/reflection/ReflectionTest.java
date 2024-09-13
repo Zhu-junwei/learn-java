@@ -1,9 +1,5 @@
 package com.zjw.reflection;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.lang.reflect.Constructor;
 
 /**
@@ -28,18 +24,17 @@ public class ReflectionTest {
         Employee emp = (Employee) aClass1.newInstance(); // jdk9后被废弃了,推荐使用constructor.newInstance创建对象
         aClass1.getMethod("setName", String.class).invoke(emp, "zjw");
         System.out.println(emp);
+
         //通过指定构造函数创建对象
+        // 无参构造方法
+        Constructor<Employee> noArgsConstructor = Employee.class.getConstructor();
+        Employee instance1 = noArgsConstructor.newInstance();
+        System.out.println(instance1);
+
+        // 有参构造方法
         Constructor<Employee> constructor = Employee.class.getConstructor(String.class, int.class);
-        Employee employee = constructor.newInstance("", 12);
-        System.out.println(employee);
+        Employee instance2 = constructor.newInstance("hasArg", 12);
+        System.out.println(instance2);
     }
 }
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-class Employee {
-
-    private String name;
-    private int age;
-}

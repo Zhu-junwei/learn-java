@@ -1,4 +1,4 @@
-package com.zjw.reflection.util;
+package com.zjw.reflection.objectInfo;
 
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Array;

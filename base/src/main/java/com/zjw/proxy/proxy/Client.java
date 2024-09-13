@@ -72,7 +72,7 @@ class InvocationHandlerImpl implements InvocationHandler {
         System.out.println("method = " + method.getName());
         System.out.println("args = " + Arrays.toString(args));
         //提供增强的代码
-        Object object = null;
+        Object object;
         //判断当前方法是不是销售
         if ("saleProduct".equals(method.getName())) {
             //获取方法执行的参数

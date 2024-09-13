@@ -1,6 +1,7 @@
-package com.zjw.reflection;
+package com.zjw.reflection.objectInfo;
 
-import com.zjw.reflection.util.ObjectAnalyzer;
+
+import com.zjw.reflection.Employee;
 
 /**
  * 利用反射获取对象的属性信息 测试
@@ -12,4 +13,6 @@ public class ObjectAnalyzerTest {
         Employee employee = new Employee("小明", 12);
         System.out.println(new ObjectAnalyzer().toString(employee));
     }
+
+
 }

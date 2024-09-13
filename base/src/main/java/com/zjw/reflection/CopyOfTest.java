@@ -20,8 +20,7 @@ public class CopyOfTest {
         System.out.println(Arrays.toString(b));
 
         String[] c = {"a","b","d"};
-        c = Arrays.copyOf(c, 10);
-
+        c = Arrays.copyOf(c, 10); // Arrays.copyOf内部也是调用的System.arraycopy
         System.out.println(Arrays.toString(c));
 
         b = (String[])badCopyOf(b,10);
@@ -43,6 +42,7 @@ public class CopyOfTest {
     public static Object goodCopyOf(Object a, int newLength){
         Class<?> cl = a.getClass();
         if (!cl.isArray()) return null;
+        // 数组的类型int String
         Class<?> componentType = cl.getComponentType();
         int length = Array.getLength(a);
         Object newArray = Array.newInstance(componentType, newLength);

@@ -67,7 +67,7 @@ public class ReflectionUtil {
             System.out.print(" ");
             //打印权限修饰符
             String modifiers = Modifier.toString(field.getModifiers());
-            if (modifiers.length() > 0) System.out.print(modifiers + " ");
+            if (!modifiers.isEmpty()) System.out.print(modifiers + " ");
             Class<?> type = field.getType();
             //打印参数类型,参数名
             System.out.println(type.getName() + " " + fieldName + ";");
@@ -85,7 +85,7 @@ public class ReflectionUtil {
             System.out.print(" ");
             //打印权限修饰符
             String modifiers = Modifier.toString(constructor.getModifiers());
-            if (modifiers.length() > 0) System.out.print(modifiers + " ");
+            if (!modifiers.isEmpty()) System.out.print(modifiers + " ");
 
             //打印参数类型
             System.out.print(constructorName + "(");
@@ -109,7 +109,7 @@ public class ReflectionUtil {
             System.out.print(" ");
             //打印权限修饰符
             String modifiers = Modifier.toString(method.getModifiers());
-            if (modifiers.length() > 0) System.out.print(modifiers + " ");
+            if (!modifiers.isEmpty()) System.out.print(modifiers + " ");
 
             //打印返回值类型
             Class<?> returnType = method.getReturnType();
