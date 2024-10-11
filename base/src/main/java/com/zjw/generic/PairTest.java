@@ -9,6 +9,12 @@ import java.time.LocalDate;
  */
 public class PairTest {
     public static void main(String[] args) {
+
+        String middle = ArrayAlg.getMiddle("John", "Q.", "a");
+        System.out.println(middle);
+        Integer middle1 = ArrayAlg.getMiddle(1, 45, 6, 2, 34);
+        System.out.println(middle1);
+
         String[] words = {"Mary", "had", "a", "little", "lamb"};
         Pair<String> stringPair = ArrayAlg.minmax(words);
         System.out.println("min = " + stringPair.getFirst());

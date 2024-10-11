@@ -2,13 +2,11 @@ package com.zjw.file;
 
 import java.io.*;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
@@ -151,15 +149,26 @@ public class FileUtils {
     public static String getFileMD5(String fileName) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
-            try (InputStream is = Files.newInputStream(Paths.get(fileName))) {
-                DigestInputStream dis = new DigestInputStream(is, md);
-                while (dis.read() != -1) {
+
+            // 使用 BufferedInputStream 和大缓冲区来加速读取
+            try (InputStream is = Files.newInputStream(Paths.get(fileName));
+                 BufferedInputStream bis = new BufferedInputStream(is, 16 * 1024)) { // 16KB 缓冲区
+                byte[] buffer = new byte[16 * 1024];
+                int bytesRead;
+                while ((bytesRead = bis.read(buffer)) != -1) {
+                    md.update(buffer, 0, bytesRead); // 更新MD5
                 }
             }
+
             byte[] digest = md.digest();
-            BigInteger bigInteger = new BigInteger(1, digest);
-            return bigInteger.toString(16);
+            // 使用String.format更快地转换为16进制字符串
+            StringBuilder sb = new StringBuilder();
+            for (byte b : digest) {
+                sb.append(String.format("%02x", b)); // 每个字节转换为两位16进制数
+            }
+            return sb.toString();
         } catch (NoSuchAlgorithmException | IOException e) {
+            e.printStackTrace();
             return null;
         }
     }
