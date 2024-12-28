@@ -18,11 +18,11 @@
     </properties>
 
     <dependencies>
-        <!-- 本机操作系统和硬件信息 https://github.com/oshi/oshi-->
+        <!-- 本机操作系统和硬件信息 https://github.com/oshi/oshi -->
         <dependency>
             <groupId>com.github.oshi</groupId>
-            <artifactId>oshi-core-java11</artifactId>
-            <version>6.6.1</version>
+            <artifactId>oshi-core</artifactId>
+            <version>6.6.5</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>

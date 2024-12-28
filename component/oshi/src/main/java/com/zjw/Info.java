@@ -3,6 +3,7 @@ package com.zjw;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.HardwareAbstractionLayer;
+import oshi.software.os.OperatingSystem;
 
 /**
  * @author 朱俊伟
@@ -14,5 +15,8 @@ public class Info {
         HardwareAbstractionLayer hal = si.getHardware();
         CentralProcessor cpu = hal.getProcessor();
         System.out.println(cpu);
+        OperatingSystem os = si.getOperatingSystem();
+        System.out.println("os.toString() = " + os.toString());
+
     }
 }

@@ -20,8 +20,10 @@ public class LocalDateTimeTest {
     public void LocalDateTimeFormatTest() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
+        System.out.println("now = " + now); // 2024-12-04T09:47:48.997058900
         String formattedDate = now.format(formatter);
-        System.out.println("formattedDate = " + formattedDate);
+        System.out.println("formattedDate = " + formattedDate); // 2024-12-04 09:47:48
+
     }
 
     /**
@@ -40,17 +42,20 @@ public class LocalDateTimeTest {
      */
     @Test
     public void TimestampToDateTest() {
-        // 给定的时间戳
+        // 给定的时间戳 秒
         long timestamp = 1718474125L;
         // 将时间戳转换为Instant对象
         Instant instant = Instant.ofEpochSecond(timestamp);
+
         // 将Instant对象转换为本地日期时间对象
         LocalDateTime dateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+        LocalDateTime dateTime2 = instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
         // 定义日期时间格式化器
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         // 格式化并打印日期时间
         String formattedDate = dateTime.format(formatter);
         System.out.println("Formatted Date: " + formattedDate);
+        System.out.println("Formatted Date: " + dateTime2.format(formatter));
     }
 
     /**

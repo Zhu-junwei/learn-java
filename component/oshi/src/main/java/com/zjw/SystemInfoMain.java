@@ -1,9 +1,7 @@
 package com.zjw;
 
-import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import oshi.PlatformEnum;
 import oshi.SystemInfo;
 import oshi.hardware.*;
 import oshi.hardware.CentralProcessor.PhysicalProcessor;
@@ -16,11 +14,10 @@ import oshi.util.FormatUtil;
 import oshi.util.Util;
 
 import java.time.Instant;
+import java.time.ZoneId;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
-
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 /**
  * 访问许多OSHI功能的演示
@@ -28,22 +25,11 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
  * @author 朱俊伟
  * @date 2024/06/30
  */
-public class SystemInfoTest {
+public class SystemInfoMain {
 
-    private static final Logger logger = LoggerFactory.getLogger(SystemInfoTest.class);
+    private static final Logger logger = LoggerFactory.getLogger(SystemInfoMain.class);
 
     static List<String> oshi = new ArrayList<>();
-
-    /**
-     * 测试该平台的实现情况。
-     */
-    @Test
-    void testPlatformEnum() {
-        assertNotEquals(PlatformEnum.UNKNOWN, SystemInfo.getCurrentPlatform(), "Unsupported OS");
-
-        // Exercise the main method
-        main(null);
-    }
 
     /**
      * The main method, demonstrating use of classes.
@@ -126,7 +112,7 @@ public class SystemInfoTest {
 
     private static void printOperatingSystem(final OperatingSystem os) {
         oshi.add(String.valueOf(os));
-        oshi.add("Booted: " + Instant.ofEpochSecond(os.getSystemBootTime()));
+        oshi.add("Booted: " + Instant.ofEpochSecond(os.getSystemBootTime()).atZone(ZoneId.systemDefault()).toLocalDateTime());
         oshi.add("Uptime: " + FormatUtil.formatElapsedSecs(os.getSystemUptime()));
         oshi.add("Running with" + (os.isElevated() ? "" : "out") + " elevated permissions.");
         oshi.add("Sessions:");

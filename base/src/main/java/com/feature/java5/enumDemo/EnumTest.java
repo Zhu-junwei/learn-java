@@ -10,20 +10,30 @@ import java.util.Arrays;
  */
 public class EnumTest {
 
+    public static void main(String[] args) {
+
+    }
+
     /**
      * enum的简单使用
      */
     @Test
-    public void testUseEnum(){
+    public void testUseEnum() {
         ColorEnum red = ColorEnum.RED;
         // red.name()返回此枚举常量的名称，与该枚举声明中声明的名称完全相同, 官方推荐toString()方法
         System.out.println(red.name()); // RED
         System.out.println(red); // RED
 
+        // 枚举类型在Java中是单例模式的，每个枚举值都是一个唯一的实例。
+        // 因此，使用 == 可以直接比较两个枚举值是否指向同一个实例，这样做效率更高且更为简洁。
+        System.out.println("(red == ColorEnum.RED) = " + (red == ColorEnum.RED));
+        System.out.println("red.equals(ColorEnum.RED) = " + red.equals(ColorEnum.RED));
+
         ColorEnum red1 = ColorEnum.valueOf("RED");
         ColorEnum red2 = Enum.valueOf(ColorEnum.class, "RED");
         System.out.println(red1); // RED
         System.out.println(red2); // RED
+
 
         ColorEnum colorEnum = Enum.valueOf(ColorEnum.class, "GREEN");
         System.out.println("colorEnum=" + colorEnum);
@@ -36,7 +46,7 @@ public class EnumTest {
      * values方法，返回一个包含全部枚举值的数组
      */
     @Test
-    public void testValues(){
+    public void testValues() {
         ColorEnum[] values = ColorEnum.values();
         System.out.println(Arrays.toString(values));
     }
@@ -45,7 +55,7 @@ public class EnumTest {
      * ordinal方法返回enum声明中枚举常量的位置，位置从0开始计数
      */
     @Test
-    public void testOrdinal(){
+    public void testOrdinal() {
         int ordinal1 = ColorEnum.BLACK.ordinal();
         int ordinal2 = ColorEnum.RED.ordinal();
         int ordinal3 = ColorEnum.GREEN.ordinal();

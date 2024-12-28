@@ -38,9 +38,9 @@ public class StringTest {
         //除去前后的空格
         System.out.println(" ni  ".trim()); // ni
         //字符替换
-        System.out.println(str.replace('l', 'L')); // heLLo123 456
-        System.out.println(str.replace("l", "L")); // heLLo123 456
-        System.out.println(str.replaceAll("l", "L"));
+        System.out.println(str.replace('l', 'L')); // 字符替换 heLLo123 456
+        System.out.println(str.replace("l", "L")); // 字符串替换 heLoo123 456
+        System.out.println(str.replaceAll("l", "L")); // heLLo123 456 谨慎使用，使用的是正则表达式
         System.out.println(str.replaceFirst("l", "L")); // heLlo123 456
         // 重复字符串
         System.out.println("hello".repeat(3)); // hellohellohello
@@ -56,10 +56,10 @@ public class StringTest {
         System.out.println("*************************");
         String str1 = new String("I'm Junwei Zhu");
         String str2 = new String("I'M Junwei Zhu");
-        System.out.println("equal:" + str1.equals(str2));
+        System.out.println("equal:" + str1.equals(str2)); // false
         //比较是忽略大小写
-        System.out.println("equalsIgnoreCase:" + str1.equalsIgnoreCase(str2));
-        System.out.println("==:" + (str1 == str2));
+        System.out.println("equalsIgnoreCase:" + str1.equalsIgnoreCase(str2)); // true
+        System.out.println("==:" + (str1 == str2)); // false
 
 
         /*

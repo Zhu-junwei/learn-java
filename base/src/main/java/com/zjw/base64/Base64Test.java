@@ -50,7 +50,11 @@ public class Base64Test {
      */
     @Test
     public void testUrlEncode() {
-        String originalData = "测试";
+        String originalData = "测试1";
+        // 标准的 BASE64 编码
+        Base64.Encoder standardEncoder = Base64.getEncoder();
+        String standardEncodedData = standardEncoder.encodeToString(originalData.getBytes(StandardCharsets.UTF_8));
+        System.out.println("标准的 BASE64 编码: " + standardEncodedData);
         // 进行 BASE64 编码并将结果作为 URL 参数传递
         Base64.Encoder urlEncoder = Base64.getUrlEncoder();
         String encodedData = urlEncoder.encodeToString(originalData.getBytes(StandardCharsets.UTF_8));

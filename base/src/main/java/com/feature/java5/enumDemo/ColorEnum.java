@@ -11,16 +11,15 @@ import lombok.Getter;
 @Getter
 public enum ColorEnum {
 
-    GREEN("green","绿色"),
-    RED("red","红色"),
-    BLACK("black","黑色");
+    GREEN("green", "绿色"),
+    RED("red", "红色"),
+    BLACK("black", "黑色");
 
     private final String englishName;
     private final String chineseName;
 
-    ColorEnum(String englishName,String chineseName){
+    ColorEnum(String englishName, String chineseName) {
         this.englishName = englishName;
         this.chineseName = chineseName;
     }
-
 }
