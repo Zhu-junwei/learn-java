@@ -56,7 +56,7 @@ public class PriorityQueueTest {
     // 打印并移除队列中的所有元素
     public static <T> void printQ(Queue<T> queue) {
         while (queue.peek() != null)
-            System.out.print(queue.remove() + " ");
+            System.out.print(queue.poll() + " ");
         System.out.println();
     }
 }

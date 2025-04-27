@@ -2,9 +2,7 @@ package com.zjw.collection.collection;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * Collections工具类的使用
@@ -109,6 +107,18 @@ public class CollectionsTest {
         list1.add("d");
         Collections.addAll(list1, "e", "f");
         System.out.println("list1 = " + list1);
+    }
+
+    /**
+     * singleton，创建一个只包含一个元素的 不可变Set集合
+     */
+    @Test
+    public void singletonTest() {
+        String str = "hello";
+        Set<String> singleton = Collections.singleton(str);
+        for (String s : singleton) {
+            System.out.println(s);
+        }
     }
 
 }

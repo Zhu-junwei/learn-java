@@ -38,10 +38,16 @@ public class StringTest {
         //除去前后的空格
         System.out.println(" ni  ".trim()); // ni
         //字符替换
+        /*
+            replace: 替换字符串中的某些字符或子字符串，它仅仅是进行简单的字符或字符串替换。
+            replaceAll：替换字符串中与正则表达式匹配的部分，会将第一个参数当作正则表达式来处理，因此你需要注意正则表达式的语法。
+                      如果你的替换内容中有特殊字符，可能需要转义。
+         */
         System.out.println(str.replace('l', 'L')); // 字符替换 heLLo123 456
         System.out.println(str.replace("l", "L")); // 字符串替换 heLoo123 456
         System.out.println(str.replaceAll("l", "L")); // heLLo123 456 谨慎使用，使用的是正则表达式
-        System.out.println(str.replaceFirst("l", "L")); // heLlo123 456
+        System.out.println(str.replaceAll("\\d", "*")); // hello*** *** 将数字都替换成*
+        System.out.println(str.replaceFirst("l", "L")); // heLlo123 456，同replaceAll一样，也是使用的正则表达式
         // 重复字符串
         System.out.println("hello".repeat(3)); // hellohellohello
 

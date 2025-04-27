@@ -80,5 +80,31 @@ public class LocalDateTimeTest {
         System.out.println("北京时间: " + formattedBeijingTime);
     }
 
+    /**
+     * plusXXX 增加时间
+     */
+    @Test
+    public void plusTest() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDate = "2025-04-16 01:34:00";
+        LocalDateTime beforeDateTime = LocalDateTime.parse(formattedDate, formatter);
+        System.out.println("before:" + beforeDateTime.format(formatter));
+        // 增加60s，即一分钟，生成新的LocalDateTime对象，原来的对象不会改变
+        LocalDateTime plusSecondsDateTime = beforeDateTime.plusSeconds(60L);
+        System.out.println("after plusSeconds :" + plusSecondsDateTime.format(formatter)); // 2025-04-16 01:35:00
+        // 增加两分钟，生成新的LocalDateTime对象
+        LocalDateTime plusMinutesDateTime = beforeDateTime.plusMinutes(2L);
+        System.out.println("after plusMinutes :" + plusMinutesDateTime.format(formatter)); // 2025-04-16 01:36:00
+        // 增加3天
+        LocalDateTime plusDaysDateTime = beforeDateTime.plusDays(3L);
+        System.out.println("after plusDays :" + plusDaysDateTime.format(formatter)); // 2025-04-19 01:34:00
+        // 增加4个月
+        LocalDateTime plusMonthsDateTime = beforeDateTime.plusMonths(4L);
+        System.out.println("after plusMonths :" + plusMonthsDateTime.format(formatter)); // 2025-08-16 01:34:00
+        // 增加1年
+        LocalDateTime plusYearsDateTime = beforeDateTime.plusYears(1L);
+        System.out.println("after plusYears :" + plusYearsDateTime.format(formatter)); // 2026-04-16 01:34:00
+    }
+
 
 }
