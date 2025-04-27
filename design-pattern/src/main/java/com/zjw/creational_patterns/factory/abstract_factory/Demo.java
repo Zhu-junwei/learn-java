@@ -1,0 +1,38 @@
+package com.zjw.creational_patterns.factory.abstract_factory;
+
+import com.zjw.creational_patterns.factory.abstract_factory.app.Application;
+import com.zjw.creational_patterns.factory.abstract_factory.factories.GUIFactory;
+import com.zjw.creational_patterns.factory.abstract_factory.factories.MacOSFactory;
+import com.zjw.creational_patterns.factory.abstract_factory.factories.WindowsFactory;
+
+/**
+ * 程序配置
+ * <p>
+ * Demo class. Everything comes together here.
+ */
+public class Demo {
+
+    /**
+     * Application picks the factory type and creates it in run time (usually at
+     * initialization stage), depending on the configuration or environment
+     * variables.
+     */
+    private static Application configureApplication() {
+        Application app;
+        GUIFactory factory;
+        String osName = System.getProperty("os.name").toLowerCase();
+        // 根据系统配置来觉得使用哪一个具体工厂
+        if (osName.contains("mac")) {
+            factory = new MacOSFactory();
+        } else {
+            factory = new WindowsFactory();
+        }
+        app = new Application(factory);
+        return app;
+    }
+
+    public static void main(String[] args) {
+        Application app = configureApplication();
+        app.paint();
+    }
+}
