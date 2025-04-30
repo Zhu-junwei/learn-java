@@ -4,34 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.zjw</groupId>
-    <artifactId>component</artifactId>
-    <packaging>pom</packaging>
+    <groupId>cn.iocoder.boot</groupId>
+    <artifactId>geoip2</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <modules>
-        <module>geoip2</module>
-        <module>h2</module>
-        <module>json</module>
-        <module>net</module>
-        <module>hutool</module>
-        <module>spring</module>
-        <module>oshi</module>
-        <module>lunar</module>
-    </modules>
-
-    <!--版本定义-->
     <properties>
         <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>5.10.2</junit.version>
+        <geoip2.version>4.2.1</geoip2.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>${junit.version}</version>
+            <groupId>com.maxmind.geoip2</groupId>
+            <artifactId>geoip2</artifactId>
+            <version>${geoip2.version}</version>
         </dependency>
     </dependencies>
 

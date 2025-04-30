@@ -3,22 +3,20 @@ package com.advanced.net.socket;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 /**
- *
  * Socket测试，连接服务器，接收请求。
  * <p>
  * 测试以下 TCP/IP 服务:
- *  {@code Echo（7）}、
- *  {@code Discard（9）}、
- *  {@code Daytime（13）}、
- *  {@code Quote of the Day（17）}、
- *  {@code Character Generator（19）}。
+ * {@code Echo（7）}、
+ * {@code Discard（9）}、
+ * {@code Daytime（13）}、
+ * {@code Quote of the Day（17）}、
+ * {@code Character Generator（19）}。
  * 需要开启Windows的{@code Simple TCP/IP Services}服务
  *
  * @author 朱俊伟
@@ -36,15 +34,16 @@ public class SocketTest {
         String host = "localhost";
         try (var s = new Socket(host, 7)) { // Echo 使用端口 7
             s.setSoTimeout(5000);
-            try (OutputStream out = s.getOutputStream(); InputStream in = s.getInputStream()) {
-                String message = "Hello, Echo!";
+            try (OutputStream out = s.getOutputStream();
+                 Scanner in = new Scanner(s.getInputStream(), StandardCharsets.UTF_8)) {
+                String message = "Hello, Echo! 你好呀";
                 out.write(message.getBytes(StandardCharsets.UTF_8));
                 out.flush();
 
-                byte[] buffer = new byte[1024];
-                int bytesRead = in.read(buffer);
-                String response = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
-                System.out.println("Received: " + response);
+                while (in.hasNextLine()) {
+                    String line = in.nextLine();
+                    System.out.println(line);
+                }
             }
         }
     }
