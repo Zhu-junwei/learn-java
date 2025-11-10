@@ -15,7 +15,7 @@ public class RandomUtilTest {
     public void getRandomNumber() {
         int[] options = {3, 9, 5, 0, 6, 2, 4};
         for (int i = 0; i < 10; i++) {
-            int result = RandomUtil.getRandomNumber(options);
+            int result = RandomUtil.getRandomElement(options);
             System.out.println(result);
         }
     }

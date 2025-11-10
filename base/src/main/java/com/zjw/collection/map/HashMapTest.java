@@ -88,7 +88,19 @@ public class HashMapTest {
         System.out.println("Data for ID 2: " + data2);
     }
 
-
+    /**
+     * computeIfPresent
+     * 指定键存在时重新计算其对应的值
+     */
+    @Test
+    public void computeIfPresentTest() {
+        HashMap<Long, Long> hashMap = new HashMap<>();
+        hashMap.computeIfPresent(1L, (k, v) -> v * 2);
+        System.out.println(hashMap); // {}
+        hashMap.put(1L, 2L);
+        hashMap.computeIfPresent(1L, (k, v) -> v * 2);
+        System.out.println(hashMap); // {1=4}
+    }
 
     /**
      * 测试hashmap merge

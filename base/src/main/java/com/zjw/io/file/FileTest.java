@@ -1,5 +1,8 @@
 package com.zjw.io.file;
 
+import lombok.SneakyThrows;
+import org.junit.jupiter.api.Test;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
@@ -75,5 +78,18 @@ public class FileTest {
         System.out.println(file2.delete());
 
 
+    }
+
+    /**
+     * canonicalPath干净、唯一、真实的文件路径（解析 .、..、符号链接），比 getAbsoluteFile() 更靠谱。
+     */
+    @Test
+    @SneakyThrows
+    public void canonicalPathTest() {
+        File f1 = new File("C:/code/../code/./learn-java/temp");
+        // Absolute: C:\code\..\code\.\learn-java\temp
+        System.out.println("Absolute: " + f1.getAbsolutePath());
+        // Canonical: C:\code\learn-java\temp
+        System.out.println("Canonical: " + f1.getCanonicalPath());
     }
 }
